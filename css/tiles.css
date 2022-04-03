@@ -1,0 +1,79 @@
+.tile {
+    background-color: var(--color2);
+    padding: 10px;
+    border-radius: 2px;
+    max-width: 1000px;
+    margin: 20px;
+    box-shadow: 0 0 5px var(--color3);
+    border: 1px solid var(--color3);
+    transition-duration: 250ms;
+}
+
+.tile:hover {
+    transform: scale(1.05);
+}
+
+.tile .head {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid var(--color3);
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.tile .head .title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--color3)
+}
+
+.tile .head .icon {
+    margin-left: 10px;
+    height: 25px;
+}
+
+.tile .body .banner {
+    max-width: 100%;
+    margin-top: 10px;
+}
+
+.tile .head .title::before {
+    content: '>';
+    color: white;
+    text-shadow: 0 0 1px var(--color3), 0 0 2px var(--color3), 0 0 4px var(--color3), 0 0 5px var(--color3), 0 0 10px var(--color3);
+}
+
+.tile .body .text::before {
+    content: '>>';
+    text-shadow: 0 0 1px var(--color3), 0 0 2px var(--color3), 0 0 4px var(--color3), 0 0 5px var(--color3), 0 0 10px var(--color3);
+}
+
+.tiles {
+    justify-items: center;
+    display: grid;
+    grid-template-columns: repeat(4, calc(100% / 4));
+}
+
+@media (max-width: 1600px) {
+    .tiles {
+        grid-template-columns: repeat(3, calc(100% / 3));
+    }
+}
+
+@media (max-width: 900px) {
+    .tiles {
+        grid-template-columns: repeat(2, calc(100% / 2));
+    }
+}
+
+@media (max-width: 600px) {
+    .tiles {
+        grid-template-columns: 100%;
+    }
+}
+
+@media (max-width: 345px) {
+    .tile {
+        margin: 0 0 25px 0;
+    }
+}
