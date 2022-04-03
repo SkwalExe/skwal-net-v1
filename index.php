@@ -1,3 +1,8 @@
+<?php
+include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,9 +20,10 @@
     <meta property="og:description" content="Hello 👋 I'm Léopold Koprivnivnik Ibghy, aka SkwalExe. I'm a 14 y/o French 🇫🇷 programming 💻 and Linux 🐧 lover. I use GitHub everyday since 2022/02/12. I code in rust 🦀, bash 🐚, and web languages 🌐. I also love making online courses." />
     <meta name="theme-color" content="#FF514A">
 
-    <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/colors.css">
+    <?php
+    css("colors", "navbar", "main");
+    ?>
+
 </head>
 
 <body>
@@ -45,10 +51,9 @@
 
     </div>
 
-
-    <script src="js/functions.js "></script>
-    <script src="js/navbar.js "></script>
-    <script src="js/links.js "></script>
+    <?php
+    js("functions", "navbar", "links");
+    ?>
 
 
 </body>
