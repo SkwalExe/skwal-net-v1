@@ -1,0 +1,28 @@
+* {
+    margin: 0px;
+    box-sizing: border-box;
+    padding: 0px;
+    color: white;
+    font-family: sans-serif;
+}
+
+html {
+    background-color: var(--color1);
+}
+
+body {
+    padding-top: 80px;
+}
+
+.main {
+    padding: 25px;
+}
+
+.section {
+    text-align: center;
+    font: 35px;
+    color: white;
+    margin: 10px;
+    margin-top: 15px;
+    text-shadow: 0 0 1px var(--color3), 0 0 2px var(--color3), 0 0 4px var(--color3), 0 0 5px var(--color3), 0 0 10px var(--color3);
+}

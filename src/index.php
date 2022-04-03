@@ -21,7 +21,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
     <meta name="theme-color" content="#FF514A">
 
     <?php
-    css("colors", "navbar", "main");
+    css("colors", "navbar", "global", "tiles", "main");
     ?>
 
 </head>
@@ -51,10 +51,170 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
     </div>
 
+
+
+    <div class="main">
+        <p class="bio">Hello 👋 I'm Léopold Koprivnik Ibghy, aka SkwalExe. I'm a 14 y/o French 🇫🇷 programming 💻 and Linux 🐧 lover. I use GitHub everyday since 2022/02/12. I code in rust 🦀, bash 🐚, and web languages 🌐. I also love making online courses.</p>
+
+        <h1 class="section">
+            My projects
+        </h1>
+
+        <div class="tiles">
+            <div class="tile" _href="#">
+                <div class="head">
+                    <span class="title">
+                        Lorem ipsum dolor sit amet
+                    </span>
+                    <img src="/assets/github.png" alt="" class="icon">
+                </div>
+                <div class="body">
+                    <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Donec euismod, nisl eget consectetur sagittis, nisl
+                        libero tincidunt nisi, eu aliquet nunc nisi euismod
+                        nunc.
+                    </p>
+                    <img src="/assets/banner.png" alt="" class="banner">
+                </div>
+
+            </div>
+
+            <div class="tile" _href="#">
+                <div class="head">
+                    <span class="title">
+                        Lorem ipsum dolor sit amet
+                    </span>
+                    <img src="/assets/github.png" alt="" class="icon">
+                </div>
+                <div class="body">
+                    <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Donec euismod, nisl eget consectetur sagittis, nisl
+                        libero tincidunt nisi, eu aliquet nunc nisi euismod
+                        nunc.
+                    </p>
+                    <img src="/assets/banner.png" alt="" class="banner">
+                </div>
+
+            </div>
+            <div class="tile" _href="#">
+                <div class="head">
+                    <span class="title">
+                        Lorem ipsum dolor sit amet
+                    </span>
+                    <img src="/assets/github.png" alt="" class="icon">
+                </div>
+                <div class="body">
+                    <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Donec euismod, nisl eget consectetur sagittis, nisl
+                        libero tincidunt nisi, eu aliquet nunc nisi euismod
+                        nunc.
+                    </p>
+                    <img src="/assets/banner.png" alt="" class="banner">
+                </div>
+
+            </div>
+            <div class="tile" _href="#">
+                <div class="head">
+                    <span class="title">
+                        Lorem ipsum dolor sit amet
+                    </span>
+                    <img src="/assets/github.png" alt="" class="icon">
+                </div>
+                <div class="body">
+                    <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Donec euismod, nisl eget consectetur sagittis, nisl
+                        libero tincidunt nisi, eu aliquet nunc nisi euismod
+                        nunc.
+                    </p>
+                    <img src="/assets/banner.png" alt="" class="banner">
+                </div>
+
+            </div>
+            <div class="tile" _href="#">
+                <div class="head">
+                    <span class="title">
+                        Lorem ipsum dolor sit amet
+                    </span>
+                    <img src="/assets/github.png" alt="" class="icon">
+                </div>
+                <div class="body">
+                    <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Donec euismod, nisl eget consectetur sagittis, nisl
+                        libero tincidunt nisi, eu aliquet nunc nisi euismod
+                        nunc.
+                    </p>
+                    <img src="/assets/banner.png" alt="" class="banner">
+                </div>
+
+            </div>
+            <div class="tile" _href="#">
+                <div class="head">
+                    <span class="title">
+                        Lorem ipsum dolor sit amet
+                    </span>
+                    <img src="/assets/github.png" alt="" class="icon">
+                </div>
+                <div class="body">
+                    <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Donec euismod, nisl eget consectetur sagittis, nisl
+                        libero tincidunt nisi, eu aliquet nunc nisi euismod
+                        nunc.
+                    </p>
+                    <img src="/assets/banner.png" alt="" class="banner">
+                </div>
+
+            </div>
+            <div class="tile" _href="#">
+                <div class="head">
+                    <span class="title">
+                        Lorem ipsum dolor sit amet
+                    </span>
+                    <img src="/assets/github.png" alt="" class="icon">
+                </div>
+                <div class="body">
+                    <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Donec euismod, nisl eget consectetur sagittis, nisl
+                        libero tincidunt nisi, eu aliquet nunc nisi euismod
+                        nunc.
+                    </p>
+                    <img src="/assets/banner.png" alt="" class="banner">
+                </div>
+
+            </div>
+            <div class="tile" _href="#">
+                <div class="head">
+                    <span class="title">
+                        Lorem ipsum dolor sit amet
+                    </span>
+                    <img src="/assets/github.png" alt="" class="icon">
+                </div>
+                <div class="body">
+                    <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Donec euismod, nisl eget consectetur sagittis, nisl
+                        libero tincidunt nisi, eu aliquet nunc nisi euismod
+                        nunc.
+                    </p>
+                    <img src="/assets/banner.png" alt="" class="banner">
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </div>
+
     <?php
     js("functions", "navbar", "links");
     ?>
-
 
 </body>
 
