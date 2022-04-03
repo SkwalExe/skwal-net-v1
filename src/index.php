@@ -38,7 +38,7 @@
 
             </div>
             <ul id="navList">
-                <li href="https://github.com/SkwalExe/"><img src="/assets/github.png">Github</li>
+                <li href="https://github.com/SkwalExe/">Github<img src="/assets/github.png"></li>
             </ul>
         </div>
 
