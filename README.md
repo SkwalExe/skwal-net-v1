@@ -4,6 +4,27 @@
 
 # Structure🏗️
 
+## CSS Colors
+
+To define colors, please use css variables set in `📄 /css/colors.css`
+
+```css
+.mydiv {
+  color: var(--color2);
+}
+```
+
+color1, color2 and color3 are the three principal colors.
+
+If you want a color that isn't in the colors.css file, you can add it.
+
+```css
+:root {
+   ...
+   --my-color: #ffffff;
+}
+```
+
 ## Importing css and js files
 
 To import css and js files, please use the `css()` and `js()` php functions.
