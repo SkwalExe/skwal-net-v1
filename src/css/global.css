@@ -12,10 +12,14 @@ html {
 
 body {
     padding-top: 60px;
+    height: 100vh;
 }
 
 .main {
     padding: 25px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .section {
