@@ -66,3 +66,13 @@ function defaultHeaders()
     global $scripts;
     include($scripts . "/headers.php");
 }
+
+
+/**
+ * Print all projects
+ */
+function projects()
+{
+    global $scripts;
+    include($scripts . "/projects.php");
+}
