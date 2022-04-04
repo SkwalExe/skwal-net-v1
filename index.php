@@ -7,20 +7,10 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkwalExe</title>
-    <link rel="icon" type="image/ico" href="/favicon.ico">
-    <meta name="description" content="Hello 👋 I'm Léopold Koprivnivnik Ibghy, aka SkwalExe. I'm a 14 y/o French 🇫🇷 programming 💻 and Linux 🐧 lover. I use GitHub everyday since 2022/02/12. I code in rust 🦀, bash 🐚, and web languages 🌐. I also love making online courses.">
-    <meta property="og:title" content="SkwalExe" />
-    <meta property="og:image" content="/assets/banner.png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta property="og:url" content="/" />
-    <meta property="og:site_name" content="© 2018-2022, Léopold Koprivnik Ibghy" />
-    <meta property="og:description" content="Hello 👋 I'm Léopold Koprivnivnik Ibghy, aka SkwalExe. I'm a 14 y/o French 🇫🇷 programming 💻 and Linux 🐧 lover. I use GitHub everyday since 2022/02/12. I code in rust 🦀, bash 🐚, and web languages 🌐. I also love making online courses." />
-    <meta name="theme-color" content="#FF514A">
+
 
     <?php
+    defaultHeaders();
     css("colors", "navbar", "global", "tiles", "main", "footer");
     ?>
 

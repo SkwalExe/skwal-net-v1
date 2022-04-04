@@ -55,3 +55,14 @@ function js()
         echo "<script src=\"" . noCache($file) . "\"></script>";
     }
 }
+
+
+/**
+ * Echo default html headers
+ */
+function defaultHeaders()
+{
+
+    global $scripts;
+    include($scripts . "/headers.php");
+}
