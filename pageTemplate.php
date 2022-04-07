@@ -18,27 +18,13 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
 <body>
 
-    <div class="navbar">
-        <div class="container">
+    <?php
+    navbarStart();
 
-            <div class="nav-top">
-                <div _href="https://github.com/SkwalExe/" class="logo">
-                    <img src="assets/github.png" alt="">
-                    <p class="text"><span class="purp">Skwal</span><span>Exe</span></p>
-                </div>
-                <div class="menu" id="toggleButton">
-                    <div class="menu-line"></div>
-                    <div class="menu-line"></div>
-                    <div class="menu-line"></div>
-                </div>
+    navbarButton("Home", "/", "home.png");
 
-            </div>
-            <ul id="navList">
-                <li href="/">Home<img src="/assets/home.png"></li>
-            </ul>
-        </div>
-
-    </div>
+    navbarEnd();
+    ?>
 
     <div class="main">
 

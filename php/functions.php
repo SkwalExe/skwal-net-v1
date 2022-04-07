@@ -87,3 +87,33 @@ function footer()
 
     include($scripts . "/footer.php");
 }
+
+
+/**
+ * Initialize navbar and print it
+ */
+function navbarStart()
+{
+    global $scripts;
+    include($scripts . "/navbarStart.php");
+}
+
+/**
+ * Print the navbar end
+ */
+function navbarEnd()
+{
+    global $scripts;
+    include($scripts . "/navbarEnd.php");
+}
+
+/**
+ * print a navbar button
+ */
+function navbarButton($text, $link, $image = null)
+{
+
+    $imageHtml = $image ? "<img src=\"/assets/$image\" alt=\"navbar button icon\">" : "";
+
+    echo "<li href=\"$link\">$text$imageHtml</li>";
+}
