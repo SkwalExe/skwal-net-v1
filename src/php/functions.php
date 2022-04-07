@@ -76,3 +76,14 @@ function projects()
     global $scripts;
     include($scripts . "/projects.php");
 }
+
+
+/**
+ * print the page footer
+ */
+function footer()
+{
+    global $scripts;
+
+    include($scripts . "/footer.php");
+}
