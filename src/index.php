@@ -18,30 +18,19 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
 <body>
 
-    <div class="navbar">
-        <div class="container">
 
-            <div class="nav-top">
-                <div _href="https://github.com/SkwalExe/" class="logo">
-                    <img src="assets/github.png" alt="">
-                    <p class="text"><span class="purp">Skwal</span><span>Exe</span></p>
-                </div>
-                <div class="menu" id="toggleButton">
-                    <div class="menu-line"></div>
-                    <div class="menu-line"></div>
-                    <div class="menu-line"></div>
-                </div>
 
-            </div>
-            <ul id="navList">
-                <li href="https://github.com/SkwalExe/">Github<img src="/assets/github.png"></li>
-            </ul>
-        </div>
+    <?php
 
-    </div>
+    navbarStart();
+    navbarButton("Github", "https://github.com/SkwalExe/", "github.png");
+    navbarEnd();
+
+    ?>
+
 
     <div class="main">
-        <p class="bio">Hello 👋 I'm Léopold Koprivnik Ibghy, aka SkwalExe. I'm a 14 y/o French 🇫🇷 programming 💻 and Linux 🐧 lover. I use GitHub everyday since 2022/02/12. I code in rust 🦀, bash 🐚, and web languages 🌐. I also love making online courses.</p>
+        <p class="bio"><?= $bio ?></p>
 
         <h1 class="section">
             My projects
