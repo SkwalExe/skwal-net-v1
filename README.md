@@ -4,6 +4,38 @@
 
 # Structure🏗️
 
+## Footer
+
+To generate the footer, just use the  `footer()` php function
+
+## Navbar
+
+There are 3 php functions to create the navbar:
+
+Start with the `navbarStart()` function:
+
+```php
+navbarStart();
+```
+
+Then for every link you want to add, use the `navbarButton()` function:
+
+```php
+navbarStart();
+navbarButton('Text', '/link/to/page', 'image.png');
+```
+
+The image is optional, and have to be in /assets, specify only the file name.
+
+After that, you can use the `navbarEnd()` function:
+
+```php
+navbarStart();
+navbarButton('Text', '/link/to/page', 'image.png');
+navbarEnd();
+```
+
+
 ## CSS Colors
 
 To define colors, please use css variables set in `📄 /css/colors.css`
