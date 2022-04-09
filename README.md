@@ -4,6 +4,12 @@
 
 🌐 Source code of [Skwal.net](https://skwal.net) 
 
+# Wiki
+
+If you want to contribute to skwal.net, you first need to understand the structure of the website.
+
+There are a lot of informations about that in the [wiki](https://github.com/SkwalExe/skwal.net/wiki).
+
 # Setting up development environment
 
 For this project, I recommend Visual Studio Code.
@@ -22,7 +28,7 @@ and click on the php icon in the top right corner of the editor to start a local
 
 # Contributing
 
-Before contributing, you should have basic knowledge of the [website structure](#structure)
+Before contributing, you should have basic knowledge of the [website structure](https://github.com/SkwalExe/skwal.net/wiki)
 
 Start by **forking** this repository.
 
