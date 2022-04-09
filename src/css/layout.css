@@ -1,0 +1,46 @@
+.main {
+    flex-direction: row;
+    align-items: flex-start;
+    height: min-content;
+}
+
+.content {
+    width: 100%;
+    margin: 10px;
+}
+
+.sidebar {
+    display: flex;
+    width: 300px;
+    flex-direction: column;
+    margin: 10px;
+    border-left: 2px solid var(--color3);
+    padding-left: 20px;
+}
+
+.onlyShowWhenMobileWidth {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .main {
+        flex-direction: column;
+    }
+    .content,
+    .sidebar {
+        margin: 0;
+        width: 100%;
+    }
+    .sidebar {
+        border: none;
+        padding: 0;
+    }
+    .onlyShowWhenMobileWidth {
+        display: block;
+    }
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+}

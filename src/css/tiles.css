@@ -1,33 +1,32 @@
 .tile {
-    background-color: var(--color2);
-    padding: 10px;
-    border-radius: 2px;
-    box-shadow: 0 0 5px var(--color3);
-    border: 1px solid var(--color3);
     display: inline-block;
-    width: calc(100% - 20px);
+    width: 100%;
     transition-duration: 250ms;
-    margin-bottom: 20px;
     text-align: left;
+    /* avoid the top of the tile from being cropped */
+    margin-bottom: 20px;
     margin-top: 20px;
 }
 
 .tile:hover {
-    transform: scale(1.05);
+    transform: scale(1.01);
 }
 
 .tile .head {
     display: flex;
     align-items: center;
+    /* separator between the tile head and the tile body */
     border-bottom: 2px solid var(--color3);
     padding-bottom: 5px;
     margin-bottom: 5px;
 }
 
 .tile .head .title {
-    font-size: 1.5em;
+    font-size: 25px;
     font-weight: bold;
-    color: var(--color3)
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .tile .head .icon {
@@ -53,17 +52,30 @@
     text-shadow: 0 0 1px var(--color3), 0 0 2px var(--color3), 0 0 4px var(--color3), 0 0 5px var(--color3), 0 0 10px var(--color3);
 }
 
-.tilesContainer {
-    display: flex;
-    justify-content: center;
-}
-
 .tiles {
-    justify-content: center;
     column-count: 5;
-    column-gap: 20px;
+    column-gap: 25px;
     text-align: center;
     max-width: 3500px;
+}
+
+.oneColumnTiles {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.oneColumnTiles .tile:last-child {
+    margin-bottom: 0 !important;
+}
+
+.oneColumnTiles .tile:first-child {
+    margin-top: 0 !important;
+}
+
+.oneColumnTiles .tile {
+    margin-top: 0px !important;
 }
 
 @media (max-width: 3700px) {

@@ -1,3 +1,7 @@
+# 0.3.0
+- add page layout
+- minor changes (see #24)
+
 # 0.2.0
 - Added functions to generate navbar in php
 - [index.php] use $bio php variable instead of hardcoded text
