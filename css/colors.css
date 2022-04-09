@@ -6,3 +6,7 @@
     --color2: #272c38;
     --color3: #6742D1;
 }
+
+.purp {
+    color: var(--color3)
+}

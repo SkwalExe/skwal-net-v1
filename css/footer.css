@@ -2,4 +2,7 @@
     background-color: var(--color2);
     padding: 25px;
     text-align: center;
+    width: 100%;
+    border-top: 2px solid var(--color3);
+    box-shadow: 0 0 5px var(--color3);
 }

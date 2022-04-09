@@ -35,12 +35,10 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
         <h1 class="section">
             My projects
         </h1>
-        <div class="tilesContainer">
-            <div class="tiles">
+        <div class="tiles">
 
-                <?php projects() ?>
+            <?php projects() ?>
 
-            </div>
         </div>
     </div>
 
@@ -50,7 +48,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
     footer();
 
-    js("functions", "navbar", "links");
+    js("functions", "navbar", "links", "tiles");
     ?>
 
 </body>
