@@ -1,79 +1,8 @@
 # [Skwal.net](https://skwal.net)
 
+![](images/banner.png)
+
 🌐 Source code of [Skwal.net](https://skwal.net) 
-
-# Structure🏗️
-
-## Footer
-
-To generate the footer, just use the  `footer()` php function
-
-## Navbar
-
-There are 3 php functions to create the navbar:
-
-Start with the `navbarStart()` function:
-
-```php
-navbarStart();
-```
-
-Then for every link you want to add, use the `navbarButton()` function:
-
-```php
-navbarStart();
-navbarButton('Text', '/link/to/page', 'image.png');
-```
-
-The image is optional, and have to be in /assets, specify only the file name.
-
-After that, you can use the `navbarEnd()` function:
-
-```php
-navbarStart();
-navbarButton('Text', '/link/to/page', 'image.png');
-navbarEnd();
-```
-
-
-## CSS Colors
-
-To define colors, please use css variables set in `📄 /css/colors.css`
-
-```css
-.mydiv {
-  color: var(--color2);
-}
-```
-
-color1, color2 and color3 are the three principal colors.
-
-If you want a color that isn't in the colors.css file, you can add it.
-
-```css
-:root {
-   ...
-   --my-color: #ffffff;
-}
-```
-
-## Importing css and js files
-
-To import css and js files, please use the `css()` and `js()` php functions.
-
-You have to use these function to prevent the browser from caching the files.
-
-exemple :
-
-```php
-# Importing css files
-css('style', 'global', 'mycss');
-
-# Importing js files
-js('script', 'global', 'myjs');
-```
-
-Do **not** forget to add the `.css` or `.js` extension to the files.
 
 # Setting up development environment
 
