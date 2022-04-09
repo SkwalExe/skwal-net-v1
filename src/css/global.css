@@ -11,23 +11,26 @@ html {
 }
 
 body {
+    /* navbar */
     padding-top: 60px;
+    /* bod should take all available height */
     height: 100vh;
 }
 
 .main {
-    padding: 25px;
+    padding: 20px;
     display: flex;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .section {
     text-align: center;
     font-size: 35px;
-    color: white;
     text-shadow: 0 0 1px var(--color3), 0 0 2px var(--color3), 0 0 4px var(--color3), 0 0 5px var(--color3), 0 0 10px var(--color3);
     margin-bottom: 15px;
+    margin-top: 15px;
     font-weight: bold;
 }
 
@@ -65,6 +68,21 @@ a {
 }
 
 div .glowing {
-    box-shadow: 0 0 1px var(--color3), 0 0 2px var(--color3), 0 0 4px var(--color3), 0 0 5px var(--color3), 0 0 10px var(--color3);
+    box-shadow: 0 0 5px var(--color3);
     border: 2px solid var(--color3);
+}
+
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background-color: var(--color3);
+}
+
+.box {
+    background-color: var(--color2);
+    padding: 10px;
+    border-radius: 2px;
 }

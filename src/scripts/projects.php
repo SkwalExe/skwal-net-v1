@@ -102,7 +102,6 @@
         <span class="title">
             Rmini-matrix
         </span>
-        <img src="/assets/github.png" alt="" class="icon">
     </div>
     <div class="body">
         <p class="text">
