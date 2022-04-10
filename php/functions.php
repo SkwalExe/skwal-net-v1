@@ -110,7 +110,7 @@ function navbarEnd()
 /**
  * print a navbar button
  */
-function navbarButton($text, $link, $image = null)
+function navbarButton($text, $link = "#", $image = null)
 {
 
     $imageHtml = $image ? "<img src=\"/assets/$image\" alt=\"navbar button icon\">" : "";

@@ -24,9 +24,6 @@
 .tile .head .title {
     font-size: 25px;
     font-weight: bold;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .tile .head .icon {
@@ -56,7 +53,7 @@
     column-count: 5;
     column-gap: 25px;
     text-align: center;
-    max-width: 3500px;
+    max-width: 1500px;
 }
 
 .oneColumnTiles {
@@ -76,12 +73,6 @@
 
 .oneColumnTiles .tile {
     margin-top: 0px !important;
-}
-
-@media (max-width: 3700px) {
-    .tiles {
-        column-count: 4;
-    }
 }
 
 @media (max-width: 1600px) {
