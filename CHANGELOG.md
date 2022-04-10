@@ -1,3 +1,6 @@
+# 0.4.1
+- fix error 404 (nvabar logo)
+
 # 0.4.0
 - add about page
 - minor changes (see #26)
