@@ -5,5 +5,5 @@ $$('.tile').forEach(function(tile) {
 
 $$(".tile .head .title").forEach(function(title) {
     title.classList.add('purp');
-
+    title.classList.add('break');
 })

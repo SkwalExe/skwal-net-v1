@@ -14,3 +14,4 @@
 
         </div>
         <ul id="navList">
+            <li href="#"><img src="https://profile-counter.glitch.me/%7BSkwalExe%7D/count.svg" alt=""></li>

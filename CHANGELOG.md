@@ -1,3 +1,7 @@
+# 0.4.0
+- add about page
+- minor changes (see #26)
+
 # 0.3.0
 - add page layout
 - minor changes (see #24)
