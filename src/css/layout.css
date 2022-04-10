@@ -9,6 +9,10 @@
     margin: 10px;
 }
 
+.content .box {
+    margin-bottom: 20px;
+}
+
 .sidebar {
     display: flex;
     width: 300px;
