@@ -1,0 +1,70 @@
+.markup h1 {
+    font-size: 35px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.markup h1::before {
+    content: '#';
+    margin-right: 5px;
+    text-shadow: 0 0 1px var(--color3), 0 0 2px var(--color3), 0 0 4px var(--color3), 0 0 5px var(--color3), 0 0 10px var(--color3);
+}
+
+.markup {
+    font-size: 22px;
+}
+
+.markup h2 {
+    font-size: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.markup h2::before {
+    content: '##';
+    margin-right: 5px;
+    text-shadow: 0 0 1px var(--color3), 0 0 2px var(--color3), 0 0 4px var(--color3), 0 0 5px var(--color3), 0 0 10px var(--color3);
+}
+
+.markup img {
+    max-width: 90%;
+}
+
+.markup h1,
+.markup h2 {
+    margin-top: 10px;
+    overflow-wrap: break-word;
+}
+
+.markup h1:first-child,
+.markup h2:first-child {
+    margin-top: 0;
+}
+
+.markup .flexwrap {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    justify-content: space-between
+}
+
+.markup ul {
+    list-style: none;
+    margin-left: 0;
+}
+
+.markup ul li::before {
+    content: '-';
+    margin-right: 15px;
+    text-shadow: 0 0 1px var(--color3), 0 0 2px var(--color3), 0 0 4px var(--color3), 0 0 5px var(--color3), 0 0 10px var(--color3);
+}
+
+.markup ul li img {
+    max-height: 20px;
+}
+
+.markup .bold {
+    font-weight: bold;
+}

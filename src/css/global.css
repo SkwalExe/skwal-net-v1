@@ -39,6 +39,10 @@ a {
     color: var(--blue);
 }
 
+a:hover {
+    text-shadow: 0 0 1px var(--color3), 0 0 2px var(--color3), 0 0 4px var(--color3)
+}
+
 *::-webkit-scrollbar {
     width: 16px;
     height: 16px;
@@ -78,11 +82,27 @@ hr {
     border: 0;
     height: 1px;
     width: 100%;
-    background-color: var(--color3);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .box {
     background-color: var(--color2);
     padding: 10px;
     border-radius: 2px;
+}
+
+.mainContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.mainContainer .main {
+    width: 1500px;
+    max-width: 100%;
+}
+
+.break {
+    max-width: 100%;
+    overflow-wrap: break-word;
 }

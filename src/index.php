@@ -11,7 +11,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
     <?php
     defaultHeaders();
-    css("colors", "navbar", "global", "tiles", "main", "footer");
+    css("colors", "navbar", "global", "tiles", "footer");
     ?>
 
 </head>
@@ -23,6 +23,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
     <?php
 
     navbarStart();
+    navbarButton("About", "/about");
     navbarButton("Github", "https://github.com/SkwalExe/", "github.png");
     navbarEnd();
 
@@ -30,8 +31,6 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
 
     <div class="main">
-        <p class="bio"><?= $bio ?></p>
-
         <h1 class="section">
             My projects
         </h1>
