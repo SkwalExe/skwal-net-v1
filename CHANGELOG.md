@@ -1,3 +1,6 @@
+# 0.6.0
+- Add website pages to the sidebar 
+
 # 0.5.0
 - add cowTranslator page
 
