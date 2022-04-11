@@ -1,9 +1,17 @@
+@font-face {
+    font-family: 'Tisa';
+    font-style: normal;
+    font-weight: 400;
+    font-display: fallback;
+    src: url(/assets/TisaSansPro-Regular.woff2) format('woff2');
+}
+
 * {
     margin: 0px;
     box-sizing: border-box;
     padding: 0px;
     color: white;
-    font-family: sans-serif;
+    font-family: 'Tisa', sans-serif;
     outline: none;
 }
 
@@ -73,6 +81,10 @@ a:hover {
     padding-bottom: 10px;
 }
 
+body::-webkit-scrollbar {
+    width: 0px;
+}
+
 div .glowing {
     box-shadow: 0 0 5px var(--color3);
     border: 1px solid var(--color3);
@@ -107,4 +119,14 @@ hr {
 .break {
     max-width: 100%;
     overflow-wrap: break-word;
+}
+
+*::selection {
+    background-color: rgba(0, 0, 0, 0.22);
+    color: tomato;
+}
+
+*::-moz-selection {
+    background-color: rgba(0, 0, 0, 0.22);
+    color: tomato;
 }

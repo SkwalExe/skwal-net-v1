@@ -77,6 +77,15 @@ function projects()
     include($scripts . "/projects.php");
 }
 
+/**
+ * prints all pages
+ */
+function pages()
+{
+    global $scripts;
+    include($scripts . "/pages.php");
+}
+
 
 /**
  * print the page footer
