@@ -1,3 +1,6 @@
+# 0.5.0
+- add cowTranslator page
+
 # 0.4.1
 - fix error 404 (nvabar logo)
 
