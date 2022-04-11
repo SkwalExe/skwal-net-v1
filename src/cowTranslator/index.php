@@ -54,6 +54,14 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
                 <div class="oneColumnTiles">
                     <?php
+                    pages();
+                    ?>
+                </div>
+
+                <hr>
+
+                <div class="oneColumnTiles">
+                    <?php
                     projects();
                     ?>
                 </div>
