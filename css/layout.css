@@ -60,3 +60,8 @@
     height: 22px;
     margin-right: 5px;
 }
+
+.titleBox {
+    display: flex;
+    justify-content: center;
+}

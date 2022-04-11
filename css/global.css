@@ -4,6 +4,7 @@
     padding: 0px;
     color: white;
     font-family: sans-serif;
+    outline: none;
 }
 
 html {
@@ -37,10 +38,11 @@ body {
 a {
     text-decoration: none;
     color: var(--blue);
+    transition-duration: 50ms;
 }
 
 a:hover {
-    text-shadow: 0 0 1px var(--color3), 0 0 2px var(--color3), 0 0 4px var(--color3)
+    color: var(--color3);
 }
 
 *::-webkit-scrollbar {
@@ -73,7 +75,7 @@ a:hover {
 
 div .glowing {
     box-shadow: 0 0 5px var(--color3);
-    border: 2px solid var(--color3);
+    border: 1px solid var(--color3);
 }
 
 hr {
