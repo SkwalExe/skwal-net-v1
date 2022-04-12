@@ -9,6 +9,7 @@
     flex-wrap: wrap-reverse;
     gap: 10px;
     max-height: calc(100% - 70px);
+    pointer-events: none;
 }
 
 .notif.success {
@@ -36,6 +37,8 @@
     align-items: center;
     opacity: 0.8;
     transition-duration: var(--transition);
+    pointer-events: all;
+    user-select: none;
 }
 
 .notif:hover {
