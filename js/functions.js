@@ -34,7 +34,7 @@ function sleep(ms) {
 function css(...files) {
     files.forEach(file => {
         var link = document.createElement("link");
-        link.href = "/css/" + file + ".css"
+        link.href = noCache("/css/" + file + ".css");
         link.type = "text/css"
         link.rel = "stylesheet"
 
@@ -49,10 +49,15 @@ async function js(file) {
         script.onload = function() {
             resolve();
         }
-        script.src = "/js/" + file + ".js";
+        script.src = noCache("/js/" + file + ".js");
         document.body.appendChild(script)
     })
 
 }
 
 log = console.log;
+
+// bypass cache by adding a random parameter to the url
+function noCache(url) {
+    return url + "?version=" + serverData["version"]
+}
