@@ -7,3 +7,32 @@ textarea {
     resize: none;
     min-height: 200px;
 }
+
+button {
+    background-color: var(--color3);
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    padding: 5px;
+    transition-duration: var(--transition);
+}
+
+button:hover {
+    box-shadow: 0 0 5px var(--color3);
+}
+
+button.green {
+    background-color: var(--green);
+}
+
+button.green:hover {
+    box-shadow: 0 0 5px var(--green);
+}
+
+button.red {
+    background-color: var(--red);
+}
+
+button.red:hover {
+    box-shadow: 0 0 5px var(--red);
+}

@@ -1,7 +1,7 @@
 .tile {
     display: inline-block;
     width: 100%;
-    transition-duration: 250ms;
+    transition-duration: var(--transition);
     text-align: left;
     /* avoid the top of the tile from being cropped */
     margin-bottom: 20px;

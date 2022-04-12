@@ -1,3 +1,6 @@
+# 0.6.1 
+- [Cow translator] make page more user friendly for mobile
+
 # 0.6.0
 - Add website pages to the sidebar 
 
