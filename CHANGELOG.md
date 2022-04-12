@@ -1,3 +1,6 @@
+# 0.6.3 
+- fix bug : notifications area block buttons 
+
 # 0.6.2 
 - add notification when clicking copy button on cowtranslator page 
 - other minor changes (see #31)
