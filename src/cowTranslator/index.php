@@ -38,9 +38,20 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
                     <p>Status : <span class="status">OK</span></p>
                 </div>
                 <div class="box glowing inputs">
-
-                    <textarea class="textInput" placeholder="Human language"></textarea>
-                    <textarea class="cowInput" placeholder="Cow language"></textarea>
+                    <div>
+                        <div class="buttons">
+                            <button onclick="copyHuman()" class="green">Copy</button>
+                            <button onclick="resetHuman()" class="red">Reset</button>
+                        </div>
+                        <textarea class="textInput" placeholder="Human language"></textarea>
+                    </div>
+                    <div>
+                        <div class="buttons">
+                            <button onclick="copyCow()" class="green">Copy</button>
+                            <button onclick="resetCow()" class="red">Reset</button>
+                        </div>
+                        <textarea class="cowInput" placeholder="Cow language"></textarea>
+                    </div>
                 </div>
             </div>
             <hr class="onlyShowWhenMobileWidth">

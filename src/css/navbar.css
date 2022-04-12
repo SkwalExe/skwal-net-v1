@@ -38,7 +38,7 @@
     align-items: center;
     margin-right: 20px;
     justify-content: center;
-    transition-duration: 50ms;
+    transition-duration: var(--transition);
     width: max-content;
 }
 

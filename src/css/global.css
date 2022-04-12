@@ -6,6 +6,10 @@
     src: url(/assets/TisaSansPro-Regular.woff2) format('woff2');
 }
 
+:root {
+    --transition: 50ms;
+}
+
 * {
     margin: 0px;
     box-sizing: border-box;
@@ -46,7 +50,7 @@ body {
 a {
     text-decoration: none;
     color: var(--blue);
-    transition-duration: 50ms;
+    transition-duration: var(--transition);
 }
 
 a:hover {
