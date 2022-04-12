@@ -7,3 +7,5 @@ $$(".tile .head .title").forEach(function(title) {
     title.classList.add('purp');
     title.classList.add('break');
 })
+
+css("tiles")

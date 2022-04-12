@@ -11,7 +11,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
     <?php
     defaultHeaders();
-    css("colors", "navbar", "global", "tiles", "footer", "layout", "markup");
+    css("colors", "global",  "footer", "layout", "markup");
     ?>
 
 </head>
@@ -64,7 +64,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
             <div class="sidebar">
 
                 <div class="links box glowing">
-                    <a _href="https://github.skwal.net"><img src="/assets/github.png" />Github</a>
+                    <a _href="https://github.com/SkwalExe/"><img src="/assets/github.png" />Github</a>
                     <a _href="https://discord.skwal.net"><img src="/assets/discord.png" alt="">Discord</a>
                 </div>
 
