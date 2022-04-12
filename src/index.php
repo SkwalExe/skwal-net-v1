@@ -11,7 +11,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
     <?php
     defaultHeaders();
-    css("colors", "navbar", "global", "tiles", "footer");
+    css("colors", "global", "footer");
     ?>
 
 </head>

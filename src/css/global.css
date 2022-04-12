@@ -8,12 +8,13 @@
 
 :root {
     --transition: 50ms;
+    --radius: 2px;
 }
 
 * {
-    margin: 0px;
+    margin: 0;
     box-sizing: border-box;
-    padding: 0px;
+    padding: 0;
     color: white;
     font-family: 'Tisa', sans-serif;
     outline: none;
@@ -86,7 +87,7 @@ a:hover {
 }
 
 body::-webkit-scrollbar {
-    width: 0px;
+    width: 0;
 }
 
 div .glowing {
@@ -106,7 +107,7 @@ hr {
 .box {
     background-color: var(--color2);
     padding: 10px;
-    border-radius: 2px;
+    border-radius: var(--radius);
 }
 
 .mainContainer {

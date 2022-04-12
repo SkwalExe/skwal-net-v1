@@ -24,3 +24,35 @@ function copy(text) {
 function remove(element) {
     element.parentElement.removeChild(element)
 }
+
+// sleep in milliseconds
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+// import a css file
+function css(...files) {
+    files.forEach(file => {
+        var link = document.createElement("link");
+        link.href = "/css/" + file + ".css"
+        link.type = "text/css"
+        link.rel = "stylesheet"
+
+        document.body.appendChild(link)
+    })
+}
+
+// import javascript file
+async function js(file) {
+    return new Promise(resolve => {
+        var script = document.createElement('script');
+        script.onload = function() {
+            resolve();
+        }
+        script.src = "/js/" + file + ".js";
+        document.body.appendChild(script)
+    })
+
+}
+
+log = console.log;

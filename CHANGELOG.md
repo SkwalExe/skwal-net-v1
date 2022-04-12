@@ -1,3 +1,7 @@
+# 0.6.2 
+- add notification when clicking copy button on cowtranslator page 
+- other minor changes (see #31)
+
 # 0.6.1 
 - [Cow translator] make page more user friendly for mobile
 
