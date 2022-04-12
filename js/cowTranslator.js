@@ -52,6 +52,26 @@ cowInput.oninput = function() {
 
 }
 
+
+function copyHuman() {
+    copy(textInput.value)
+}
+
+function resetHuman() {
+    textInput.value = ""
+    updateCowInput()
+}
+
+function copyCow() {
+    copy(cowInput.value)
+}
+
+function resetCow() {
+    cowInput.value = ""
+    updateTextInput()
+}
+
+
 textInput.value = "Enter your text here"
 
 textInput.oninput();
