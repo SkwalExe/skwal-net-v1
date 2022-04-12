@@ -1,3 +1,6 @@
+# 0.6.4 
+- bypass cache with javascript 'css' and 'js' functions
+
 # 0.6.3 
 - fix bug : notifications area block buttons 
 

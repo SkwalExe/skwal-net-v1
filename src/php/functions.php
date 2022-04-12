@@ -48,6 +48,13 @@ function css()
  */
 function js()
 {
+
+    global $serverData;
+
+    $json_data = json_encode($serverData);
+
+    echo "<script> var serverData = " . $json_data . "</script>";
+
     $files = func_get_args();
 
     foreach ($files as $file) {
