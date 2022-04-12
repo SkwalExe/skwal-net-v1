@@ -55,6 +55,7 @@ cowInput.oninput = function() {
 
 function copyHuman() {
     copy(textInput.value)
+    notif("Copied!", "Text copied to clipboard")
 }
 
 function resetHuman() {
@@ -64,6 +65,7 @@ function resetHuman() {
 
 function copyCow() {
     copy(cowInput.value)
+    notif("Copied!", "Text copied to clipboard")
 }
 
 function resetCow() {
@@ -75,3 +77,6 @@ function resetCow() {
 textInput.value = "Enter your text here"
 
 textInput.oninput();
+
+js("notifications")
+css("cowTranslator")
