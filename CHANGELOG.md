@@ -1,3 +1,6 @@
+# 0.7.1 
+- bug fix : cowTranslator not working 
+
 # 0.7.0
 - add loading screen
 

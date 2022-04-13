@@ -8,7 +8,7 @@ var timeout;
 
 function updateCowInput() {
 
-    let result = cowTranslator.textToCow(textInput.value)
+    let result = CowTranslator.textToCow(textInput.value)
     if (result.success) {
         translationStatus.innerText = "OK"
         cowInput.value = result.cow
@@ -24,7 +24,7 @@ function updateCowInput() {
 
 
 function updateTextInput() {
-    let result = cowTranslator.cowToText(cowInput.value)
+    let result = CowTranslator.cowToText(cowInput.value)
     if (result.success) {
         translationStatus.innerText = "OK"
         textInput.value = result.text
