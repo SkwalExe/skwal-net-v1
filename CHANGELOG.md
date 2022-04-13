@@ -1,3 +1,6 @@
+# 0.7.0
+- add loading screen
+
 # 0.6.4 
 - bypass cache with javascript 'css' and 'js' functions
 
