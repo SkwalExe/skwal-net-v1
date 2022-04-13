@@ -11,7 +11,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
     <?php
     defaultHeaders();
-    css("colors", "global", "footer", "layout", "form");
+    css("colors", "global", "footer", "layout", "form", "loadingScreen");
     ?>
 
 </head>
@@ -84,13 +84,14 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
     <?php
 
+    loadingScreen();
     footer();
 
     $url = noCache("https://cdn.jsdelivr.net/gh/SkwalExe/cowTranslator.js@main/src/cowTranslator.min.js");
 
     echo "<script src='$url'></script>";
 
-    js("functions", "navbar", "links", "tiles", "cowTranslator");
+    js("functions", "navbar", "links", "tiles", "cowTranslator", "loadingScreen");
     ?>
 
 

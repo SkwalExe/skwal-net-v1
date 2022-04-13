@@ -49,11 +49,13 @@ function css()
 function js()
 {
 
-    global $serverData;
-
-    $json_data = json_encode($serverData);
-
-    echo "<script> var serverData = " . $json_data . "</script>";
+    static $serverDataPassed = false;
+    if (!$serverDataPassed) {
+        $serverDataPassed = true;
+        global $serverData;
+        $json_data = json_encode($serverData);
+        echo "<script> var serverData = " . $json_data . "</script>";
+    }
 
     $files = func_get_args();
 
@@ -132,4 +134,13 @@ function navbarButton($text, $link = "#", $image = null)
     $imageHtml = $image ? "<img src=\"/assets/$image\" alt=\"navbar button icon\">" : "";
 
     echo "<li href=\"$link\">$text$imageHtml</li>";
+}
+
+/**
+ * prints the loading screen html
+ */
+function loadingScreen()
+{
+    global $scripts;
+    include($scripts . "/loadingScreen.php");
 }

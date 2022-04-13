@@ -11,7 +11,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
     <?php
     defaultHeaders();
-    css("colors", "global", "footer");
+    css("colors", "global", "footer", "loadingScreen");
     ?>
 
 </head>
@@ -59,8 +59,8 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
     <?php
 
     footer();
-
-    js("functions", "navbar", "links", "tiles");
+    loadingScreen();
+    js("functions", "navbar", "links", "tiles", "loadingScreen");
     ?>
 
 </body>
