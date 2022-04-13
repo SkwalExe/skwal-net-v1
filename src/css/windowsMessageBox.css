@@ -1,0 +1,65 @@
+.windowsMessageBox {
+    background-color: white;
+    border: 1.5px solid #2F90DB;
+    position: fixed;
+    box-shadow: rgba(0, 0, 0, .35) 0 5px 15px;
+    min-width: 250px;
+    user-select: none;
+    width: min-content;
+}
+
+.windowsMessageBox * {
+    color: black !important;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
+}
+
+.windowsMessageBox .titleBar img {
+    height: 22px;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.windowsMessageBox .titleBar img:hover {
+    background-color: #C75050;
+}
+
+.windowsMessageBox .titleBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+}
+
+.windowsMessageBox .titleBar .title {
+    margin-left: 5px;
+}
+
+.windowsMessageBox .content img {
+    height: 35px;
+    margin-right: 10px;
+}
+
+.windowsMessageBox .button {
+    padding: 2px 20px;
+    border: 1.5px dotted #696969;
+    outline: 2px outset #696969;
+    outline-offset: 2px;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.windowsMessageBox .content {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    word-break: break-word;
+}
+
+.windowsMessageBox .buttons {
+    padding: 5px;
+    background-color: #F0F0F0;
+    display: flex;
+    justify-content: right;
+}
