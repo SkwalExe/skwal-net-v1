@@ -1,3 +1,6 @@
+# 0.7.2 
+- add layout to main page
+
 # 0.7.1 
 - bug fix : cowTranslator not working 
 
