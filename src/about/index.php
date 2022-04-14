@@ -64,8 +64,9 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
             <div class="sidebar">
 
                 <div class="links box glowing">
-                    <a _href="https://github.com/SkwalExe/"><img src="/assets/github.png" />Github</a>
+                    <a _href="https://github.com/SkwalExe/"><img src="/assets/github.png" alt="">Github</a>
                     <a _href="https://discord.skwal.net"><img src="/assets/discord.png" alt="">Discord</a>
+                    <a _href="https://twitter.com/@SkwalExe"><img src="/assets/twitter.png" alt="">Twitter</a>
                 </div>
 
                 <hr>
@@ -91,7 +92,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
     footer();
     loadingScreen();
 
-    js("functions", "navbar", "links", "tiles", "loadingScreen");
+    js("functions", "global", "navbar", "links", "tiles", "loadingScreen");
     ?>
 
 </body>

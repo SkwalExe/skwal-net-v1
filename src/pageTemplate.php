@@ -183,7 +183,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
     loadingScreen();
     footer();
 
-    js("functions", "navbar", "links", "tiles", "loadingScreen");
+    js("functions", "global", "navbar", "links", "tiles", "loadingScreen");
     ?>
 
 </body>
