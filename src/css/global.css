@@ -32,7 +32,7 @@ body {
 }
 
 .main {
-    padding: 20px;
+    padding: 25px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -43,8 +43,6 @@ body {
     text-align: center;
     font-size: 35px;
     text-shadow: 0 0 1px var(--color3), 0 0 2px var(--color3), 0 0 4px var(--color3), 0 0 5px var(--color3), 0 0 10px var(--color3);
-    margin-bottom: 15px;
-    margin-top: 15px;
     font-weight: bold;
 }
 

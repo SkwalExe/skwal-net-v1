@@ -11,7 +11,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
     <?php
     defaultHeaders();
-    css("colors", "global", "footer", "loadingScreen");
+    css("colors", "global", "footer", "loadingScreen", "layout");
     ?>
 
 </head>
@@ -30,37 +30,55 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
     ?>
 
+    <div class="mainContainer">
 
-    <div class="main">
+        <div class="main">
+            <div class="content">
+                <div class="box glowing">
+                    <h1 class="section">
+                        Pages
+                    </h1>
+                </div>
+                <div class="tiles">
+                    <?php
 
-        <!-- 
-        <h1 class="section">
-            Pages
-        </h1>
+                    pages();
 
-        <div class="tiles">
-            <?php
-            /// pages();
-            ?>
-        </div> -->
+                    ?>
+                </div>
+            </div>
+            <hr class="onlyShowWhenMobileWidth">
+            <div class="sidebar">
 
-        <h1 class="section">
-            My projects
-        </h1>
-        <div class="tiles">
+                <div class="links box glowing">
+                    <a _href="https://github.com/SkwalExe/"><img src="/assets/github.png" alt="">Github</a>
+                    <a _href="https://discord.skwal.net"><img src="/assets/discord.png" alt="">Discord</a>
+                    <a _href="https://twitter.com/@SkwalExe"><img src="/assets/twitter.png" alt="">Twitter</a>
+                    <a _href="/about"><img src="/assets/question.png" alt="">About</a>
+                </div>
 
-            <?php projects() ?>
+                <hr>
 
+
+                <div class="oneColumnTiles">
+                    <h1 class="sideBarTitle">
+                        My projects
+                    </h1>
+                    <?php
+                    projects();
+                    ?>
+                </div>
+
+            </div>
         </div>
     </div>
-
 
 
     <?php
 
     footer();
     loadingScreen();
-    js("functions", "navbar", "links", "tiles", "loadingScreen");
+    js("functions", "global",  "navbar", "links", "tiles", "loadingScreen");
     ?>
 
 </body>

@@ -21,6 +21,7 @@
         <p class="text">
             Try to find the 🐢
         </p>
+        <img src="/assets/turtle.png" alt="" class="banner">
     </div>
 </div>
 

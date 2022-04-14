@@ -9,5 +9,5 @@ document.addEventListener('DOMContentLoaded', function() {
             remove(loadingScreen);
         }, 500);
 
-    }, 200);
+    }, 500);
 });
