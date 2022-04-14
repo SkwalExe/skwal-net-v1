@@ -91,7 +91,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
     echo "<script src='$url'></script>";
 
-    js("functions", "navbar", "links", "tiles", "cowTranslator", "loadingScreen");
+    js("functions", "global", "navbar", "links", "tiles", "cowTranslator", "loadingScreen");
     ?>
 
 
