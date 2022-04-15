@@ -60,7 +60,9 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
                     Links
                 </h1>
                 <div class="links box glowing">
-                    <a href="https://github.com/SkwalExe/cowTranslator.js"><img src="/assets/github.png" alt="">Github repo</a>
+                    <a href="https://github.com/SkwalExe/cowTranslator.js"><img src="/assets/github.png" alt="">cowTranslator.js</a>
+                    <a href="https://github.com/SkwalExe/cow-translator"><img src="/assets/github.png" alt="">cowTranslator CLI</a>
+                    <a href="https://github.com/SkwalExe/cow-encryptor"><img src="/assets/github.png" alt="">cowEncryptor</a>
                 </div>
 
                 <hr>

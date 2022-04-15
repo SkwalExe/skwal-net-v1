@@ -23,8 +23,6 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
     <?php
 
     navbarStart();
-    navbarButton("Cow Translator 🐄", "/cowTranslator");
-    navbarButton("About", "/about");
     navbarButton("Github", "https://github.com/SkwalExe/", "github.png");
     navbarEnd();
 
@@ -74,7 +72,6 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
             </div>
         </div>
     </div>
-
 
     <?php
 
