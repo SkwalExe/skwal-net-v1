@@ -1,3 +1,16 @@
+<div class="tile" href="/memz">
+    <div class="head">
+        <span class="title">
+            Memz 👹
+        </span>
+    </div>
+    <div class="body">
+        <p class="text">
+            Try the MEMZ trojan directly in your browser with memz.js
+        </p>
+        <img src="https://github.com/SkwalExe/memz.js/raw/main/images/banner.png" alt="" class="banner">
+    </div>
+</div>
 <div class="tile" href="/cowTranslator">
     <div class="head">
         <span class="title">
