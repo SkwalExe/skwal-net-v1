@@ -56,7 +56,9 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
             </div>
             <hr class="onlyShowWhenMobileWidth">
             <div class="sidebar">
-
+                <h1 class="sideBarTitle">
+                    Links
+                </h1>
                 <div class="links box glowing">
                     <a href="https://github.com/SkwalExe/cowTranslator.js"><img src="/assets/github.png" alt="">Github repo</a>
                 </div>
@@ -64,6 +66,9 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
                 <hr>
 
                 <div class="oneColumnTiles">
+                    <h1 class="sideBarTitle">
+                        Pages
+                    </h1>
                     <?php
                     pages();
                     ?>
@@ -72,6 +77,9 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
                 <hr>
 
                 <div class="oneColumnTiles">
+                    <h1 class="sideBarTitle">
+                        Projects
+                    </h1>
                     <?php
                     projects();
                     ?>
