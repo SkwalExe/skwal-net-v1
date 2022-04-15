@@ -45,6 +45,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
                 <div class="box glowing">
                     <div class="flexwrap" style="justify-content: center;">
                         <button class="red" onclick="Memz.all()">Memz.all()</button>
+                        <button class="red" onclick="Memz.original()">Memz.original()</button>
                         <button onclick="Memz.errorSounds()">Memz.errorSounds()</button>
                         <button onclick="Memz.music()">Memz.music()</button>
                         <button onclick="Memz.messageBoxes()">Memz.messageBoxes()</button>
