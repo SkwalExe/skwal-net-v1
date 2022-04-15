@@ -149,7 +149,9 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
             </div>
             <hr class="onlyShowWhenMobileWidth">
             <div class="sidebar">
-
+                <h1 class="sideBarTitle">
+                    Links
+                </h1>
                 <div class="links box glowing">
                     <a href="#">Link 1</a>
                     <a href="#">Link 2</a>
@@ -163,6 +165,9 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
 
                 <div class="oneColumnTiles">
+                    <h1 class="sideBarTitle">
+                        Pages
+                    </h1>
                     <?php
                     pages();
                     ?>
@@ -171,6 +176,9 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
                 <hr>
 
                 <div class="oneColumnTiles">
+                    <h1 class="sideBarTitle">
+                        Projects
+                    </h1>
                     <?php
                     projects();
                     ?>
