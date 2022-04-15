@@ -49,7 +49,9 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
             </div>
             <hr class="onlyShowWhenMobileWidth">
             <div class="sidebar">
-
+                <h1 class="sideBarTitle">
+                    Links
+                </h1>
                 <div class="links box glowing">
                     <a _href="https://github.com/SkwalExe/"><img src="/assets/github.png" alt="">Github</a>
                     <a _href="https://discord.skwal.net"><img src="/assets/discord.png" alt="">Discord</a>

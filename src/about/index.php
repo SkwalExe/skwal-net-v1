@@ -30,6 +30,12 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
         <div class="main">
             <div class="content">
 
+                <div class="box glowing">
+                    <h1 class="section">
+                        About Skwal.net
+                    </h1>
+                </div>
+
                 <div class="box glowing markup">
                     <h1>SkwalExe</h1>
 
@@ -62,7 +68,9 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
             </div>
             <hr class="onlyShowWhenMobileWidth">
             <div class="sidebar">
-
+                <h1 class="sideBarTitle">
+                    Links
+                </h1>
                 <div class="links box glowing">
                     <a _href="https://github.com/SkwalExe/"><img src="/assets/github.png" alt="">Github</a>
                     <a _href="https://discord.skwal.net"><img src="/assets/discord.png" alt="">Discord</a>
@@ -72,6 +80,9 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
                 <hr>
 
                 <div class="oneColumnTiles">
+                    <h1 class="sideBarTitle">
+                        Pages
+                    </h1>
                     <?php
                     pages();
                     ?>
@@ -80,6 +91,9 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
                 <hr>
 
                 <div class="oneColumnTiles">
+                    <h1 class="sideBarTitle">
+                        Projects
+                    </h1>
                     <?php
                     projects();
                     ?>
