@@ -3,3 +3,5 @@ $$(".sideBarTitle").forEach(element => {
     element.classList.add("box")
     element.classList.add("glowing")
 })
+
+js("notifications")

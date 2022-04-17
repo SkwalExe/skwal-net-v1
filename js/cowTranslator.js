@@ -78,5 +78,4 @@ textInput.value = "Enter your text here"
 
 textInput.oninput();
 
-js("notifications")
 css("cowTranslator")
