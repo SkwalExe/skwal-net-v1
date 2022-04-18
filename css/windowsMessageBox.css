@@ -45,6 +45,8 @@
     outline: 2px outset #696969 !important;
     outline-offset: 2px !important;
     margin: 5px !important;
+    border-radius: 0 !important;
+    background-color: white !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
