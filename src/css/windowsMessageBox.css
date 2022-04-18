@@ -39,7 +39,7 @@
     margin-right: 10px !important;
 }
 
-.windowsMessageBox .button {
+.windowsMessageBox button {
     padding: 2px 20px !important;
     border: 1.5px dotted #696969 !important;
     outline: 2px outset #696969 !important;
