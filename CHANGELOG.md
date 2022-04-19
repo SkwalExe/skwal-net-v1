@@ -1,3 +1,6 @@
+# 0.9.3 
+- terminal : remove line break after `[ x ] : ` in error messages
+
 # 0.9.2
 - terminal : break messages
 
