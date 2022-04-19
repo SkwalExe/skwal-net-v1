@@ -1,3 +1,16 @@
+<div class="tile" href="/terminal">
+    <div class="head">
+        <span class="title">
+            In-browser shell
+        </span>
+    </div>
+    <div class="body">
+        <p class="text">
+            try bash directly in your browser
+        </p>
+        <img src="/assets/terminal.png" alt="" class="banner">
+    </div>
+</div>
 <div class="tile" href="/memz">
     <div class="head">
         <span class="title">

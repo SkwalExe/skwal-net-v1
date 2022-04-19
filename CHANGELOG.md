@@ -1,3 +1,7 @@
+# 0.9.0
+- add links 
+- add bash terminal emulator 
+
 # 0.8.0
 - add memz page
 
