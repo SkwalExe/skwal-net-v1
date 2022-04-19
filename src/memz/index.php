@@ -11,7 +11,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
     <?php
     defaultHeaders();
-    css("colors",  "global", "footer", "layout", "loadingScreen", "form");
+    css("colors",  "global", "footer", "layout", "loadingScreen", "form", "navbar", "notifications", "tiles");
     ?>
 
 </head>
@@ -103,7 +103,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
     loadingScreen();
     footer();
 
-    js("functions", "global", "navbar", "links", "tiles", "loadingScreen");
+    js("functions", "global", "notifications", "navbar", "links", "tiles", "loadingScreen");
     ?>
 
     <script src="https://cdn.jsdelivr.net/gh/SkwalExe/memz.js@main/src/memz.min.js"></script>

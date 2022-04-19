@@ -1,5 +1,3 @@
-css("terminal");
-
 // the textarea for the command input 
 var commandInput = $(".commandInput");
 var commandInputContainer = $(".commandInputContainer");

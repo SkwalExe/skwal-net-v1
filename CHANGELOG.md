@@ -1,3 +1,6 @@
+# 0.9.4 
+- stoped using css() and js() js functions 
+
 # 0.9.3 
 - terminal : remove line break after `[ x ] : ` in error messages
 

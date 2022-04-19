@@ -41,5 +41,3 @@ function notif(title, message, type = "success", link) {
 
     setTimeout(notif.onmouseleave, 5000);
 }
-
-css("notifications");
