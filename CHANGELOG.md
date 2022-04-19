@@ -1,3 +1,6 @@
+# 0.9.1 
+- fix `skwal_ascii()` function : Skawal -> Skwal 
+
 # 0.9.0
 - add links 
 - add bash terminal emulator 
