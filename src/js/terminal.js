@@ -42,6 +42,7 @@ terminal.message = function(type, ...args) {
 
         var message = document.createElement("pre");
         message.classList.add(type);
+        message.classList.add("break");
         message.textContent = arg;
         terminal.content.appendChild(message);
 

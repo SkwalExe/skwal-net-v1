@@ -121,6 +121,7 @@ hr {
 .break {
     max-width: 100%;
     overflow-wrap: break-word;
+    white-space: normal;
 }
 
 *::selection {
