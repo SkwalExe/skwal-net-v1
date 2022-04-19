@@ -1,5 +1,10 @@
+# 0.9.5 
+- remove body margin - terminal.css
+- remove terminal message left padding
+- update terminal.png banner
+
 # 0.9.4 
-- stoped using css() and js() js functions 
+- stopped using css() and js() js functions 
 
 # 0.9.3 
 - terminal : remove line break after `[ x ] : ` in error messages
