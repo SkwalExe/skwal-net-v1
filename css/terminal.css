@@ -61,6 +61,7 @@ pre.error {
 pre.error::before {
     content: "[ x ] : ";
     color: var(--red);
+    white-space: nowrap;
 }
 
 pre.command::before,
