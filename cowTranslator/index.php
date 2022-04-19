@@ -11,7 +11,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
     <?php
     defaultHeaders();
-    css("colors", "global", "footer", "layout", "form", "loadingScreen");
+    css("colors", "global", "footer", "layout", "form", "loadingScreen", "cowTranslator", "navbar", "notifications", "tiles");
     ?>
 
 </head>
@@ -101,7 +101,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
     echo "<script src='$url'></script>";
 
-    js("functions", "global", "navbar", "links", "tiles", "cowTranslator", "loadingScreen");
+    js("functions", "global", "notifications", "navbar", "links", "tiles", "cowTranslator", "loadingScreen");
     ?>
 
 

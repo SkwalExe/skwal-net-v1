@@ -30,31 +30,6 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-// import a css file
-function css(...files) {
-    files.forEach(file => {
-        var link = document.createElement("link");
-        link.href = noCache("/css/" + file + ".css");
-        link.type = "text/css"
-        link.rel = "stylesheet"
-
-        document.body.appendChild(link)
-    })
-}
-
-// import javascript file
-async function js(file) {
-    return new Promise(resolve => {
-        var script = document.createElement('script');
-        script.onload = function() {
-            resolve();
-        }
-        script.src = noCache("/js/" + file + ".js");
-        document.body.appendChild(script)
-    })
-
-}
-
 log = console.log;
 
 // bypass cache by adding a random parameter to the url

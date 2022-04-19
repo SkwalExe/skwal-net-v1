@@ -77,5 +77,3 @@ function resetCow() {
 textInput.value = "Enter your text here"
 
 textInput.oninput();
-
-css("cowTranslator")
