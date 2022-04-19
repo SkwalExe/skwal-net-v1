@@ -55,6 +55,10 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
                     <a _href="https://discord.skwal.net"><img src="/assets/discord.png" alt="">Discord</a>
                     <a _href="https://twitter.com/@SkwalExe"><img src="/assets/twitter.png" alt="">Twitter</a>
                     <a _href="/about"><img src="/assets/question.png" alt="">About</a>
+                    <a _href="https://www.paypal.com/paypalme/SkwalDev"><img src="/assets/paypal.png" alt="">Paypal</a>
+                    <a _href="https://liberapay.com/SkwalExe"><img src="/assets/liberapay.png" alt="">Liberapay</a>
+                    <a _href="https://ko-fi.com/SkwalExe"><img src="/assets/kofi.webp" alt="">Ko-fi</a>
+                    <a _href="https://www.patreon.com/SkwalExe"><img src="/assets/patreon.png" alt="">Patreon</a>
                 </div>
 
                 <hr>

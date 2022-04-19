@@ -1,0 +1,88 @@
+@font-face {
+    font-family: "CascadiaMono";
+    src: url("/assets/CascadiaMono.ttf");
+}
+
+html {
+    background-color: #0C162D;
+    overflow-x: hidden;
+    cursor: text;
+}
+
+body {
+    padding-bottom: 500px;
+}
+
+* {
+    font-family: CascadiaMono;
+    font-weight: 600;
+    font-size: 20px;
+    color: white;
+}
+
+.terminal {
+    padding: 10px;
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+.terminal::-webkit-scrollbar {
+    width: 0;
+}
+
+*::-moz-selection {
+    background-color: rgb(255, 255, 255);
+    text-shadow: none;
+    color: black;
+}
+
+*::selection {
+    background-color: rgb(255, 255, 255);
+    text-shadow: none;
+    color: black;
+}
+
+pre.result,
+pre.error {
+    padding-left: 15px;
+    width: 100%;
+    max-width: 100%;
+    margin: 5px 0;
+}
+
+pre.result {
+    color: #627597;
+}
+
+pre.error {
+    color: var(--red);
+}
+
+pre.error::before {
+    content: "[ x ] : ";
+    color: var(--red);
+}
+
+pre.command::before,
+.commandInputContainer::before {
+    content: "[ skwal@skwal.net ] # ";
+    white-space: pre;
+    color: var(--cyan);
+}
+
+pre.title {
+    margin-bottom: 25px;
+}
+
+.commandInput {
+    background-color: transparent;
+    border: none;
+    resize: none;
+    width: 100%;
+    height: max-content;
+}
+
+.commandInputContainer {
+    display: flex;
+    justify-content: center;
+}

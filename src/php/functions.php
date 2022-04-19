@@ -144,3 +144,32 @@ function loadingScreen()
     global $scripts;
     include($scripts . "/loadingScreen.php");
 }
+
+
+
+/**
+ * prints Skwal in ascii art
+ */
+function skwal_ascii()
+{
+    $skwalAscii  = <<< EOS
+     _____ _                       _ 
+    / ____| |                     | |
+   | (___ | | ____ ___      ____ _| |
+    \___ \| |/ / _` \ \ /\ / / _` | |
+    ____) |   < (_| |\ V  V / (_| | |
+   |_____/|_|\_\__,_| \_/\_/ \__,_|_|
+   EOS;
+
+    echo $skwalAscii;
+}
+
+
+/**
+ * prints html for a terminal
+ */
+function terminalHTML()
+{
+    global $scripts;
+    include($scripts . "/terminal.php");
+}

@@ -61,3 +61,24 @@ log = console.log;
 function noCache(url) {
     return url + "?version=" + serverData["version"]
 }
+
+// return the text selected by the user
+function getSelectedText() {
+    var text = "";
+    if (typeof window.getSelection != "undefined") {
+        text = window.getSelection().toString();
+    } else if (
+        typeof document.selection != "undefined" &&
+        document.selection.type == "Text") {
+        text = document.selection.createRange().text;
+    }
+    return text;
+}
+
+// do nothing
+function noop() {}
+
+// this function redirect the browser to the given url
+function redirect(url) {
+    window.location.href = url;
+}
