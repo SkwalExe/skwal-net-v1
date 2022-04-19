@@ -9,10 +9,6 @@ html {
     cursor: text;
 }
 
-body {
-    padding-bottom: 500px;
-}
-
 * {
     font-family: CascadiaMono;
     font-weight: 600;
@@ -44,7 +40,6 @@ body {
 
 pre.result,
 pre.error {
-    padding-left: 15px;
     width: 100%;
     max-width: 100%;
     margin: 5px 0;
