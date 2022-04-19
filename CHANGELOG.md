@@ -1,3 +1,6 @@
+# 0.9.2
+- terminal : break messages
+
 # 0.9.1 
 - fix `skwal_ascii()` function : Skawal -> Skwal 
 
