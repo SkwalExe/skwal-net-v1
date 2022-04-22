@@ -83,7 +83,7 @@ function defaultHeaders()
 function projects()
 {
     global $scripts;
-    include($scripts . "/projects.php");
+    include($scripts . "/projects.cache.php");
 }
 
 /**
