@@ -43,6 +43,11 @@
     text-shadow: 0 0 1px var(--color3), 0 0 2px var(--color3), 0 0 4px var(--color3), 0 0 5px var(--color3), 0 0 10px var(--color3);
 }
 
+.oneColumnTiles .tile .head .title::before,
+.oneColumnTiles .tile .body .text::before {
+    margin-right: 5px;
+}
+
 .tile .body .text::before {
     content: '>>';
     text-shadow: 0 0 1px var(--color3), 0 0 2px var(--color3), 0 0 4px var(--color3), 0 0 5px var(--color3), 0 0 10px var(--color3);
