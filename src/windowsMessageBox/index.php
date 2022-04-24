@@ -80,7 +80,11 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
                     <p class="info">Possibility to add more buttons when using the library</p>
                     <hr>
-                    <button class="messageBox">Open message box</button>
+
+                    <div class="flexwrap">
+                        <button class="messageBox">Open message box</button>
+                        <button class="red" onclick="windowsMessageBox.removeAll()">Clear all message boxes</button>
+                    </div>
                 </div>
                 <div class="box glowing">
                     <div class="input">
