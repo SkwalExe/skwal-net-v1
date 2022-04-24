@@ -1,8 +1,17 @@
+<div class="tile" href="/windowsMessageBox">
+    <div class="head">
+        <span class="title">WindowsMessageBox.js demo</span>
+    </div>
+    <div class="body">
+        <p class="text">
+            Create Windows-like 🪟 message boxes 💬 inside your browser.
+        </p>
+        <img src="https://github.com/SkwalExe/WindowsMessageBox.js/raw/main/images/banner.png" alt="" class="banner">
+    </div>
+</div>
 <div class="tile" href="/terminal">
     <div class="head">
-        <span class="title">
-            In-browser shell
-        </span>
+        <span class="title">In-browser shell</span>
     </div>
     <div class="body">
         <p class="text">
@@ -13,9 +22,7 @@
 </div>
 <div class="tile" href="/memz">
     <div class="head">
-        <span class="title">
-            Memz 👹
-        </span>
+        <span class="title">Memz 👹</span>
     </div>
     <div class="body">
         <p class="text">
@@ -26,9 +33,7 @@
 </div>
 <div class="tile" href="/cowTranslator">
     <div class="head">
-        <span class="title">
-            Cow translator web 🐄
-        </span>
+        <span class="title">Cow translator web 🐄</span>
     </div>
     <div class="body">
         <p class="text">
@@ -39,9 +44,7 @@
 </div>
 <div class="tile" href="https://you-cant-see.me">
     <div class="head">
-        <span class="title">
-            You cant see me
-        </span>
+        <span class="title">You cant see me</span>
     </div>
     <div class="body">
         <p class="text">
@@ -53,9 +56,7 @@
 
 <div class="tile" href="https://the-useless-button.com">
     <div class="head">
-        <span class="title">
-            THE USELESS BUTTON
-        </span>
+        <span class="title">THE USELESS BUTTON</span>
     </div>
     <div class="body">
         <p class="text">
@@ -67,9 +68,7 @@
 
 <div class="tile" href="/about">
     <div class="head">
-        <span class="title">
-            About
-        </span>
+        <span class="title">About</span>
     </div>
     <div class="body">
         <p class="text">
