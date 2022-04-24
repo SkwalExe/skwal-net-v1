@@ -144,3 +144,13 @@ hr {
 .neon {
     text-shadow: 0 0 6px rgba(202, 228, 225, .98), 0 0 30px rgba(202, 228, 225, .42), 0 0 12px var(--neon-text-color), 0 0 22px var(--neon-text-color), 0 0 38px var(--neon-text-color), 0 0 40px var(--neon-text-color);
 }
+
+.info {
+    color: var(--blue);
+    font-size: 12px;
+}
+
+.info::before {
+    content: 'info:';
+    margin-right: 5px;
+}
