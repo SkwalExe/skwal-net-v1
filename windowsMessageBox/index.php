@@ -81,7 +81,8 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
                     <p class="info">Possibility to add more buttons when using the library</p>
                     <hr>
                     <button class="messageBox">Open message box</button>
-                    <hr>
+                </div>
+                <div class="box glowing">
                     <div class="input">
                         <p class="inputLabel">Javascript</p>
                         <input style='width: 100%' class="javascript" readonly></input>
