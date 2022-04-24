@@ -82,7 +82,10 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
                     <hr>
                     <button class="messageBox">Open message box</button>
                     <hr>
-                    <input style='width: 100%' class="javascript" readonly></input>
+                    <div class="input">
+                        <p class="inputLabel">Javascript</p>
+                        <input style='width: 100%' class="javascript" readonly></input>
+                    </div>
                 </div>
 
             </div>
