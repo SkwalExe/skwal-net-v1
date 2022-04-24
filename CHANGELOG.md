@@ -1,3 +1,6 @@
+# 0.9.6 
+- add windowsMessageBox.js demo page
+
 # 0.9.5 
 - remove body margin - terminal.css
 - remove terminal message left padding
