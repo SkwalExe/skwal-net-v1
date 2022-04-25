@@ -1,3 +1,6 @@
+# 0.9.7
+- fix document horizontal overflow
+
 # 0.9.6 
 - add windowsMessageBox.js demo page
 
