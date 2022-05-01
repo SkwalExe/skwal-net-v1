@@ -1,3 +1,6 @@
+# 0.9.8
+- use skwash as terminal emulator
+
 # 0.9.7
 - fix document horizontal overflow
 

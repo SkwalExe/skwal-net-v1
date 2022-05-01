@@ -13,9 +13,12 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 </head>
 
 <body>
+
+    <script src="https://cdn.jsdelivr.net/gh/SkwalExe/skwash.js@main/dist/skwash.min.js"></script>
+
     <?php
     terminalHTML();
-    js("functions", "global", "links", "bash-emulator.min", "terminal");
+    js("functions", "global", "links", "terminal");
     ?>
 </body>
 
