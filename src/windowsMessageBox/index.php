@@ -129,7 +129,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/gh/SkwalExe/windowsMessageBox.js@main/src/windowsMessageBox.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/SkwalExe/WindowsMessageBox.js@main/dist/windowsMessageBox.min.js"></script>
 
     <?php
     loadingScreen();
