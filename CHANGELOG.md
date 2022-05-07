@@ -1,3 +1,6 @@
+# 0.9.9
+- fix 404 loading memz lib
+
 # 0.9.8
 - use skwash as terminal emulator
 
