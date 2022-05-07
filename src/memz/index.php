@@ -98,6 +98,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/gh/SkwalExe/memz.js@1.0.0/dist/memz.min.js"></script>
 
     <?php
     loadingScreen();
@@ -106,7 +107,6 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
     js("functions", "global", "notifications", "navbar", "links", "tiles", "loadingScreen");
     ?>
 
-    <script src="https://cdn.jsdelivr.net/gh/SkwalExe/memz.js@main/src/memz.min.js"></script>
 
 
 </body>
