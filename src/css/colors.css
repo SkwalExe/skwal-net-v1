@@ -11,3 +11,19 @@
 .purp {
     color: var(--color3)
 }
+
+.blue {
+    color: var(--blue)
+}
+
+.green {
+    color: var(--green)
+}
+
+.red {
+    color: var(--red)
+}
+
+.cyan {
+    color: var(--cyan)
+}

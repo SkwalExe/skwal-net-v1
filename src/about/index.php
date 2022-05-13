@@ -32,41 +32,31 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
                 <div class="box glowing">
                     <h1 class="section">
-                        About Skwal.net
+                        About skwal.net
                     </h1>
                 </div>
 
                 <div class="box glowing markup">
-                    <h1>SkwalExe</h1>
-
-                    <img src="/assets/banner.png" alt="">
-
-                    <h2>Short bio</h2>
-
-                    <p><?= $bio ?></p>
-
-                    <h2>Skills</h2>
-                    <div class="flexwrap">
-                        <ul>
-                            <li>🦀 Rust</li>
-                            <li>🐘 PHP</li>
-                            <li>🌐 Javascript</li>
-                            <li>🌐 HTML5</li>
-                            <li>🌐 CSS3</li>
-                            <li>🐚 Shell</li>
-                            <li>🤓 C</li>
-                        </ul>
-                        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SkwalExe&theme=dracula&layout=compact" alt="">
-                    </div>
-
-
-
-
+                    <img src="/assets/photo.png" alt="">
+                    <p>Hi! My name is <span class="blue">Léopold Koprivnik Ibghy</span>, I founded skwal.net in <span class="blue">2018</span> and I continue to maintain it.</p>
+                    <p>I am a 14 years old french student, <span class="red">I love FOSS</span> (Freen and Open Source Software)</p>
+                    <p>I'm a big fan of <span class="purp">Linus Torvalds</span> and I am very interested in <span class="green">the history of linux</span>, one day, I want to create my own distro</p>
+                    <hr>
+                    <p>I created this website to make a place where you will be able to find cool stuff !</p>
+                    <p>And with the forum that I am currently creating, I want to make skwal.net a place where everyone can :</p>
+                    <ul>
+                        <li>Share their creations and knowledge</li>
+                        <li>Ask any question</li>
+                        <li>Help me to improve my projects and more...</li>
+                    </ul>
+                    <hr>
+                    <p>I hope you will enjoy it and I hope you will find something interesting !</p>
+                    <p>If you have any question, feel free to contact me on my <a href="mailto:skwal.net@gmail.com">email</a></p>
                 </div>
 
 
             </div>
-            <hr class="onlyShowWhenMobileWidth">
+            <hr class=" onlyShowWhenMobileWidth">
             <div class="sidebar">
                 <h1 class="sideBarTitle">
                     Links

@@ -1,6 +1,5 @@
 .markup h1 {
     font-size: 35px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     display: block;
     margin-bottom: 10px;
 }
@@ -17,7 +16,6 @@
 
 .markup h2 {
     font-size: 25px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     display: block;
     margin-bottom: 10px;
 }
