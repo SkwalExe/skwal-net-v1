@@ -12,19 +12,15 @@ There are a lot of informations about that in the [wiki](https://github.com/Skwa
 
 # Setting up development environment
 
-For this project, I recommend Visual Studio Code.
+First, install [xampp](https://www.apachefriends.org/en/download.html)
 
-Warning : You should **only** open the `📂 src/` folder if you want to edit the source code *of the website* (not the source code of the project, readme etc) 
+Configure the server to point to the src folder.
 
-You'll need to install the php server extension
+Open phpMyAdmin and create a new database with a password.
 
-```
-ext install brapifra.phpserver
-```
+Import the `db.sql` file from the root of the repository.
 
-and click on the php icon in the top right corner of the editor to start a local server.
-
-![](images/serve.png)
+Create an `.env` file on the parent directory of `/src` from the `.env.sample` file, change the `DB_NAME`, `DB_USER`, `DB_HOST`, and `DB_PASSWORD` values to the corresponding values of your database and start the server (apache and mySql)
 
 # Contributing
 
