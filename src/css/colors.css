@@ -8,22 +8,22 @@
     --cyan: #00CFC8;
 }
 
-.purp {
+span.purp {
     color: var(--color3)
 }
 
-.blue {
+span.blue {
     color: var(--blue)
 }
 
-.green {
+span.green {
     color: var(--green)
 }
 
-.red {
+span.red {
     color: var(--red)
 }
 
-.cyan {
+span.cyan {
     color: var(--cyan)
 }
