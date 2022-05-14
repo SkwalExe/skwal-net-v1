@@ -39,7 +39,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
                 <div class="box glowing markup">
                     <img src="/assets/photo.png" alt="">
                     <p>Hi! My name is <span class="blue">Léopold Koprivnik Ibghy</span>, I founded skwal.net in <span class="blue">2018</span> and I continue to maintain it.</p>
-                    <p>I am a 14 years old french student, <span class="red">I love FOSS</span> (Freen and Open Source Software)</p>
+                    <p>I am a 14 years old french student, <span class="red">I love FOSS</span> (Free and Open Source Software)</p>
                     <p>I'm a big fan of <span class="purp">Linus Torvalds</span> and I am very interested in <span class="green">the history of linux</span>, one day, I want to create my own distro</p>
                     <hr>
                     <p>I created this website to make a place where you will be able to find cool stuff !</p>
