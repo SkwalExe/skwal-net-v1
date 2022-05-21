@@ -2,7 +2,7 @@
     <div class="container">
 
         <div class="nav-top">
-            <div href="javascript:copy('https://new.skwal.net'); notif('Copied', 'Website url copied to clipboard')" class="logo">
+            <div href="javascript:copy('https://new.skwal.net'); toasteur.success('Website URL copied to clipboard', 'Copied!')" class="logo">
                 <img src="/assets/github.png" alt="">
                 <p class="text"><span class="purp">Skwal</span><span>Exe</span></p>
             </div>
