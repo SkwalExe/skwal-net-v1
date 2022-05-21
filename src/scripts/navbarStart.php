@@ -2,7 +2,7 @@
     <div class="container">
 
         <div class="nav-top">
-            <div href="javascript:copy('https://new.skwal.net'); toasteur.success('Website URL copied to clipboard', 'Copied!')" class="logo">
+            <div toultip='Copy website url' href="javascript:copy('https://new.skwal.net'); toasteur.success('Website URL copied to clipboard', 'Copied!')" class="logo">
                 <img src="/assets/github.png" alt="">
                 <p class="text"><span class="purp">Skwal</span><span>Exe</span></p>
             </div>
@@ -14,4 +14,4 @@
 
         </div>
         <ul id="navList">
-            <li href="#"><img src="https://profile-counter.glitch.me/%7BSkwalExe%7D/count.svg" alt=""></li>
+            <li href="#" toultip="Visitor count"><img src="https://profile-counter.glitch.me/%7BSkwalExe%7D/count.svg" alt=""></li>
