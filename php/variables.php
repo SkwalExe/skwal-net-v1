@@ -5,7 +5,7 @@ $ip = $_SERVER["REMOTE_ADDR"];
 $assets = "$root/assets";
 $scripts = "$root/scripts";
 
-$version = "IDontKnow";
+$version = "jaj";
 
 $serverData = [
     "ip" => $ip,
