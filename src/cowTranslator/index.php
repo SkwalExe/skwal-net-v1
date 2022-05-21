@@ -91,15 +91,12 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
     </div>
 
 
+    <script src="https://cdn.jsdelivr.net/gh/SkwalExe/cowTranslator.js@v1.1.0/dist/cow-translator.min.js"></script>
 
     <?php
 
     loadingScreen();
     footer();
-
-    $url = noCache("https://cdn.jsdelivr.net/gh/SkwalExe/cowTranslator.js@main/src/cowTranslator.min.js");
-
-    echo "<script src='$url'></script>";
 
     js("functions", "global", "navbar", "links", "tiles", "cowTranslator", "loadingScreen");
     ?>
