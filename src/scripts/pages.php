@@ -6,7 +6,7 @@
         <p class="text">
             Create Windows-like 🪟 message boxes 💬 inside your browser.
         </p>
-        <img src="https://github.com/SkwalExe/WindowsMessageBox.js/raw/main/images/banner.png" alt="" class="banner">
+        <img src="https://github.com/SkwalExe/WindowsMessageBox.js/raw/main/assets/banner.png" alt="" class="banner">
     </div>
 </div>
 <div class="tile" href="/terminal">
@@ -28,7 +28,7 @@
         <p class="text">
             Try the MEMZ trojan directly in your browser with memz.js
         </p>
-        <img src="https://github.com/SkwalExe/memz.js/raw/main/images/banner.png" alt="" class="banner">
+        <img src="https://github.com/SkwalExe/memz.js/raw/main/assets/banner.png" alt="" class="banner">
     </div>
 </div>
 <div class="tile" href="/cowTranslator">
@@ -39,7 +39,7 @@
         <p class="text">
             Translate Human to Cow language directly in your browser 🐄
         </p>
-        <img src="/assets/cow-translator.png" alt="" class="banner">
+        <img src="https://github.com/SkwalExe/cowTranslator.js/raw/main/assets/banner.png" alt="" class="banner">
     </div>
 </div>
 <div class="tile" href="https://you-cant-see.me">
