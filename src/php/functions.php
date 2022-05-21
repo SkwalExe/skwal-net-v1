@@ -34,6 +34,7 @@ function noCache(string $url)
  */
 function css()
 {
+    echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toultip@0.1.0/dist/themes/toultip-default.min.css">';
     $files = func_get_args();
 
     foreach ($files as $file) {
@@ -48,6 +49,8 @@ function css()
  */
 function js()
 {
+
+    echo '<script src="https://cdn.jsdelivr.net/gh/SkwalExe/Toultip.js@v0.1.0/dist/toultip.min.js"></script>';
 
     static $serverDataPassed = false;
     if (!$serverDataPassed) {
