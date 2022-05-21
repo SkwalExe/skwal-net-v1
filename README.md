@@ -1,8 +1,8 @@
 # [Skwal.net](https://skwal.net)
 
-![](images/banner.png)
+🌐 Source code of [Skwal.net](https://skwal.net)
 
-🌐 Source code of [Skwal.net](https://skwal.net) 
+![](assets/banner.png)
 
 # Wiki
 
@@ -28,7 +28,7 @@ Before contributing, you should have basic knowledge of the [website structure](
 
 Start by **forking** this repository.
 
-![](images/fork.png)
+![](assets/fork.png)
 
 Then clone your fork to your local machine.
 
