@@ -1,4 +1,5 @@
 const toasteur = new Toasteur();
+Toultip.init();
 
 $$(".sideBarTitle").forEach(element => {
   element.classList.add("section")
