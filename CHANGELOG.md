@@ -1,3 +1,10 @@
+# 0.10.0
+- Add tooltips
+- Use toasteur for toast notifications
+- Fix bugs and 404
+- Enhancements to website style
+- Add an easter egg!
+
 # 0.9.9
 - fix 404 loading memz lib
 
