@@ -13,6 +13,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
     defaultHeaders();
     css("colors",  "global", "footer", "layout", "loadingScreen", "form", "navbar", "tiles");
     ?>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/windowsmessagebox@0.4.1/dist/wmsgbox.min.css">
 
 </head>
 
@@ -98,7 +99,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/gh/SkwalExe/memz.js@1.0.0/dist/memz.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/SkwalExe/memz.js@0.1.0/dist/memz.min.js"></script>
 
     <?php
     loadingScreen();
