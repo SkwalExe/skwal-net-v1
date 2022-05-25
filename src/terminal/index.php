@@ -14,7 +14,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
 <body>
 
-    <script src="https://cdn.jsdelivr.net/gh/SkwalExe/skwash.js@v0.8.2/dist/skwash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/SkwalExe/skwash.js@v0.8.3/dist/skwash.min.js"></script>
 
     <?php
     terminalHTML();
