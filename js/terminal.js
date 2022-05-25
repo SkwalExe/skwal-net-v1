@@ -204,6 +204,7 @@ terminal.emulator.registerCommand('skwash', env => env.print('https://github.com
 terminal.emulator.registerCommand('register', (env, args) => {
   if (args.length < 3) {
     env.print('Usage: register <username> <email> <password>')
+    env.print("Don't forget to escape $ with \\")
   } else {
     const username = args[0]
     const email = args[1]
@@ -238,8 +239,9 @@ terminal.emulator.registerCommand('register', (env, args) => {
 terminal.emulator.registerCommand('login', (env, args) => {
   if (args.length < 2) {
     env.print('Usage: login <identification> <password> <identificator: [username]|email>')
-    env.print('\tExample: login skwalexe83 "My P4ssw0rd!"')
+    env.print('\tExample: login skwalexe83 "^My P4ssw0rd\\$"')
     env.print('\tExample: login skwalexe83@skwal.net P4ssw0rd! email')
+    env.print("Don't forget to escape $ with \\")
   } else {
     const identification = args[0]
     const password = args[1]
