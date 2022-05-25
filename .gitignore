@@ -1,3 +1,2 @@
 .env
-api/v1/rate-limits/*
-!api/v1/rate-limits/info.txt
+*-bucket
