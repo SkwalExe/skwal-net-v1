@@ -2,3 +2,4 @@ RewriteEngine On
 RewriteRule ^vendor/ - [L,R=404]
 RewriteRule ^pageTemplate.php - [L,R=404]
 RewriteRule ^scripts/ - [L,R=404]
+RewriteRule ^api/v1/rate-limits/ - [L,R=404]

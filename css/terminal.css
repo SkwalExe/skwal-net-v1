@@ -62,7 +62,7 @@ pre.error::before {
 
 pre.command::before,
 .commandInputContainer::before {
-    content: "[ skwal@skwal.net ] # ";
+    content: "[ " var(--username) "@skwal.net ] # ";
     white-space: pre;
     color: var(--cyan);
 }
