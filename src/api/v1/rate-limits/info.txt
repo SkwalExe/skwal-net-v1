@@ -1,0 +1,2 @@
+This folder is used to contain buckets for rate limiting
+This file is here to prevent this folder from being ignored by git because it is empty 
