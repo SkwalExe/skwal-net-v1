@@ -249,7 +249,7 @@ function createUser($username, $password, $email)
 function rateLimit($name, $tokens, $unit, $bucketMax, $initial, $consume, &$seconds, $ip = false)
 {
     $ipString = $ip ? "-{$_SERVER['REMOTE_ADDR']}" : "";
-    $storage = new FileStorage($_SERVER['DOCUMENT_ROOT'] . "/api/v1/rate-limits/$name$ipString");
+    $storage = new FileStorage($_SERVER['DOCUMENT_ROOT'] . "/api/v1/rate-limits/$name$ipString-bucket");
     $rate = new Rate($tokens, $unit);
     $bucket = new TokenBucket($bucketMax, $rate, $storage);
     $bucket->bootstrap($initial);
