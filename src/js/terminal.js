@@ -138,8 +138,10 @@ terminal.complete = function(direction) {
 // this functions executes a command
 terminal.execute = function(command) {
 
+  let hideFromHistory = /^(register|login)(.*)/.test(command)
+
   // if the command is not the newest command in the history and the command is not empty
-  if (terminal.history.elements[0] != command && command != "") {
+  if (terminal.history.elements[0] != command && command != "" && !hideFromHistory) {
     // add the command to the history
     terminal.history.elements.unshift(command);
   }
@@ -157,6 +159,9 @@ terminal.execute = function(command) {
   // and terminal.error to print an error
   if (command.trim().length > 0)
     terminal.emulator.run(command)
+
+  if (hideFromHistory)
+    terminal.emulator.history.shift();
 
   // resize the command input
   commandInput.oninput();
@@ -195,3 +200,103 @@ terminal.emulator.fs.loadFromJSON('[{"type":"directory","name":"/","modified":16
 terminal.emulator.registerCommand('github', env => env.print('https://github.com/SkwalExe/'))
 terminal.emulator.registerCommand('discord', env => env.print('https://discord.skwal.net'))
 terminal.emulator.registerCommand('skwash', env => env.print('https://github.com/SkwalExe/skwash.js'))
+
+terminal.emulator.registerCommand('register', (env, args) => {
+  if (args.length < 3) {
+    env.print('Usage: register <username> <email> <password>')
+  } else {
+    const username = args[0]
+    const email = args[1]
+    const password = args[2]
+
+    const data = JSON.stringify({
+      username,
+      password,
+      email
+    })
+
+    fetch('/api/v1/register.php', {
+      mode: 'cors',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: data
+    }).then(res => res.json()).then(data => {
+      if (data.success) {
+        env.print(data.message)
+        env.print('Reloading in 2 seconds...')
+        setTimeout(() => {
+          window.location.reload()
+        }, 2000)
+      } else {
+        env.eprint(data.error)
+      }
+    })
+
+  }
+})
+
+terminal.emulator.registerCommand('login', (env, args) => {
+  if (args.length < 2) {
+    env.print('Usage: login <identification> <password> <identificator: [username]|email>')
+    env.print('\tExample: login skwalexe83 "My P4ssw0rd!"')
+    env.print('\tExample: login skwalexe83@skwal.net P4ssw0rd! email')
+  } else {
+    const identification = args[0]
+    const password = args[1]
+    const identificator = args.length > 2 ? args[2] : 'username'
+
+    const data = JSON.stringify({
+      identification,
+      password,
+      identificator
+    })
+
+
+    fetch('/api/v1/login.php', {
+      mode: 'cors',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: data
+    }).then(res => res.json()).then(data => {
+      if (data.success) {
+        env.print(data.message)
+        env.print('Reloading in 2 seconds...')
+        setTimeout(() => {
+          window.location.reload()
+        }, 2000)
+      } else {
+        env.eprint(data.error)
+      }
+    })
+  }
+})
+
+
+
+terminal.emulator.registerCommand('logout', env => {
+
+  fetch('/api/v1/logout.php', {
+    mode: 'cors',
+    method: 'GET'
+  }).then(res => res.json()).then(data => {
+    if (data.success) {
+      env.print(data.message)
+      env.print('Reloading in 2 seconds...')
+      setTimeout(() => {
+        window.location.reload()
+      }, 2000)
+    } else {
+      env.eprint(data.error)
+    }
+  })
+
+})
+
+terminal.emulator.registerCommand('whoami', env => {
+
+  console.log(serverData)
+  if (serverData['loggedIn'])
+    env.print(serverData['user']['username'])
+  else
+    env.eprint('You are not logged in.')
+})
