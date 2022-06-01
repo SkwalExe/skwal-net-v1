@@ -1,0 +1,98 @@
+.bannerContainer {
+    height: 310px;
+    max-height: 50vh;
+    width: 100%;
+}
+
+.banner,
+.avatar {
+    min-height: 105%;
+    min-width: 105%;
+    object-fit: cover;
+}
+
+.profileContainer {
+    padding: 20px;
+    background-color: var(--color2);
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.profileInformations {
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+}
+
+.avatarContainer,
+.bannerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.avatarContainer {
+    border-radius: 100%;
+    min-width: 160px;
+    width: 160px;
+    min-height: 160px;
+    height: 160px;
+    margin-right: 20px;
+}
+
+.username {
+    font-size: 45px;
+    text-align: left !important;
+    font-weight: bold;
+}
+
+.main {
+    border: none !important;
+    border-left: 2px solid var(--color3) !important;
+    border-right: 2px solid var(--color3) !important;
+    border-bottom: 2px solid var(--color3) !important;
+    padding: 0;
+    margin-bottom: 100px;
+}
+
+.tabs {
+    background-color: var(--color1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.tabs p {
+    cursor: pointer;
+}
+
+.tabs p:hover {
+    color: var(--color3);
+}
+
+.tabs p.selected {
+    color: var(--color3);
+}
+
+.posts.hidden,
+.about.hidden,
+.comments.hidden {
+    display: none;
+}
+
+.posts,
+.about,
+.comments {
+    padding: 15px;
+    width: 100%;
+    background-color: var(--color2);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}

@@ -12,7 +12,11 @@ textarea {
     resize: none;
     -webkit-appearance: none;
     height: 30px;
-    width: 180px
+    width: 180pxs
+}
+
+input[type=file] {
+    padding: 3px;
 }
 
 button {
@@ -44,6 +48,22 @@ button.red:hover {
     box-shadow: 0 0 5px var(--red);
 }
 
+button.blue {
+    background-color: var(--blue);
+}
+
+button.blue:hover {
+    box-shadow: 0 0 5px var(--blue);
+}
+
+button.cyan {
+    background-color: var(--cyan);
+}
+
+button.cyan:hover {
+    box-shadow: 0 0 5px var(--cyan);
+}
+
 .inputLabel {
     color: var(--color3);
     font-size: 15px;
@@ -55,4 +75,18 @@ button.red:hover {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+}
+
+form input {
+    width: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.fw {
+    width: 100%;
 }

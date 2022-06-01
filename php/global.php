@@ -15,6 +15,8 @@ foreach (glob("{$_SERVER['DOCUMENT_ROOT']}/php/classes/*.php") as $filename) {
 
 session_start();
 
+updateSession();
+
 $serverData = [
   "ip" => $ip,
   "version" => $version,
