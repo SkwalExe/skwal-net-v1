@@ -33,44 +33,39 @@ if (!isset($_POST)) {
   die();
 }
 
-if (requirePost("email")) {
-  $email = $_POST['email'];
+if (requirePost("id", "token", "newPassword", "newPasswordConfirmation")) {
+  $id = $_POST['id'];
+  $token = $_POST['token'];
+  $newPassword = $_POST['newPassword'];
+  $newPasswordConfirmation = $_POST['newPasswordConfirmation'];
 
-  if (!userExists($email, "email")) {
-    $response["error"] = "This email is not registered.";
+  if ($newPassword != $newPasswordConfirmation) {
+    $response["error"] = "The new password and password confirmation do not match.";
     http_response_code(409);
     echo json_encode($response);
     die();
   }
 
-  $user = new User($email, "email");
+  $user = new User($id);
 
-  if (rateLimit("new-password-" . $user->id, 5, "day", 5, 5, 1, $seconds)) {
-    http_response_code(429);
-    header(sprintf("Retry-After: %d", floor($seconds)));
-    $response["error"] = "Already 5 password reset request were emitted for this account today, please try again later.";
+  if ($user->newPasswordToken != $token) {
+    $response["error"] = "Invalid token.";
+    http_response_code(409);
     echo json_encode($response);
     die();
   }
-  $token = bin2hex(random_bytes(32));
 
-  $sql = "UPDATE users SET newPasswordToken = ? WHERE id = ?";
 
+  $sql = "UPDATE users SET password = ?, newPasswordToken = NULL WHERE id = ?";
   $stmt = $db->prepare($sql);
-  $stmt->execute([$token, $user->id]);
+  $stmt->execute([HashThat($newPassword), $user->id]);
 
-
-  $subject = "Confirm your new email address";
-  $content = "<p>Hello {$user->username}, you recently tried to change/reset your password, please click <a href='https://skwal.net/profile/edit/newPassword?token=$token&action=confirmNewPassword&id={$user->id}'>here</a> to confirm this modification</p>";
-  $content .= "<br /><p style='color: red'>If you didn't request this modification then someone has access to your account, plese <a href='https://skwal.net/profile/newPassword'>change your password</a></p>";
-  sendMail($email, $subject, $content);
-
-  $response['message'] = "We sent you an email to reset your password";
+  $response['message'] = "Password saved successfully!";
   $response["success"] = true;
   http_response_code(200);
   echo json_encode($response);
 } else {
-  $response["error"] = "Missing post paramter, required: email";
+  $response["error"] = "Missing post paramter, required: id, token, newPassword, newPasswordConfirmation";
   http_response_code(422);
   echo json_encode($response);
 }
