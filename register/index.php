@@ -28,7 +28,6 @@ if ($error)
     navbarButton("Home", "/", "home.png");
 
     navbarEnd();
-
   ?>
     <div class="mainContainer">
 
@@ -38,28 +37,33 @@ if ($error)
 
 
           <div class="box glowing">
-            <h1 class="section">Login</h1>
+            <h1 class="section">Register</h1>
           </div>
 
           <div class="box glowing">
             <form>
-              <input type="hidden" name="identificator" value="email">
+              <div class="input">
+                <p class="inputLabel">Username</p>
+                <input type="username" autocomplete="username" name="username" placeholder="myUsername123" required>
+              </div>
               <div class="input">
                 <p class="inputLabel">Email</p>
-                <input type="email" autocomplete="email" name="identification" placeholder="name@example.com" required>
+                <input type="email" autocomplete="email" name="email" placeholder="name@example.com" required>
               </div>
               <div class="input">
                 <p class="inputLabel">Password</p>
-                <input type="password" autocomplete="current-password" name="password" placeholder="P4assw0rd!!" required>
+                <input type="password" autocomplete="new-password" name="password" class="password" placeholder="P4assw0rd!!" required>
+              </div>
+              <div class="input">
+                <p class="inputLabel">Confirm Password</p>
+                <input type="password" autocomplete="new-password" class="passwordConfirmation" placeholder="P4assw0rd!!" required>
               </div>
 
-              <button type="submit">Login</button>
+              <button type="submit">Register</button>
             </form>
             <hr>
             <div class="flex">
-              <a href="/register">Register</a>
-              <p> - </p>
-              <a href="/profile/newPassword">Forgot Password</a>
+              <a href="/login">Login to your account</a>
             </div>
           </div>
 
@@ -68,14 +72,12 @@ if ($error)
       </div>
     </div>
 
-
   <?php
-    loadingScreen();
-    footer();
   }
+  loadingScreen();
+  footer();
 
-
-  js("functions", "global", "navbar", "links", "tiles", "loadingScreen", "login");
+  js("functions", "global", "navbar", "links", "tiles", "loadingScreen", "register");
   ?>
 
 </body>
