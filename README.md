@@ -22,6 +22,10 @@ Import the `db.sql` file from the root of the repository.
 
 Create an `.env` file on the parent directory of `/src` from the `.env.sample` file, change the `DB_NAME`, `DB_USER`, `DB_HOST`, and `DB_PASSWORD` values to the corresponding values of your database and start the server (apache and mySql)
 
+The database sample contains two users: `skwal` and `john` with the password `password`.
+
+Don't forget to import the new `db.sql` file every time you `git fetch` or `git pull`.
+
 # Contributing
 
 Before contributing, you should have basic knowledge of the [website structure](https://github.com/SkwalExe/skwal.net/wiki)
