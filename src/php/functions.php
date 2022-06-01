@@ -359,7 +359,7 @@ function sendMail($to, $subject, $content, $from = "support@skwal.net", $blank =
         $message .= "<header>";
         $message .= "<h1>Skwal.net</h1>";
         $message .= "</header>";
-        $message .= "<div style=\"background-color: #F5F5F5; margin: 25px; border-radius: 7px; padding: 10px; width: 80%; max-width: 500px;\">";
+        $message .= "<div style=\"background-color: #F5F5F5; margin: 25px; border-radius: 7px; padding: 25px; width: 80%; max-width: 500px;\">";
         $message .= $content;
         $message .= "</div>";
         $message .= "<footer>";

@@ -19,13 +19,14 @@ if (requireGet('action', 'id', 'token')) {
       redirect("/", ["Error", "Invalid token.", "error"]);
     }
   }
-}
-
-if (isLoggedIn()) {
-  $user = new User($_SESSION['id']);
-  $error = false;
 } else {
-  redirect("/login", ["Error", "Please log in to edit your profile", "error"]);
+
+  if (isLoggedIn()) {
+    $user = new User($_SESSION['id']);
+    $error = false;
+  } else {
+    redirect("/login", ["Error", "Please log in to edit your profile", "error"]);
+  }
 }
 
 ?>

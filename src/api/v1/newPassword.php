@@ -60,8 +60,8 @@ if (requirePost("email")) {
   $stmt->execute([$token, $user->id]);
 
 
-  $subject = "Confirm your new email address";
-  $content = "<p>Hello {$user->username}, you recently tried to change/reset your password, please click <a href='https://skwal.net/profile/edit/newPassword?token=$token&action=confirmNewPassword&id={$user->id}'>here</a> to confirm this modification</p>";
+  $subject = "Reset your password";
+  $content = "<p>Hello {$user->username}, you recently tried to change/reset your password, please click <a href='https://skwal.net/profile/newPassword?token=$token&action=confirmNewPassword&id={$user->id}'>here</a> to confirm this modification</p>";
   $content .= "<br /><p style='color: red'>If you didn't request this modification then someone has access to your account, plese <a href='https://skwal.net/profile/newPassword'>change your password</a></p>";
   sendMail($email, $subject, $content);
 
