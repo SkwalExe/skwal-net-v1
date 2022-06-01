@@ -9,6 +9,10 @@
     margin: 10px;
 }
 
+.content.small {
+    max-width: 500px;
+}
+
 .content .box {
     margin-bottom: 20px;
 }
@@ -29,6 +33,7 @@
 @media (max-width: 768px) {
     .main {
         flex-direction: column;
+        align-items: center;
     }
     .content,
     .sidebar {

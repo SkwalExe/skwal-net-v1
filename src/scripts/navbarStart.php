@@ -14,4 +14,3 @@
 
         </div>
         <ul id="navList">
-            <li href="#" toultip="Visitor count"><img src="https://profile-counter.glitch.me/%7BSkwalExe%7D/count.svg" alt=""></li>

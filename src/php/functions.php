@@ -10,7 +10,7 @@ use bandwidthThrottle\tokenBucket\storage\FileStorage;
  */
 function local()
 {
-    return $_SERVER['SERVER_NAME'] === 'localhost';
+    return in_array($_SERVER["REMOTE_ADDR"], ["127.0.0.1", "::1", "localhost"]);
 }
 
 
@@ -38,7 +38,7 @@ function noCache(string $url)
 function css()
 {
     echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toasteur@0.2.1/dist/themes/toasteur-default.min.css">';
-    echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/messagebox.js@0.2.0/dist/themes/messagebox-default.min.css">';
+    echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/messagebox.js@0.4.0/dist/themes/messagebox-default.min.css">';
     echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toultip@0.1.0/dist/themes/toultip-default.min.css">';
     $files = func_get_args();
 
@@ -63,7 +63,7 @@ function js()
 
     echo '<script src="https://cdn.jsdelivr.net/gh/SkwalExe/Toasteur.js@v0.2.1/dist/toasteur.min.js"></script>';
     echo '<script src="https://cdn.jsdelivr.net/gh/SkwalExe/Toultip.js@v0.1.0/dist/toultip.min.js"></script>';
-    echo '<script src="https://cdn.jsdelivr.net/gh/SkwalExe/MessageBox.js@v0.2.0/dist/messagebox.min.js"></script>';
+    echo '<script src="https://cdn.jsdelivr.net/gh/SkwalExe/MessageBox.js@v0.4.0/dist/messagebox.min.js"></script>';
 
     static $serverDataPassed = false;
     if (!$serverDataPassed) {
@@ -79,6 +79,10 @@ function js()
         $file = "/js/$file.js";
         echo "<script src=\"" . noCache($file) . "\"></script>";
     }
+
+    global  $redirectNotification;
+    if (isset($redirectNotification))
+        echo  $redirectNotification;
 }
 
 
@@ -149,7 +153,7 @@ function navbarButton($text, $link = "#", $image = null)
 
     $imageHtml = $image ? "<img src=\"/assets/$image\" alt=\"navbar button icon\">" : "";
 
-    echo "<li href=\"$link\">$text$imageHtml</li>";
+    echo "<li href=\"$link\">$imageHtml$text</li>";
 }
 
 /**
@@ -290,4 +294,83 @@ function requirePost()
         }
     }
     return true;
+}
+
+function requireGet()
+{
+    $args = func_get_args();
+    foreach ($args as $arg) {
+        if (!isset($_GET[$arg])) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function requireFiles()
+{
+    $args = func_get_args();
+    foreach ($args as $arg) {
+        if (!isset($_FILES[$arg])) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function redirect($url, $notification = null)
+{
+    global $redirectNotification;
+
+    $redirectNotification = "<script>redirect('" . addslashes($url) . "'";
+
+    if ($notification) {
+
+        $redirectNotification .= ", ['" . addslashes($notification[0]) . "'";
+        $redirectNotification .= ", '" . addslashes($notification[1]) . "'";
+        $redirectNotification .= ", '" . addslashes($notification[2]) . "'";
+
+        if (isset($notification[3]))
+            $redirectNotification .= ", '" . addslashes($notification[3]) . "']";
+        else
+            $redirectNotification .= ']';
+    }
+
+    $redirectNotification .= ");</script>";
+}
+
+
+function updateSession()
+{
+    if (isLoggedIn()) {
+        $id = $_SESSION['id'];
+        $user = new User($id);
+        $_SESSION = $user->toArray();
+    }
+}
+function sendMail($to, $subject, $content, $from = "support@skwal.net", $blank = false)
+{
+    if (local())
+        return;
+
+    if (!$blank) {
+        $message = '<html><head><meta charset="utf-8"></head><body>';
+        $message .= "<center>";
+        $message .= "<header>";
+        $message .= "<h1>Skwal.net</h1>";
+        $message .= "</header>";
+        $message .= "<div style=\"background-color: #F5F5F5; margin: 25px; border-radius: 7px; padding: 10px; width: 80%; max-width: 500px;\">";
+        $message .= $content;
+        $message .= "</div>";
+        $message .= "<footer>";
+        $message .= "<p style=\"font-size: 10px; opacity: 0.4;\">";
+        $message .= "© 2018-" . getdate(time())["year"] . ", Léopold Koprivnik Ibghy, <a href='https://skwal.net'>Skwal.net</a>, all rights reserved.";
+        $message .= "</p>";
+        $message .= "</footer>";
+        $message .= "</center>";
+        $message .= '</body></html>';
+    } else
+        $message = $content;
+
+    mail($to, $subject, $message, "From: $from\r\nContent-type: text/html\r\n");
 }

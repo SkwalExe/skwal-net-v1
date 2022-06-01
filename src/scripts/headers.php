@@ -13,3 +13,4 @@ global $bio;
 <meta property="og:site_name" content="© 2018-<?= date("Y") ?>, Léopold Koprivnik Ibghy" />
 <meta property="og:description" content="<?= $bio ?>" />
 <meta name="theme-color" content="#FF514A">
+<meta name="referrer" content="no-referrer">
