@@ -25,7 +25,17 @@ class User
     $this->isAdmin = $user['isAdmin'];
     $this->isBanned = $user['isBanned'];
     $this->isVerified = $user['isVerified'];
+    $this->banner = $user['banner'];
+    $this->avatar = $user['avatar'];
+    $this->avatarVersion = $user['avatarVersion'];
+    $this->bannerVersion = $user['bannerVersion'];
+    $this->createdAt = $user['createdAt'];
+    $this->bio = $user['bio'];
+    $this->newEmail = $user['newEmail'];
+    $this->newEmailToken = $user['newEmailToken'];
+    $this->newPasswordToken = $user['newPasswordToken'];
   }
+
 
   public function toArray()
   {
@@ -35,7 +45,11 @@ class User
       'email' => $this->email,
       'isAdmin' => $this->isAdmin,
       'isBanned' => $this->isBanned,
-      'isVerified' => $this->isVerified
+      'isVerified' => $this->isVerified,
+      'createdAt' => $this->createdAt,
+      'bio' => $this->bio,
+      'banner' => $this->banner,
+      'avatar' => $this->avatar
     ];
   }
 

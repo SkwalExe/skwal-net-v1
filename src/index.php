@@ -23,6 +23,10 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
     <?php
 
     navbarStart();
+    if (isLoggedIn())
+        navbarButton("Profile", "/profile", "profile.png");
+    else
+        navbarButton("Login", "/login", "login.png");
     navbarButton("Github", "https://github.com/SkwalExe/", "github.png");
     navbarEnd();
 

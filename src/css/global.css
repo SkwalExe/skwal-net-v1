@@ -19,6 +19,7 @@
     color: white;
     font-family: 'Tisa', sans-serif;
     outline: none;
+    color-scheme: dark;
 }
 
 html {
@@ -93,8 +94,8 @@ div .glowing {
 }
 
 hr {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     border: 0;
     height: 1px;
     width: 100%;
@@ -154,4 +155,12 @@ hr {
 .info::before {
     content: 'info:';
     margin-right: 5px;
+}
+
+.flex {
+    gap: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
