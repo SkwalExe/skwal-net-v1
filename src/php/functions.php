@@ -374,3 +374,47 @@ function sendMail($to, $subject, $content, $from = "support@skwal.net", $blank =
 
     mail($to, $subject, $message, "From: $from\r\nContent-type: text/html\r\n");
 }
+
+
+function api_response()
+{
+    return [
+        "success" => false,
+        "message" => "",
+        "error" => "",
+        "data" => null
+    ];
+}
+
+
+function api($method = "POST", $contentType = "application/json")
+{
+    $response = api_response();
+
+    if ($_SERVER['REQUEST_METHOD'] != $method) {
+        $response['error'] = "Only $method requests are accepted";
+        echo json_encode($response);
+        http_response_code(405);
+        die();
+    }
+    if (isset($contentType)) {
+        if (!str_starts_with($contentType, "multipart/form-data") &&  $_SERVER['CONTENT_TYPE'] != $contentType) {
+            $response["error"] = "Content-Type must be $contentType";
+            echo json_encode($response);
+            http_response_code(409);
+            die();
+        }
+
+        if ($contentType == "application/json") {
+            $json = file_get_contents('php://input');
+            $_POST = json_decode($json, true);
+
+            if (!isset($_POST)) {
+                $response['error'] = "Invalid JSON";
+                echo json_encode($response);
+                http_response_code(400);
+                die();
+            }
+        }
+    }
+}

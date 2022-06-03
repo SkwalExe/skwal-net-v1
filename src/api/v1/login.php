@@ -1,36 +1,8 @@
 <?php
 include $_SERVER['DOCUMENT_ROOT'] . "/php/global.php";
-$response = [
-  "success" => false,
-  "message" => "",
-  "error" => "",
-  "data" => null
-];
+$response = api_response();
 
-if ($_SERVER['REQUEST_METHOD'] != "POST") {
-  $response['error'] = "Only POST requests are accepted";
-  echo json_encode($response);
-  http_response_code(405);
-  die();
-}
-
-if ($_SERVER['CONTENT_TYPE'] != "application/json") {
-  $response["error"] = "Content-Type must be application/json";
-  echo json_encode($response);
-  http_response_code(409);
-  die();
-}
-
-$json = file_get_contents('php://input');
-$_POST = json_decode($json, true);
-
-if (!isset($_POST)) {
-  $response['error'] = "Invalid JSON";
-  echo json_encode($response);
-  http_response_code(400);
-  die();
-}
-
+api();
 
 if (isLoggedIn()) {
   $response["error"] = "Already logged in.";
