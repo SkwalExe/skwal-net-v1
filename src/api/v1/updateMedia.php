@@ -2,27 +2,9 @@
 
 include $_SERVER['DOCUMENT_ROOT'] . "/php/global.php";
 
-$response = [
-  "success" => false,
-  "message" => "",
-  "error" => "",
-  "data" => null
-];
+$response = api_response();
 
-if ($_SERVER['REQUEST_METHOD'] != "POST") {
-  $response['error'] = "Only POST requests are accepted";
-  echo json_encode($response);
-  http_response_code(405);
-  die();
-}
-
-
-if (!str_starts_with($_SERVER['CONTENT_TYPE'], "multipart/form-data")) {
-  $response["error"] = "Content-Type must be multipart/form-data";
-  echo json_encode($response);
-  http_response_code(409);
-  die();
-}
+api("POST", "multipart/form-data");
 
 if (!isLoggedIn()) {
   $response["error"] = "Not logged in.";
