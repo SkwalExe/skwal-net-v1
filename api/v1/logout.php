@@ -1,19 +1,9 @@
 <?php
 include $_SERVER['DOCUMENT_ROOT'] . "/php/global.php";
 
-$response = [
-  "success" => false,
-  "message" => "",
-  "error" => "",
-  "data" => null
-];
+$response = api_response();
 
-if ($_SERVER['REQUEST_METHOD'] != "GET") {
-  $response['error'] = "Only GET requests are accepted";
-  echo json_encode($response);
-  http_response_code(405);
-  die();
-}
+api('GET', null);
 
 $response["success"] = true;
 
