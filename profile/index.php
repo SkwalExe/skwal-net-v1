@@ -16,6 +16,7 @@ if (!isLoggedIn() && !requireGet("username")) {
   } else {
     $error = false;
     $user = new User($username, "username");
+    $serverData["profile"] = $user->toArray();
     $loggedInUserProfile = (isLoggedIn() && $_SESSION['id'] == $user->id);
   }
 }
@@ -33,7 +34,7 @@ $serverData['loggedInUserProfile'] = $loggedInUserProfile;
 
   <?php
   defaultHeaders();
-  css("colors", "global", "footer", "loadingScreen", "navbar", "tiles", "profile");
+  css("colors", "global", "footer", "loadingScreen", "navbar", "tiles", "profile", "form");
   ?>
 
 </head>
@@ -65,6 +66,20 @@ $serverData['loggedInUserProfile'] = $loggedInUserProfile;
           </div>
           <div class="profileInformations">
             <h1 class="section break username"><?= $user->username ?></h1>
+            <p><span class="followerCount"><?= $user->followerCount ?></span> Followers</p>
+            <?php
+            if (isLoggedIn()) {
+              if ($loggedInUserProfile) {
+                echo '<button _href="/profile/edit" class="blue">Edit profile</button>';
+              } else {
+                $following = $user->isFollowedBy($_SESSION['id']);
+                echo '<button ' . (!$following ? 'style="display:none"' : '') . ' class="unfollowButton gray">Unfollow</button>';
+                echo '<button ' . ($following ? 'style="display:none"' : '') . ' class="followButton red">Follow</button>';
+              }
+            } else {
+              echo '<h5><a href="/login">Log in</a> to follow</h5>';
+            }
+            ?>
           </div>
         </div>
         <div class="tabs">

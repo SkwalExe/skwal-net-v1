@@ -34,6 +34,11 @@ class User
     $this->newEmail = $user['newEmail'];
     $this->newEmailToken = $user['newEmailToken'];
     $this->newPasswordToken = $user['newPasswordToken'];
+
+    $sql = "SELECT * FROM followers WHERE userId = ?";
+    $stmt = $db->prepare($sql);
+    $stmt->execute([$this->id]);
+    $this->followerCount = $stmt->rowCount();
   }
 
 
@@ -57,5 +62,30 @@ class User
   public function verifyPassword($password)
   {
     return password_verify($password, $this->password);
+  }
+
+  public function isFollowedBy($id)
+  {
+    global $db;
+    $sql = "SELECT * FROM followers WHERE userId = ? AND followerId = ?";
+    $stmt = $db->prepare($sql);
+    $stmt->execute([$this->id, $id]);
+    return $stmt->rowCount() > 0;
+  }
+
+  public function follow($id)
+  {
+    global $db;
+    $sql = "INSERT INTO followers (userId, followerId) VALUES (?, ?)";
+    $stmt = $db->prepare($sql);
+    $stmt->execute([$this->id, $id]);
+  }
+
+  public function unfollow($id)
+  {
+    global $db;
+    $sql = "DELETE FROM followers WHERE userId = ? AND followerId = ?";
+    $stmt = $db->prepare($sql);
+    $stmt->execute([$this->id, $id]);
   }
 }
