@@ -85,11 +85,15 @@ button.gray:hover {
     gap: 10px;
 }
 
-form input {
+form input,
+.form input,
+form select,
+.form select {
     width: 100%;
 }
 
-form {
+form,
+.form {
     display: flex;
     flex-direction: column;
     gap: 10px;

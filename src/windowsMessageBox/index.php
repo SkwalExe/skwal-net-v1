@@ -44,7 +44,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
                 </div>
 
                 <div class="box glowing">
-                    <div class="flexInputs">
+                    <div class="form">
                         <div class="input">
                             <p class="inputLabel">Message box title</p>
                             <input placeholder="My title" type="text" value="My title" class="title">
