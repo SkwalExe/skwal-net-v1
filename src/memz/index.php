@@ -29,7 +29,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
     <div class="mainContainer">
 
         <div class="main">
-            <div class="content">
+            <div class="small content">
 
 
 
