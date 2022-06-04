@@ -12,7 +12,7 @@ textarea {
     resize: none;
     -webkit-appearance: none;
     height: 30px;
-    width: 180pxs
+    width: 180px;
 }
 
 input[type=file] {
