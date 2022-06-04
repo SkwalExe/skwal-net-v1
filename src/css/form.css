@@ -64,6 +64,14 @@ button.cyan:hover {
     box-shadow: 0 0 5px var(--cyan);
 }
 
+button.gray {
+    background-color: gray;
+}
+
+button.gray:hover {
+    box-shadow: 0 0 5px gray;
+}
+
 .inputLabel {
     color: var(--color3);
     font-size: 15px;

@@ -113,3 +113,52 @@ if (serverData.loggedInUserProfile) {
       })
   }
 }
+
+
+let followButton = $('.followButton')
+let unfollowButton = $('.unfollowButton')
+let followerCount = $('.followerCount')
+
+if (followButton) {
+  followButton.onclick = () => {
+    fetch('/api/v1/follow.php', {
+      method: 'POST',
+      body: JSON.stringify({
+        id: serverData.profile.id
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(res => res.json()).then(data => {
+      if (data.success) {
+        followButton.style.display = 'none'
+        unfollowButton.style.display = 'block'
+        followerCount.innerHTML = parseInt(followerCount.textContent) + 1
+      } else {
+        toasteur.error(data.error, "Error!")
+      }
+    })
+  }
+}
+
+if (unfollowButton) {
+  unfollowButton.onclick = () => {
+    fetch('/api/v1/unfollow.php', {
+      method: 'POST',
+      body: JSON.stringify({
+        id: serverData.profile.id
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(res => res.json()).then(data => {
+      if (data.success) {
+        followButton.style.display = 'block'
+        unfollowButton.style.display = 'none'
+        followerCount.innerHTML = parseInt(followerCount.textContent) - 1
+      } else {
+        toasteur.error(data.error, "Error!")
+      }
+    })
+  }
+}
