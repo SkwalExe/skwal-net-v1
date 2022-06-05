@@ -36,9 +36,7 @@ if ($error)
 
 
 
-          <div class="box glowing">
-            <h1 class="section">Register</h1>
-          </div>
+          <h1 class="center box glowing">Register</h1>
 
           <div class="box glowing">
             <form>

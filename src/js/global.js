@@ -1,12 +1,6 @@
 const toasteur = new Toasteur("top-right", 7000);
 Toultip.init();
 
-$$(".sideBarTitle").forEach(element => {
-  element.classList.add("section")
-  element.classList.add("box")
-  element.classList.add("glowing")
-})
-
 document.body.ondragover = function(e) {
   e.preventDefault()
   return false;

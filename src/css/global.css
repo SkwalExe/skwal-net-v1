@@ -31,13 +31,6 @@ body {
     justify-content: center;
 }
 
-.section {
-    text-align: center;
-    font-size: 35px;
-    text-shadow: 0 0 1px var(--color3), 0 0 2px var(--color3), 0 0 4px var(--color3), 0 0 5px var(--color3), 0 0 10px var(--color3);
-    font-weight: bold;
-}
-
 a {
     text-decoration: none;
     color: var(--blue);
@@ -45,7 +38,7 @@ a {
 }
 
 a:hover {
-    color: var(--cyan);
+    color: var(--color3);
 }
 
 *::-webkit-scrollbar {
@@ -167,4 +160,12 @@ hr {
     -khtml-user-drag: none;
     -moz-user-drag: none;
     -ms-user-drag: none;
+}
+
+h1 {
+    color: var(--color3);
+}
+
+h1.center {
+    text-align: center;
 }
