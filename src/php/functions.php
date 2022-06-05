@@ -37,7 +37,9 @@ function noCache(string $url)
  */
 function css()
 {
-    echo "<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins:700&display=swap'>";
+    echo "<style>";
+    echo "@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap')";
+    echo "</style>";
 
     echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toasteur@0.2.1/dist/themes/toasteur-default.min.css">';
     echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/messagebox.js@0.4.0/dist/themes/messagebox-default.min.css">';
