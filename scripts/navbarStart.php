@@ -2,10 +2,7 @@
     <div class="container">
 
         <div class="nav-top">
-            <div toultip='Copy website url' href="javascript:copy('https://new.skwal.net'); toasteur.success('Website URL copied to clipboard', 'Copied!')" class="logo">
-                <img src="/assets/github.png" alt="">
-                <p class="text"><span class="purp">Skwal</span><span>Exe</span></p>
-            </div>
+            <img toultip="Right click to copy website url" class="logo" src="/assets/logo.png" href="/">
             <div class="menu" id="toggleButton">
                 <div class="menu-line"></div>
                 <div class="menu-line"></div>
