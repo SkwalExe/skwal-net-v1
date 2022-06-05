@@ -120,12 +120,10 @@ hr {
 
 *::selection {
     background-color: rgba(0, 0, 0, 0.22);
-    color: tomato;
 }
 
 *::-moz-selection {
     background-color: rgba(0, 0, 0, 0.22);
-    color: tomato;
 }
 
 .flexwrap {
