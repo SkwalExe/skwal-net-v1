@@ -28,35 +28,37 @@ Don't forget to import the new `db.sql` file every time you `git fetch` or `git 
 
 # Contributing
 
-Before contributing, you should have basic knowledge of the [website structure](https://github.com/SkwalExe/skwal.net/wiki)
+1. Start by [**forking** this repository](https://github.com/SkwalExe/skwal.net/fork)
 
-Start by **forking** this repository.
+2. Then clone your fork to your local machine.
+  ```git
+  git clone https://github.com/your-username/skwal.net.git
+  ```
 
-![](assets/fork.png)
+3. [Set up your local development environment](#setting-up-development-environment)
 
-Then clone your fork to your local machine.
+4. Create a new branch
+  ```git
+  git checkout -b super-cool-feature
+  ```
 
-```git
-git clone https://github.com/your-username/skwal.net.git
-```
+5. Then make your changes
 
-Create a new branch
+6. If you made any changes to a css or js file, in the `📄 /src/php/variables.php` file, change the `$version` variable to anything else.
 
-```git
-git checkout -b super-cool-feature
-```
+7. Once you're done, commit your changes and push them to the remote repository.
+  ```git
+  git add --all
+  git commit -m "Add super-cool-feature"
+  git push origin super-cool-feature
+  ```
 
-Then [edit the source code](#setting-up-development-environment) in the `📂/src/` folder.
-
-Once you're done, commit your changes and push them to the remote repository.
-
-```git
-git add --all
-git commit -m "Add super-cool-feature"
-git push origin super-cool-feature
-```
-
-Then, open a pull request on GitHub from your fork.
+8. Then, open a pull request on GitHub from your fork.
+    1. Go to [this link](https://github.com/SkwalExe/skwal.netà/compare/)
+    2. Click compare across forks
+    3. On the right, on `head repository` select your fork
+    4. And on `compare` select the branch you just created
+    5. Click on `Create Pull Request` and submit your pull request
 
 # final
 
