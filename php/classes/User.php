@@ -22,9 +22,6 @@ class User
     $this->username = $user['username'];
     $this->email = $user['email'];
     $this->password = $user['password'];
-    $this->isAdmin = $user['isAdmin'];
-    $this->isBanned = $user['isBanned'];
-    $this->isVerified = $user['isVerified'];
     $this->banner = $user['banner'];
     $this->avatar = $user['avatar'];
     $this->avatarVersion = $user['avatarVersion'];
@@ -35,6 +32,7 @@ class User
     $this->newEmailToken = $user['newEmailToken'];
     $this->newPasswordToken = $user['newPasswordToken'];
     $this->profileHTML = "https://skwal.net/profile/?username=$this->username";
+    $this->roles = explode(",", $user['roles']);
 
     $sql = "SELECT * FROM followers WHERE userId = ?";
     $stmt = $db->prepare($sql);
@@ -49,14 +47,12 @@ class User
       'id' => $this->id,
       'username' => $this->username,
       'email' => $this->email,
-      'isAdmin' => $this->isAdmin,
-      'isBanned' => $this->isBanned,
-      'isVerified' => $this->isVerified,
       'createdAt' => $this->createdAt,
       'bio' => $this->bio,
       'banner' => $this->banner,
       'avatar' => $this->avatar,
       'profileHTML' => $this->profileHTML,
+      'roles' => $this->roles
     ];
   }
 
