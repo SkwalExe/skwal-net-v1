@@ -1,11 +1,3 @@
-@font-face {
-    font-family: 'Tisa';
-    font-style: normal;
-    font-weight: 400;
-    font-display: fallback;
-    src: url(/assets/TisaSansPro-Regular.woff2) format('woff2');
-}
-
 :root {
     --transition: 50ms;
     --radius: 2px;
@@ -17,7 +9,7 @@
     box-sizing: border-box;
     padding: 0;
     color: white;
-    font-family: 'Tisa', sans-serif;
+    font-family: "Poppins", "Roboto", "Noto", sans-serif;
     outline: none;
     color-scheme: dark;
 }
