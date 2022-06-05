@@ -65,7 +65,19 @@ $serverData['loggedInUserProfile'] = $loggedInUserProfile;
             <img src="/avatar/?username=<?= $user->username ?>&v=<?= $user->avatarVersion ?>" alt="" class="avatar">
           </div>
           <div class="noSelect profileInformations">
-            <h1 class="section break username"><?= $user->username ?></h1>
+            <h1 class="section break username"><?= $user->username ?>
+              <?php
+              foreach ($user->roles as $role) {
+                switch ($role) {
+                  case "verified":
+                    echo "<img src='/assets/roles/$role.png' class='roleIcon' toultip='This user is verified' />";
+                    break;
+                  case "admin":
+                    echo "<img src='/assets/roles/$role.png' class='roleIcon' toultip='This user is an admin' />";
+                    break;
+                }
+              }
+              ?></h1>
             <p><span class="followerCount"><?= $user->followerCount ?></span> Followers</p>
             <?php
             if (isLoggedIn()) {
