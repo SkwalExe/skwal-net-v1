@@ -1,5 +1,7 @@
 $$("*[href], *[_href]").forEach(function(el) {
   el.style.cursor = "pointer";
+  el.classList.add('noSelect');
+  el.draggable = false;
 });
 
 $$("*[href]").forEach(element => {
