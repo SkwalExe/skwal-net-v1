@@ -164,3 +164,15 @@ hr {
     align-items: center;
     flex-wrap: wrap;
 }
+
+.noSelect {
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -ms-user-drag: none;
+}

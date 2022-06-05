@@ -68,10 +68,6 @@
     cursor: pointer;
 }
 
-.tabs p:hover {
-    color: var(--color3);
-}
-
 .tabs p.selected {
     color: var(--color3);
 }
