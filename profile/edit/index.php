@@ -61,9 +61,7 @@ if (requireGet('action', 'id', 'token')) {
 
 
 
-          <div class="box glowing">
-            <h1 class="section">Profile</h1>
-          </div>
+          <h1 class="glowing box center">Profile</h1>
 
           <div class="box glowing">
             <form>

@@ -30,11 +30,9 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
         <div class="main">
             <div class="content">
 
-                <div class="box glowing">
-                    <h1 class="section">
-                        About skwal.net
-                    </h1>
-                </div>
+                <h1 class="glowing box center">
+                    About skwal.net
+                </h1>
 
                 <div class="box glowing markup">
                     <img src="/assets/photo.png" alt="">
@@ -58,7 +56,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
             </div>
             <hr class=" onlyShowWhenMobileWidth">
             <div class="sidebar">
-                <h1 class="sideBarTitle">
+                <h1 class="glowing box center">
                     Links
                 </h1>
                 <div class="links box glowing">
@@ -69,25 +67,21 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
                 <hr>
 
-                <div class="oneColumnTiles">
-                    <h1 class="sideBarTitle">
-                        Pages
-                    </h1>
-                    <?php
-                    pages();
-                    ?>
-                </div>
+                <h1 class="glowing box center">
+                    Pages
+                </h1>
+                <?php
+                pages();
+                ?>
 
                 <hr>
 
-                <div class="oneColumnTiles">
-                    <h1 class="sideBarTitle">
-                        Projects
-                    </h1>
-                    <?php
-                    projects();
-                    ?>
-                </div>
+                <h1 class="glowing box center">
+                    Projects
+                </h1>
+                <?php
+                projects();
+                ?>
             </div>
         </div>
     </div>

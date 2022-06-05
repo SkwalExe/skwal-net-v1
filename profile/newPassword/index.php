@@ -45,11 +45,9 @@ if (requireGet('action', 'id', 'token')) {
 
     <div class="main">
       <div class="small content">
-        <div class="box glowing">
-          <p class="section">
-            Change/reset your password
-          </p>
-        </div>
+        <h1 class="glowing box center">
+          Change/reset your password
+        </h1>
         <div class="box glowing">
           <?php
           if ($action == "sendmail") {
