@@ -80,6 +80,7 @@ $serverData['loggedInUserProfile'] = $loggedInUserProfile;
               echo '<h5><a href="/login">Log in</a> to follow</h5>';
             }
             ?>
+            <button onclick="copyProfileUrl()">Copy Profile URL</button>
           </div>
         </div>
         <div class="noSelect tabs">
