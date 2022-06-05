@@ -65,7 +65,7 @@ $serverData['loggedInUserProfile'] = $loggedInUserProfile;
             <img src="/avatar/?username=<?= $user->username ?>&v=<?= $user->avatarVersion ?>" alt="" class="avatar">
           </div>
           <div class="noSelect profileInformations">
-            <h1 class="section break username"><?= $user->username ?>
+            <h1 class="break username"><?= $user->username ?>
               <?php
               foreach ($user->roles as $role) {
                 switch ($role) {

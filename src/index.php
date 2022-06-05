@@ -36,11 +36,9 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
         <div class="main">
             <div class="content">
-                <div class="box glowing">
-                    <h1 class="section">
-                        Pages
-                    </h1>
-                </div>
+                <h1 class="center box glowing">
+                    Pages
+                </h1>
                 <div class="tiles">
                     <?php
 
@@ -51,7 +49,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
             </div>
             <hr class="onlyShowWhenMobileWidth">
             <div class="sidebar">
-                <h1 class="sideBarTitle">
+                <h1 class="center box glowing">
                     Links
                 </h1>
                 <div class="links box glowing">
@@ -68,14 +66,12 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
                 <hr>
 
 
-                <div class="oneColumnTiles">
-                    <h1 class="sideBarTitle">
-                        My projects
-                    </h1>
-                    <?php
-                    projects();
-                    ?>
-                </div>
+                <h1 class="center box glowing">
+                    My projects
+                </h1>
+                <?php
+                projects();
+                ?>
 
             </div>
         </div>

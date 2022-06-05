@@ -3,8 +3,6 @@
     width: 100%;
     transition-duration: var(--transition);
     text-align: left;
-    /* avoid the top of the tile from being cropped */
-    margin-bottom: 15px;
 }
 
 .tile:hover {
@@ -58,25 +56,6 @@
     column-gap: 25px;
     text-align: center;
     max-width: 1500px;
-}
-
-.oneColumnTiles {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.oneColumnTiles .tile:last-child {
-    margin-bottom: 0 !important;
-}
-
-.oneColumnTiles .tile:first-child {
-    margin-top: 0 !important;
-}
-
-.oneColumnTiles .tile {
-    margin-top: 0 !important;
 }
 
 @media (max-width: 600px) {
