@@ -49,6 +49,10 @@
     text-align: left !important;
     font-weight: bold;
     line-height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 .main {
@@ -94,4 +98,14 @@
 
 .profileInformations button {
     width: 150px;
+}
+
+.roleIcon {
+    cursor: pointer;
+    height: 20px;
+    transition-duration: var(--transition);
+}
+
+.roleIcon:hover {
+    transform: scale(1.2);
 }
