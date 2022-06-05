@@ -162,3 +162,9 @@ if (unfollowButton) {
     })
   }
 }
+
+
+const copyProfileUrl = () => {
+  copy(serverData.profile.profileHTML)
+  toasteur.success("Profile URL copied to clipboard!", "Success!")
+}
