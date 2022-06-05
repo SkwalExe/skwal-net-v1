@@ -64,7 +64,7 @@ $serverData['loggedInUserProfile'] = $loggedInUserProfile;
           <div <?= $loggedInUserProfile ? "toultip='Click to change your avatar'" : "" ?> class="avatarContainer">
             <img src="/avatar/?username=<?= $user->username ?>&v=<?= $user->avatarVersion ?>" alt="" class="avatar">
           </div>
-          <div class="profileInformations">
+          <div class="noSelect profileInformations">
             <h1 class="section break username"><?= $user->username ?></h1>
             <p><span class="followerCount"><?= $user->followerCount ?></span> Followers</p>
             <?php
@@ -82,7 +82,7 @@ $serverData['loggedInUserProfile'] = $loggedInUserProfile;
             ?>
           </div>
         </div>
-        <div class="tabs">
+        <div class="noSelect tabs">
           <p class="selected posts-button">Posts</p>
           <p class="comments-button">Comments</p>
           <p class="about-button">About</p>

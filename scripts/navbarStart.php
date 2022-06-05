@@ -1,4 +1,4 @@
-<div class="navbar">
+<div class="noSelect navbar">
     <div class="container">
 
         <div class="nav-top">
