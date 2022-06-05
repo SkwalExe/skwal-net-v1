@@ -53,7 +53,7 @@ a {
 }
 
 a:hover {
-    color: var(--color3);
+    color: var(--cyan);
 }
 
 *::-webkit-scrollbar {

@@ -4,18 +4,20 @@ $$("*[href], *[_href]").forEach(function(el) {
 
 $$("*[href]").forEach(element => {
   element.onclick = (e) => {
+    let href = element.getAttribute("href");
     e.preventDefault();
-    if (e.ctrlKey)
-      window.open(this.getAttribute("href"), "_blank");
+    if (e.ctrlKey && !href.startsWith("#") & !href.startsWith("javascript:"))
+      window.open(href, "_blank");
     else
-      window.location.href = this.getAttribute("href");
+      window.location.href = element.getAttribute("href");
   };
 });
 
 $$("*[_href]").forEach(element => {
-  element.addEventListener("click", function(event) {
-    event.preventDefault();
+  element.onclick = (e) => {
+    let href = element.getAttribute("_href");
+    e.preventDefault();
 
-    window.open(this.getAttribute("_href"), "_blank");
-  });
+    window.open(href, "_blank");
+  };
 });
