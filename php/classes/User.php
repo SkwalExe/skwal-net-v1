@@ -34,6 +34,7 @@ class User
     $this->newEmail = $user['newEmail'];
     $this->newEmailToken = $user['newEmailToken'];
     $this->newPasswordToken = $user['newPasswordToken'];
+    $this->profileHTML = "https://skwal.net/profile/?username=$this->username";
 
     $sql = "SELECT * FROM followers WHERE userId = ?";
     $stmt = $db->prepare($sql);
@@ -54,7 +55,8 @@ class User
       'createdAt' => $this->createdAt,
       'bio' => $this->bio,
       'banner' => $this->banner,
-      'avatar' => $this->avatar
+      'avatar' => $this->avatar,
+      'profileHTML' => $this->profileHTML,
     ];
   }
 
