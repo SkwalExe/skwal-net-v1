@@ -1,39 +1,26 @@
 <?php
 include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
-
     <?php
     defaultHeaders();
     css("colors", "global", "footer", "layout", "form", "loadingScreen", "cowTranslator", "navbar", "tiles");
     ?>
-
 </head>
 
 <body>
-
     <?php
     navbarStart();
-
     navbarButton("Home", "/", "home.png");
-
     navbarEnd();
     ?>
     <div class="mainContainer">
-
         <div class="main">
             <div class="content">
-                <div class="titleBox box glowing">
-                    <div class="markup">
-                        <h1>Cow translator 🐄</h1>
-                    </div>
-                </div>
+                <h1 class="box glowing center">Cow translator 🐄</h1>
                 <div class="glowing box">
                     <p>Status : <span class="status">OK</span></p>
                 </div>
@@ -56,7 +43,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
             </div>
             <hr class="onlyShowWhenMobileWidth">
             <div class="sidebar">
-                <h1 class="sideBarTitle">
+                <h1 class="box glowing center">
                     Links
                 </h1>
                 <div class="links box glowing">
@@ -67,25 +54,21 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
                 <hr>
 
-                <div class="oneColumnTiles">
-                    <h1 class="sideBarTitle">
-                        Pages
-                    </h1>
-                    <?php
-                    pages();
-                    ?>
-                </div>
+                <h1 class="box glowing center">
+                    Pages
+                </h1>
+                <?php
+                pages();
+                ?>
 
                 <hr>
 
-                <div class="oneColumnTiles">
-                    <h1 class="sideBarTitle">
-                        Projects
-                    </h1>
-                    <?php
-                    projects();
-                    ?>
-                </div>
+                <h1 class="box glowing center">
+                    Projects
+                </h1>
+                <?php
+                projects();
+                ?>
             </div>
         </div>
     </div>
