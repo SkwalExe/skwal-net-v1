@@ -1,37 +1,25 @@
 <?php
 include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
-
     <?php
     defaultHeaders();
     css("colors",  "global", "footer", "layout", "loadingScreen", "navbar", "tiles");
     ?>
-
 </head>
 
 <body>
-
     <?php
     navbarStart();
-
     navbarButton("Home", "/", "home.png");
-
     navbarEnd();
     ?>
     <div class="mainContainer">
-
         <div class="main">
             <div class="content">
-
-
-
                 <div class="box glowing">
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -149,7 +137,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
             </div>
             <hr class="onlyShowWhenMobileWidth">
             <div class="sidebar">
-                <h1 class="sideBarTitle">
+                <h1 class="box glowing center">
                     Links
                 </h1>
                 <div class="links box glowing">
@@ -160,40 +148,28 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
                     <a href="#">Link 5</a>
                     <a href="#">Link 6</a>
                 </div>
-
                 <hr>
-
-
-                <div class="oneColumnTiles">
-                    <h1 class="sideBarTitle">
-                        Pages
-                    </h1>
-                    <?php
-                    pages();
-                    ?>
-                </div>
-
+                <h1 class="box glowing center">
+                    Pages
+                </h1>
+                <?php
+                pages();
+                ?>
                 <hr>
-
-                <div class="oneColumnTiles">
-                    <h1 class="sideBarTitle">
-                        Projects
-                    </h1>
-                    <?php
-                    projects();
-                    ?>
-                </div>
+                <h1 class="box glowing center">
+                    Projects
+                </h1>
+                <?php
+                projects();
+                ?>
             </div>
         </div>
     </div>
-
     <?php
     loadingScreen();
     footer();
-
     js("functions", "global", "navbar", "links", "tiles", "loadingScreen");
     ?>
-
 </body>
 
 </html>
