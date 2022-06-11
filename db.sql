@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 05, 2022 at 10:12 AM
+-- Generation Time: Jun 11, 2022 at 07:24 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -20,6 +20,59 @@ SET time_zone = "+00:00";
 --
 -- Database: `skwal`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `followers`
+--
+
+CREATE TABLE `followers` (
+  `userId` int(11) NOT NULL,
+  `followerId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `likes`
+--
+
+CREATE TABLE `likes` (
+  `user` int(11) NOT NULL,
+  `post` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `likes`
+--
+
+INSERT INTO `likes` (`user`, `post`) VALUES
+(1, 1),
+(1, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `posts`
+--
+
+CREATE TABLE `posts` (
+  `title` text NOT NULL,
+  `content` text NOT NULL,
+  `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
+  `editedAt` timestamp NULL DEFAULT NULL,
+  `author` int(11) NOT NULL,
+  `id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `posts`
+--
+
+INSERT INTO `posts` (`title`, `content`, `createdAt`, `editedAt`, `author`, `id`) VALUES
+('Lorem Ipsum', 'Lorem ipsum dolor sit amet. Aut nesciunt vitae non repellat corrupti aut numquam repellat. Et dolores vitae 33 quaerat quae quo eius iste rem quia voluptas. Qui odit nobis aut doloribus animi non magni ipsa et architecto laudantium ut enim quam ad assumenda nihil.\n\nAut rerum error qui optio eligendi ut optio repellat non Quis asperiores. Eum minima magnam saepe alias et fuga vel consequatur omnis hic nesciunt perspiciatis est explicabo unde 33 officiis dolor. Qui nemo aspernatur qui unde ratione et tempore reprehenderit est odit dolorum.\n\nAut consectetur odit vel voluptatem tempora aut dolorem galisum id deserunt aliquam? Quo error architecto sed vitae distinctio ea officiis ratione in suscipit delectus non omnis error ut veritatis praesentium. Aut sunt quos ut aliquid similique eum natus galisum non accusamus magni non quidem dolor?', '2022-06-11 05:23:08', NULL, 1, 1),
+('Hello', 'Lorem ipsum dolor sit amet. Sed assumenda quae hic aspernatur esse a similique sint et assumenda facere et dolor corrupti et animi sint eum libero reiciendis. Aut eveniet quam eos odio cumque aut numquam autem qui iusto tempore. Aut nesciunt repellendus sed iusto reiciendis ea laboriosam molestiae. Et voluptas tempore hic laboriosam placeat ea autem omnis ut mollitia sint?\n\nEa autem fugiat quo nihil odio ex maiores perspiciatis. Et iste dignissimos aut debitis corporis qui delectus quidem.', '2022-06-11 05:24:21', NULL, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -57,6 +110,12 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`, `createdAt`, `banner
 --
 
 --
+-- Indexes for table `posts`
+--
+ALTER TABLE `posts`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -65,6 +124,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `posts`
+--
+ALTER TABLE `posts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
