@@ -9,8 +9,10 @@
     margin: 10px;
 }
 
-.content.small {
-    max-width: 500px;
+@media (min-width: 768px) {
+    .content.small {
+        max-width: 500px;
+    }
 }
 
 .content .box {
@@ -60,9 +62,14 @@
     align-items: center;
     width: fit-content;
     margin: 2px;
+    cursor: pointer;
 }
 
-.links img {
+.links img,
+.links i {
     height: 20px;
     margin-right: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

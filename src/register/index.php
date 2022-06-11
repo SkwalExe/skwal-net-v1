@@ -60,7 +60,7 @@ if ($error)
               <button type="submit">Register</button>
             </form>
             <hr>
-            <div class="flex">
+            <div class="flex center">
               <a href="/login">Login to your account</a>
             </div>
           </div>

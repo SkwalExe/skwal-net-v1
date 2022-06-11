@@ -145,9 +145,12 @@ hr {
 .flex {
     gap: 7px;
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+}
+
+.flex.center {
+    justify-content: center;
 }
 
 .noSelect {
@@ -162,10 +165,20 @@ hr {
     -ms-user-drag: none;
 }
 
-h1 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     color: var(--color3);
 }
 
-h1.center {
+h1.center,
+h2.center,
+h3.center,
+h4.center,
+h5.center,
+h6.center {
     text-align: center;
 }
