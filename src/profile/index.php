@@ -113,6 +113,10 @@ $serverData['loggedInUserProfile'] = $loggedInUserProfile;
               echo $post->HTML(200, false);
               echo "</div>";
             }
+
+            if (count($user->posts) == 0) {
+              echo "<h1 class='center glowing box bg1'>No posts yet</h1>";
+            }
             ?>
           </div>
         </div>

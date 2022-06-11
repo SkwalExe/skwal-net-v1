@@ -182,3 +182,15 @@ h5.center,
 h6.center {
     text-align: center;
 }
+
+.bg1 {
+    background-color: var(--color1);
+}
+
+.bg2 {
+    background-color: var(--color2);
+}
+
+.bg3 {
+    background-color: var(--color3);
+}
