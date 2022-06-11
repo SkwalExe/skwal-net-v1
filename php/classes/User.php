@@ -2,15 +2,6 @@
 
 class User
 {
-  public $id;
-  public $username;
-  public $email;
-  public $password;
-  public $isAdmin;
-  public $isBanned;
-  public $isVerified;
-
-
   public function __construct($identification, $type = "id")
   {
     global $db;
@@ -33,6 +24,9 @@ class User
     $this->newPasswordToken = $user['newPasswordToken'];
     $this->profileHTML = "https://skwal.net/profile/?username=$this->username";
     $this->roles = explode(",", $user['roles']);
+    $this->posts = [];
+    $this->avatarUrl = "/avatar/?username=$this->username";
+    $this->bannerUrl = "/banner/?username=$this->username";
 
     $sql = "SELECT * FROM followers WHERE userId = ?";
     $stmt = $db->prepare($sql);
@@ -85,5 +79,18 @@ class User
     $sql = "DELETE FROM followers WHERE userId = ? AND followerId = ?";
     $stmt = $db->prepare($sql);
     $stmt->execute([$this->id, $id]);
+  }
+
+  public function loadPosts()
+  {
+    global $db;
+    $this->posts = [];
+    $sql = "SELECT id FROM posts WHERE author = ? ORDER BY createdAt DESC";
+    $stmt = $db->prepare($sql);
+    $stmt->execute([$this->id]);
+    $posts = $stmt->fetchAll();
+    foreach ($posts as $post) {
+      $this->posts[] = new Post($post['id']);
+    }
   }
 }

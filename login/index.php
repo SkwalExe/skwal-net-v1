@@ -54,7 +54,7 @@ if ($error)
               <button type="submit">Login</button>
             </form>
             <hr>
-            <div class="flex">
+            <div class="flex center">
               <a href="/register">Register</a>
               <p> - </p>
               <a href="/profile/newPassword">Forgot Password</a>

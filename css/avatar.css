@@ -1,0 +1,17 @@
+.avatar {
+    min-height: 105%;
+    min-width: 105%;
+    object-fit: cover;
+}
+
+.avatarContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 100%;
+    min-width: 30px;
+    width: 30px;
+    min-height: 30px;
+    height: 30px;
+}

@@ -88,7 +88,9 @@ button.gray:hover {
 form input,
 .form input,
 form select,
-.form select {
+.form select,
+form textarea,
+.form textarea {
     width: 100%;
 }
 
