@@ -92,7 +92,7 @@ class Post
       if ($contentLimit !== 0) {
       ?>
         <div class="postContent">
-          <?= htmlentities(nl2br($content)); ?>
+          <?= nl2br(htmlentities($content)); ?>
         </div>
       <?php
       }

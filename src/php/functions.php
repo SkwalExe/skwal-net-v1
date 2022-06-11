@@ -446,7 +446,7 @@ function recentPosts($limit = 5)
             </div>
             <div class="body">
                 <p class="text">
-                    <?= htmlentities(substr($post->content, 0, 100)) ?>...
+                    <?= nl2br(htmlentities(substr($post->content, 0, 100))) ?>...
                 </p>
             </div>
         </div>
