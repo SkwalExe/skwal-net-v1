@@ -16,6 +16,7 @@ if (!isLoggedIn() && !requireGet("username")) {
   } else {
     $error = false;
     $user = new User($username, "username");
+    $user->loadPosts();
     $serverData["profile"] = $user->toArray();
     $loggedInUserProfile = (isLoggedIn() && $_SESSION['id'] == $user->id);
   }
@@ -34,7 +35,7 @@ $serverData['loggedInUserProfile'] = $loggedInUserProfile;
 
   <?php
   defaultHeaders();
-  css("colors", "global", "footer", "loadingScreen", "navbar", "tiles", "profile", "form");
+  css("colors", "global", "footer", "loadingScreen", "post", "navbar", "tiles", "avatar", "profile", "form");
   ?>
 
 </head>
@@ -101,7 +102,19 @@ $serverData['loggedInUserProfile'] = $loggedInUserProfile;
           <p class="about-button">About</p>
         </div>
         <div class="posts">
-          <p>soon</p>
+          <?php
+          if ($loggedInUserProfile)
+            echo '<button href="/profile/newPost">New post</button>';
+          ?>
+          <div class="postsContainer">
+            <?php
+            foreach ($user->posts as $post) {
+              echo "<div toultip='Open post' href='/post?id=$post->id'>";
+              echo $post->HTML(200, false);
+              echo "</div>";
+            }
+            ?>
+          </div>
         </div>
         <div class="hidden comments">
           <p>soon</p>

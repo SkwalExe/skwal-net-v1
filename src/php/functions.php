@@ -24,7 +24,7 @@ function noCache(string $url)
     global $version;
 
     $param = local()
-        ? random_int(0, 1000)
+        ? random_int(0, 100000)
         : $version;
 
     return trim($url) . "?version=" . $param;
@@ -64,7 +64,7 @@ function css()
  */
 function js()
 {
-
+    echo '<script src="https://kit.fontawesome.com/2fd86e1bdd.js" crossorigin="anonymous"></script>';
     echo '<script src="https://cdn.jsdelivr.net/gh/SkwalExe/Toasteur.js@v0.2.1/dist/toasteur.min.js"></script>';
     echo '<script src="https://cdn.jsdelivr.net/gh/SkwalExe/Toultip.js@v0.2.0/dist/toultip.min.js"></script>';
     echo '<script src="https://cdn.jsdelivr.net/gh/SkwalExe/MessageBox.js@v0.4.0/dist/messagebox.min.js"></script>';
@@ -332,7 +332,8 @@ function redirect($url, $notification = null)
 
         $redirectNotification .= ", ['" . addslashes($notification[0]) . "'";
         $redirectNotification .= ", '" . addslashes($notification[1]) . "'";
-        $redirectNotification .= ", '" . addslashes($notification[2]) . "'";
+        if (isset($notification[2]))
+            $redirectNotification .= ", '" . addslashes($notification[2]) . "'";
 
         if (isset($notification[3]))
             $redirectNotification .= ", '" . addslashes($notification[3]) . "']";
@@ -421,4 +422,45 @@ function api($method = "POST", $contentType = "application/json")
             }
         }
     }
+}
+
+
+function recentPosts($limit = 5)
+{
+    global $db;
+    $sql = "SELECT id FROM posts ORDER BY createdAt DESC LIMIT $limit";
+
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->fetchAll();
+    $posts = array_map(function ($post) {
+        return new Post($post['id']);
+    }, $result);
+
+
+    foreach ($posts as $post) {
+?>
+        <div class="tile" href="/post?id=<?= $post->id ?>">
+            <div class="head">
+                <span class="title"><?= htmlentities($post->title) ?></span>
+            </div>
+            <div class="body">
+                <p class="text">
+                    <?= htmlentities(substr($post->content, 0, 100)) ?>...
+                </p>
+            </div>
+        </div>
+<?php
+    }
+}
+
+
+
+function postExists($id)
+{
+    global $db;
+    $sql = "SELECT id FROM posts WHERE id = ?";
+    $stmt = $db->prepare($sql);
+    $stmt->execute([$id]);
+    return $stmt->rowCount() > 0;
 }

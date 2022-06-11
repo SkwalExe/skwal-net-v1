@@ -1,0 +1,32 @@
+.post .author {
+    display: flex;
+    justify-self: left;
+    align-items: center;
+    gap: 10px;
+}
+
+.post .header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.postLikeButton {
+    height: min-content;
+    padding: 5px 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.postLikeButton:hover,
+.postLikeButton:hover *,
+.postLikeButton.liked * {
+    color: var(--color3) !important;
+    cursor: pointer;
+}
+
+.postLikeButton:hover {
+    background-color: rgba(255, 255, 255, .1);
+}
