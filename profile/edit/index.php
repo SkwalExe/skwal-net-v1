@@ -50,7 +50,7 @@ if (requireGet('action', 'id', 'token')) {
   if (!$error) {
     navbarStart();
 
-    navbarButton("Home", "/", "home.png");
+    navbarButton("Home", "/", "fa fa-home");
 
     navbarEnd();
   ?>
@@ -61,7 +61,7 @@ if (requireGet('action', 'id', 'token')) {
 
 
 
-          <h1 class="glowing box center">Profile</h1>
+          <h1 class="glowing box center">Profile <i class="fa fa-user"></i></h1>
 
           <div class="box glowing">
             <form>

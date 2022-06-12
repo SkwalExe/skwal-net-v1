@@ -25,7 +25,7 @@ if ($error)
   if (!$error) {
     navbarStart();
 
-    navbarButton("Home", "/", "home.png");
+    navbarButton("Home", "/", "fa fa-home");
 
     navbarEnd();
 
@@ -37,7 +37,7 @@ if ($error)
 
 
 
-          <h1 class="glowing box center">Login</h1>
+          <h1 class="glowing box center">Login <i class="fa-solid fa-right-to-bracket"></i></h1>
 
           <div class="box glowing">
             <form>
@@ -55,9 +55,9 @@ if ($error)
             </form>
             <hr>
             <div class="flex center">
-              <a href="/register">Register</a>
+              <a href="/register">Register <i class="fa fa-user-plus"></i></a>
               <p> - </p>
-              <a href="/profile/newPassword">Forgot Password</a>
+              <a href="/profile/newPassword">Forgot Password <i class="fa fa-key"></i></a>
             </div>
           </div>
 

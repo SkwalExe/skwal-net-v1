@@ -21,7 +21,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
     <?php
     navbarStart();
     navbarButton('<img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="">', "https://ko-fi.com/W7W7AMXI6");
-    navbarButton("Home", "/", "home.png");
+    navbarButton("Home", "/", "fa fa-home");
 
     navbarEnd();
     ?>
@@ -38,12 +38,12 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
                     <img src="/assets/photo.png" alt="">
                     <p>Hi! My name is <span class="blue">Léopold Koprivnik Ibghy</span>, I founded skwal.net in <span class="blue">2018</span> and I continue to maintain it.</p>
                     <p>I am a 14 years old french student, <span class="red">I love FOSS</span> (Free and Open Source Software)</p>
-                    <p>I'm a big fan of <span class="purp">Linus Torvalds</span> and I am very interested in <span class="green">the history of linux</span>, one day, I want to create my own distro</p>
+                    <p>I'm a big fan of <span class="purp">Linus Torvalds</span> and I am very interested in <span class="green">the history of linux <i class="fa fa-linux"></i></span>, one day, I want to create my own distro</p>
                     <hr>
                     <p>I created this website to make a place where you will be able to find cool stuff !</p>
                     <p>And with the forum that I am currently creating, I want to make skwal.net a place where everyone can :</p>
                     <ul>
-                        <li>Share their creations and knowledge</li>
+                        <li>Share their creations and knowledge </li>
                         <li>Ask any question</li>
                         <li>Help me to improve my projects and more...</li>
                     </ul>
@@ -60,9 +60,9 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
                     Links
                 </h1>
                 <div class="links box glowing">
-                    <a _href="https://github.com/SkwalExe/"><img src="/assets/github.png" alt="">Github</a>
-                    <a _href="https://discord.skwal.net"><img src="/assets/discord.png" alt="">Discord</a>
-                    <a _href="https://twitter.com/@SkwalExe"><img src="/assets/twitter.png" alt="">Twitter</a>
+                    <a _href="https://github.com/SkwalExe/"><i class="fa fa-github"></i>Github</a>
+                    <a _href="https://discord.skwal.net"><i class="fa-brands fa-discord"></i>Discord</a>
+                    <a _href="https://twitter.com/@SkwalExe"><i class="fa-brands fa-twitter"></i>Twitter</a>
                 </div>
 
                 <hr>
@@ -73,15 +73,15 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
                 <?php
                 pages();
                 ?>
+                <i class="fa-brands fa-discord">
+                    <hr>
 
-                <hr>
-
-                <h1 class="glowing box center">
-                    Projects
-                </h1>
-                <?php
-                projects();
-                ?>
+                    <h1 class="glowing box center">
+                        Projects
+                    </h1>
+                    <?php
+                    projects();
+                    ?>
             </div>
         </div>
     </div>
