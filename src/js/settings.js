@@ -31,3 +31,8 @@ $('.borders-input').addEventListener('change', e => {
   else
     document.body.classList.remove("settings-borders")
 })
+
+
+$('.color-input').addEventListener('input', e => {
+  document.documentElement.style.setProperty('--color3', e.target.value)
+})

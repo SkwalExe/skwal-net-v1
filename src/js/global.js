@@ -44,4 +44,5 @@ if (serverData.loggedIn) {
   if (settings.borders)
     document.body.classList.add("settings-borders")
 
+  document.documentElement.style.setProperty('--color3', settings.color)
 }
