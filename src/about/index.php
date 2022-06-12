@@ -41,7 +41,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
                     <p>I'm a big fan of <span class="purp">Linus Torvalds</span> and I am very interested in <span class="green">the history of linux <i class="fa fa-linux"></i></span>, one day, I want to create my own distro</p>
                     <hr>
                     <p>I created this website to make a place where you will be able to find cool stuff !</p>
-                    <p>And with the forum that I am currently creating, I want to make skwal.net a place where everyone can :</p>
+                    <p>And with the forum that I created, I want to make skwal.net a place where everyone can :</p>
                     <ul>
                         <li>Share their creations and knowledge </li>
                         <li>Ask any question</li>
