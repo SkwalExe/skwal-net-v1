@@ -37,3 +37,11 @@ if (url.searchParams.has("notificationTitle")) {
 
   history.replaceState({}, '', newUrl.href)
 }
+
+if (serverData.loggedIn) {
+  let settings = serverData.user.settings
+
+  if (settings.borders)
+    document.body.classList.add("settings-borders")
+
+}
