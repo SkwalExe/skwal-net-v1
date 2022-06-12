@@ -127,3 +127,7 @@
     max-height: 200px;
     overflow-x: auto;
 }
+
+.newPostButton {
+    margin-bottom: 20px;
+}
