@@ -51,6 +51,10 @@ if (isLoggedIn()) {
                   <option value="hide" <?= !$user->settings['borders'] ? "selected" : "" ?>>Hide</option>
                 </select>
               </div>
+              <div class="input">
+                <p class="inputLabel">Color</p>
+                <input value="<?= $user->settings["color"] ?>" type="color" class="color-input" name="color">
+              </div>
               <hr>
               <button type="submit">Save</button>
             </form>

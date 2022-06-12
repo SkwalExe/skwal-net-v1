@@ -33,6 +33,7 @@ class User
 
     $this->settings = [
       "borders" => $settings["borders"] ?? $defaultSettings["borders"],
+      "color" => $settings["color"] ?? $defaultSettings["color"],
     ];
 
 
