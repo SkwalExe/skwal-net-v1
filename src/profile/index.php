@@ -106,7 +106,7 @@ $serverData['loggedInUserProfile'] = $loggedInUserProfile;
         <div class="posts">
           <?php
           if ($loggedInUserProfile)
-            echo '<button href="/profile/newPost">New post</button>';
+            echo '<button class="newPostButton" href="/profile/newPost">New post</button>';
           ?>
           <div class="postsContainer">
             <?php
