@@ -13,9 +13,10 @@ if (!isLoggedIn()) {
   die();
 }
 
-if (requirePost("borders")) {
+if (requirePost("borders", "color")) {
   $user = new User($_SESSION['id']);
   $borders = $_POST["borders"];
+  $color = $_POST["color"];
   global $defaultSettings;
 
   if (!in_array($borders, ["show", "hide"])) {
@@ -23,6 +24,24 @@ if (requirePost("borders")) {
     http_response_code(409);
     echo json_encode($response);
     die();
+  }
+
+
+  if (!preg_match("/^#[0-9A-Fa-f]{6}$/i", $color)) {
+    $response["error"] = "Invalid hex color value, expected : #RRGGBB";
+    http_response_code(409);
+    echo json_encode($response);
+    die();
+  }
+
+  if ($user->settings['color'] != $color) {
+    $newSettings = $user->settings;
+    $newSettings['color'] = $color;
+    $newSettings = json_encode($newSettings);
+
+    $sql = "UPDATE users SET settings = ? WHERE id = ?";
+    $stmt = $db->prepare($sql);
+    $stmt->execute([$newSettings, $user->id]);
   }
 
   $borders = $borders == "show";
