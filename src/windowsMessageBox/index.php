@@ -22,7 +22,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
     <?php
     navbarStart();
 
-    navbarButton("Home", "/", "home.png");
+    navbarButton("Home", "/", "fa fa-home");
 
     navbarEnd();
     ?>
@@ -99,7 +99,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
                     Links
                 </h1>
                 <div class="links box glowing">
-                    <a href="https://github.com/SkwalExe/WindowsMessageBox.js"><img src="/assets/github.png" />WindowsMessageBox.js</a>
+                    <a href="https://github.com/SkwalExe/WindowsMessageBox.js"><i class="fa-brands fa-github"></i>WindowsMessageBox.js</a>
                 </div>
 
                 <hr>

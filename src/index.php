@@ -24,10 +24,10 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
     navbarStart();
     if (isLoggedIn())
-        navbarButton("Profile", "/profile", "profile.png");
+        navbarButton("Profile", "/profile", "fa-solid fa-user");
     else
-        navbarButton("Login", "/login", "login.png");
-    navbarButton("Github", "https://github.com/SkwalExe/", "github.png");
+        navbarButton("Login", "/login", "fa fa-sign-in");
+    navbarButton("Github", "https://github.com/SkwalExe/", "fa fa-github");
     navbarEnd();
 
     ?>
@@ -53,14 +53,14 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
                     Links
                 </h1>
                 <div class="links box glowing">
-                    <a _href="https://github.com/SkwalExe/"><img src="/assets/github.png" alt="">Github</a>
-                    <a _href="https://discord.skwal.net"><img src="/assets/discord.png" alt="">Discord</a>
-                    <a _href="https://twitter.com/@SkwalExe"><img src="/assets/twitter.png" alt="">Twitter</a>
-                    <a _href="/about"><img src="/assets/question.png" alt="">About</a>
-                    <a _href="https://www.paypal.com/paypalme/SkwalDev"><img src="/assets/paypal.png" alt="">Paypal</a>
+                    <a _href="https://github.com/SkwalExe/"><i class="fa-brands fa-github"></i> Github</a>
+                    <a _href="https://discord.skwal.net"><i class="fa-brands fa-discord"></i>Discord</a>
+                    <a _href="https://twitter.com/@SkwalExe"><i class="fa-brands fa-twitter"></i>Twitter</a>
+                    <a _href="/about"><i class="fa fa-circle-question"></i>About</a>
+                    <a _href="https://www.paypal.com/paypalme/SkwalDev"><i class="fa-brands fa-paypal"></i>Paypal</a>
                     <a _href="https://liberapay.com/SkwalExe"><img src="/assets/liberapay.png" alt="">Liberapay</a>
-                    <a _href="https://ko-fi.com/SkwalExe"><img src="/assets/kofi.webp" alt="">Ko-fi</a>
-                    <a _href="https://www.patreon.com/SkwalExe"><img src="/assets/patreon.png" alt="">Patreon</a>
+                    <a _href="https://ko-fi.com/SkwalExe"><i class="fa fa-mug-saucer"></i>Ko-fi</a>
+                    <a _href="https://www.patreon.com/SkwalExe"><i class="fa-brands fa-patreon"></i>Patreon</a>
                 </div>
 
                 <hr>

@@ -22,7 +22,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
     <?php
     navbarStart();
 
-    navbarButton("Home", "/", "home.png");
+    navbarButton("Home", "/", "fa fa-home");
 
     navbarEnd();
     ?>
@@ -66,9 +66,9 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
                     Links
                 </h1>
                 <div class="links box glowing">
-                    <a _href="https://github.com/SkwalExe/memz.js"><img src="/assets/github.png" />Memz.js</a>
-                    <a _href="https://www.youtube.com/watch?v=f8LNz6gE_20"><img src="/assets/youtube.jpg" />Original Virus</a>
-                    <a _href="https://github.com/SkwalExe/Malwares/tree/main/Trojans/MEMZ"><img src="/assets/download.png" />Download</a>
+                    <a _href="https://github.com/SkwalExe/memz.js"><i class="fa fa-github"></i>Memz.js</a>
+                    <a _href="https://www.youtube.com/watch?v=f8LNz6gE_20"><i class="fa fa-youtube"></i>Original Virus</a>
+                    <a _href="https://github.com/SkwalExe/Malwares/tree/main/Trojans/MEMZ"><i class="fa fa-download"></i>Download</a>
                 </div>
 
                 <hr>

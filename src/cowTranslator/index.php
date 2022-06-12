@@ -14,7 +14,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 <body>
     <?php
     navbarStart();
-    navbarButton("Home", "/", "home.png");
+    navbarButton("Home", "/", "fa fa-home");
     navbarEnd();
     ?>
     <div class="mainContainer">
@@ -47,9 +47,9 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
                     Links
                 </h1>
                 <div class="links box glowing">
-                    <a href="https://github.com/SkwalExe/cowTranslator.js"><img src="/assets/github.png" alt="">cowTranslator.js</a>
-                    <a href="https://github.com/SkwalExe/cow-translator"><img src="/assets/github.png" alt="">cowTranslator CLI</a>
-                    <a href="https://github.com/SkwalExe/cow-encryptor"><img src="/assets/github.png" alt="">cowEncryptor</a>
+                    <a href="https://github.com/SkwalExe/cowTranslator.js"><i class="fa fa-github"></i>cowTranslator.js</a>
+                    <a href="https://github.com/SkwalExe/cow-translator"><i class="fa fa-github"></i>cowTranslator CLI</a>
+                    <a href="https://github.com/SkwalExe/cow-encryptor"><i class="fa fa-github"></i>cowEncryptor</a>
                 </div>
 
                 <hr>

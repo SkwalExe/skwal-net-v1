@@ -14,7 +14,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 <body>
     <?php
     navbarStart();
-    navbarButton("Home", "/", "home.png");
+    navbarButton("Home", "/", "fa fa-home");
     navbarEnd();
     ?>
     <div class="mainContainer">
