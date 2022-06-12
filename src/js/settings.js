@@ -36,3 +36,14 @@ $('.borders-input').addEventListener('change', e => {
 $('.color-input').addEventListener('input', e => {
   document.documentElement.style.setProperty('--color3', e.target.value)
 })
+
+
+$('.reset-settings').onclick = () => {
+  fetch('/api/v1/resetUserSettings.php').then(res => res.json()).then(data => {
+    if (data.success) {
+      redirect('/profile/settings', ["Success", data.message, "success"])
+    } else {
+      toasteur.error(data.error, "Error!")
+    }
+  })
+}
