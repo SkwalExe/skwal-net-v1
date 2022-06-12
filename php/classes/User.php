@@ -27,6 +27,15 @@ class User
     $this->posts = [];
     $this->avatarUrl = "/avatar/?username=$this->username";
     $this->bannerUrl = "/banner/?username=$this->username";
+    $settings = json_decode($user['settings'], true);
+
+    global $defaultSettings;
+
+    $this->settings = [
+      "borders" => $settings["borders"] ?? $defaultSettings["borders"],
+    ];
+
+
 
     $sql = "SELECT * FROM followers WHERE userId = ?";
     $stmt = $db->prepare($sql);
@@ -46,7 +55,8 @@ class User
       'banner' => $this->banner,
       'avatar' => $this->avatar,
       'profileHTML' => $this->profileHTML,
-      'roles' => $this->roles
+      'roles' => $this->roles,
+      'settings' => $this->settings,
     ];
   }
 

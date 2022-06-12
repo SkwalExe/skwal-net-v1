@@ -52,6 +52,7 @@ $serverData['loggedInUserProfile'] = $loggedInUserProfile;
     else if ($loggedInUserProfile) {
       navbarButton("Profile customization", "/profile/edit", "fa fa-cog");
       navbarButton("Logout", "javascript:logout();", "fa fa-sign-out");
+      navbarButton("Settings", "/profile/settings", "fa fa-cog");
     }
     navbarButton("Home", "/", "fa fa-home");
     navbarEnd();
