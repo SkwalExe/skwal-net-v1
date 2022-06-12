@@ -58,6 +58,10 @@ if (isLoggedIn()) {
               <hr>
               <button type="submit">Save</button>
             </form>
+            <hr>
+            <div class="form">
+              <button class="red reset-settings">Reset settings</button>
+            </div>
           </div>
 
         </div>
