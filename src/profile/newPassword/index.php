@@ -37,7 +37,7 @@ if (requireGet('action', 'id', 'token')) {
   <?php
   navbarStart();
 
-  navbarButton("Home", "/", "home.png");
+  navbarButton("Home", "/", "fa fa-home");
 
   navbarEnd();
   ?>

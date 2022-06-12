@@ -35,8 +35,11 @@ body {
     width: max-content;
 }
 
-.navbar ul li img {
+.navbar ul li i {
     height: 25px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
     margin-right: 5px;
 }
 

@@ -46,14 +46,14 @@ $serverData['loggedInUserProfile'] = $loggedInUserProfile;
   if (!$error) {
     navbarStart();
     if (!isLoggedIn())
-      navbarButton("Login", "/login", "login.png");
+      navbarButton("Login", "/login", "fa fa-sign-in");
     else if (isLoggedIn() && $_SESSION['id'] != $user->id)
-      navbarButton("Your profile", "/profile", "profile.png");
+      navbarButton("Your profile", "/profile", "fa fa-user");
     else if ($loggedInUserProfile) {
-      navbarButton("Profile customization", "/profile/edit", "settings.png");
-      navbarButton("Logout", "javascript:logout();", "logout.png");
+      navbarButton("Profile customization", "/profile/edit", "fa fa-cog");
+      navbarButton("Logout", "javascript:logout();", "fa fa-sign-out");
     }
-    navbarButton("Home", "/", "home.png");
+    navbarButton("Home", "/", "fa fa-home");
     navbarEnd();
   ?>
     <div class="mainContainer">
@@ -68,16 +68,18 @@ $serverData['loggedInUserProfile'] = $loggedInUserProfile;
           <div class="noSelect profileInformations">
             <h1 class="break username"><?= $user->username ?>
               <?php
+
+              $roles =  [
+                "admin" => ["fa-solid fa-user-shield", "This user is an admin"],
+                "verified" => ["fa-solid fa-check", "This user is verified"],
+              ];
+
               foreach ($user->roles as $role) {
-                switch ($role) {
-                  case "verified":
-                    echo "<img src='/assets/roles/$role.png' class='roleIcon' toultip='This user is verified' />";
-                    break;
-                  case "admin":
-                    echo "<img src='/assets/roles/$role.png' class='roleIcon' toultip='This user is an admin' />";
-                    break;
+                if (isset($roles[$role])) {
+                  echo "<i toultip='{$roles[$role][1]}' class='roleIcon {$roles[$role][0]}'></i>";
                 }
               }
+
               ?></h1>
             <p><span class="followerCount"><?= $user->followerCount ?></span> Followers</p>
             <?php

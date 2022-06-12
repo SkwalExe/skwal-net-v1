@@ -87,10 +87,17 @@
     width: 150px;
 }
 
-.roleIcon {
+.roleIcon::before {
     cursor: pointer;
-    height: 20px;
+    font-size: 15px;
     transition-duration: var(--transition);
+}
+
+.roleIcon {
+    height: min-content;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
 }
 
 .roleIcon:hover {

@@ -155,7 +155,7 @@ function navbarEnd()
 function navbarButton($text, $link = "#", $image = null)
 {
 
-    $imageHtml = $image ? "<img src=\"/assets/$image\" alt=\"navbar button icon\">" : "";
+    $imageHtml = $image ? "<i class='$image'></i>" : "";
 
     echo "<li href=\"$link\">$imageHtml$text</li>";
 }

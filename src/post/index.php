@@ -33,7 +33,7 @@ if (!$error) {
   if (!$error) {
     navbarStart();
 
-    navbarButton("Home", "/", "home.png");
+    navbarButton("Home", "/", "fa fa-home");
 
     navbarEnd();
 

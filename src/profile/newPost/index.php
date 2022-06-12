@@ -20,7 +20,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
   <?php
   navbarStart();
 
-  navbarButton("Home", "/", "home.png");
+  navbarButton("Home", "/", "fa fa-home");
 
   navbarEnd();
   ?>
