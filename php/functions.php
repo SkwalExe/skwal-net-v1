@@ -68,7 +68,10 @@ function js()
     echo '<script src="https://cdn.jsdelivr.net/gh/SkwalExe/Toasteur.js@v0.2.1/dist/toasteur.min.js"></script>';
     echo '<script src="https://cdn.jsdelivr.net/gh/SkwalExe/Toultip.js@v0.2.0/dist/toultip.min.js"></script>';
     echo '<script src="https://cdn.jsdelivr.net/gh/SkwalExe/MessageBox.js@v0.4.0/dist/messagebox.min.js"></script>';
-
+    echo '<script>';
+    echo 'console.log("%cSTOP!!", "color: red;font-size:100px;");';
+    echo 'console.log("%cWhat you see here is the developer console of your web browser. \nIt is a tool intended for the developer, and which allows to inject code into the page, do not copy any code here, it could be malicious code which will give access to some of your personal information to hackers.", "color: red;font-size:20px;");';
+    echo '</script>';
     static $serverDataPassed = false;
     if (!$serverDataPassed) {
         $serverDataPassed = true;
