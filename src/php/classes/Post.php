@@ -17,6 +17,7 @@ class Post
     $this->createdAt = $post['createdAt'];
     $this->editedAt = $post['editedAt'];
     $this->author = null;
+    $this->comments = [];
 
     $sql = "SELECT user FROM likes WHERE post = ?";
     $stmt = $db->prepare($sql);
@@ -138,5 +139,17 @@ class Post
     $sql = "DELETE FROM likes WHERE post = ?";
     $stmt = $db->prepare($sql);
     $stmt->execute([$this->id]);
+  }
+
+  public function load_comments()
+  {
+    global $db;
+    $sql = "SELECT * FROM comments WHERE post = ? ORDER BY created_at DESC";
+    $stmt = $db->prepare($sql);
+    $stmt->execute([$this->id]);
+    $comments = $stmt->fetchAll();
+    foreach ($comments as $comment) {
+      $this->comments[] = new Comment($comment['id']);
+    }
   }
 }

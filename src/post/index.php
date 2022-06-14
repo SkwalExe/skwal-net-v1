@@ -7,7 +7,7 @@ if (!$error) {
   $id = $_GET['id'];
 
   $post = new Post($id);
-
+  $post->load_comments();
   $serverData['isPostAuthor'] = (isLoggedIn() && $post->author_id == $_SESSION['id']);
   $serverData['post'] = $post->toArray();
 } else
@@ -22,7 +22,7 @@ if (!$error) {
 
   <?php
   defaultHeaders();
-  css("colors",  "global", "footer", "layout", "loadingScreen", "navbar", "tiles", "post", "avatar");
+  css("colors",  "global", "footer", "layout", "loadingScreen", "navbar", "tiles", "post", "avatar", "form", "comment");
   ?>
 
 </head>
@@ -45,8 +45,51 @@ if (!$error) {
 
           <?= $post->HTML(); ?>
 
-        </div>
+          <h1 class="center box glowing">Comments</h1>
 
+          <?php
+          if (isLoggedIn()) {
+          ?>
+            <form class="commentForm box glowing">
+              <h1>Comment</h1>
+              <input type="hidden" name="id" value="<?= $post->id; ?>">
+              <textarea placeholder="Very interesting" type="text" name="content"></textarea>
+              <button type="submit">Post</button>
+            </form>
+            <?php
+          }
+
+          if (count($post->comments) == 0)
+            echo "<h1 class='center'>No comments yet</h1>";
+          else {
+            foreach ($post->comments as $comment) {
+              $comment->load_user();
+            ?>
+
+              <div class="comment box glowing">
+                <div class="header">
+                  <a href="<?= $comment->user->profileHTML ?>" class="user">
+                    <div class="avatarContainer">
+                      <img src="<?= $comment->user->avatarUrl ?>" alt="" class="avatar">
+                    </div>
+                    <?= $comment->user->username ?>
+                  </a>
+                  <div class="date">
+                    <?= date("F j, Y", strtotime($comment->created_at)); ?>
+                  </div>
+                </div>
+                <div class="content">
+                  <p>
+                    <?= nl2br(htmlentities($comment->content)); ?>
+                  </p>
+                </div>
+              </div>
+
+          <?php
+            }
+          }
+          ?>
+        </div>
         <hr class="onlyShowWhenMobileWidth">
         <div class="sidebar">
           <?php
@@ -76,7 +119,7 @@ if (!$error) {
   }
 
 
-  js("functions", "global", "navbar", "links", "tiles", "loadingScreen", "post", "postView");
+  js("functions", "global", "navbar", "links", "tiles", "loadingScreen", "post", "postView", "commentForm");
   ?>
 
 </body>

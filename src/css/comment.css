@@ -1,0 +1,13 @@
+.comment .header,
+.comment .header .user {
+    display: flex;
+    align-items: center;
+}
+
+.comment .header {
+    justify-content: space-between;
+}
+
+.comment .avatarContainer {
+    margin-right: 10px;
+}
