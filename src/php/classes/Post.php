@@ -75,7 +75,7 @@ class Post
           </h1>
         </div>
         <?php if ($likeButton) { ?>
-          <div class="<?= (isLoggedIn() && $this->hasLiked($_SESSION['id'])) ? "liked" : "" ?> noSelect postLikeButton">
+          <div class="<?= (isLoggedIn() && $this->hasLiked($_SESSION['id'])) ? "liked" : "" ?> noSelect likeButton">
             <i class="fa-solid fa-heart"></i>
             <span class="likeCount"><?= $this->likeCount; ?></span>
           </div>
@@ -92,7 +92,7 @@ class Post
 
       if ($contentLimit !== 0) {
       ?>
-        <div class="postContent">
+        <div class="content">
           <?= nl2br(htmlentities($content)); ?>
         </div>
       <?php
@@ -118,6 +118,7 @@ class Post
       $sql = "INSERT INTO likes (post, user) VALUES (?, ?)";
       $stmt = $db->prepare($sql);
       $stmt->execute([$this->id, $id]);
+      $this->likeCount++;
     }
   }
 
@@ -127,6 +128,7 @@ class Post
     $sql = "DELETE FROM likes WHERE post = ? AND user = ?";
     $stmt = $db->prepare($sql);
     $stmt->execute([$this->id, $id]);
+    $this->likeCount--;
   }
 
   public function delete()

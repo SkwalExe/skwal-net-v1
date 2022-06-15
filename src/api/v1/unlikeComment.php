@@ -25,26 +25,26 @@ if (requirePost('id')) {
 
   $id = $_POST['id'];
 
-  if (!postExists($id)) {
-    $response["error"] = "Post does not exist.";
+  if (!commentExists($id)) {
+    $response["error"] = "Comment does not exist.";
     http_response_code(409);
     echo json_encode($response);
     die();
   }
 
-  $post = new Post($id);
+  $comment = new Comment($id);
 
-  if (!$post->hasLiked($_SESSION['id'])) {
-    $response["error"] = "You have not liked this post.";
+  if (!$comment->has_liked($_SESSION['id'])) {
+    $response["error"] = "You have not liked this comment.";
     http_response_code(409);
     echo json_encode($response);
     die();
   }
 
-  $post->unlike($_SESSION['id']);
+  $comment->unlike($_SESSION['id']);
 
   $response["success"] = true;
-  $response["message"] = "Post unliked successfully";
+  $response["message"] = "Comment unliked successfully";
   http_response_code(201);
   echo json_encode($response);
 } else {

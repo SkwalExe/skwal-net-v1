@@ -22,7 +22,7 @@ if (!$error) {
 
   <?php
   defaultHeaders();
-  css("colors",  "global", "footer", "layout", "loadingScreen", "navbar", "tiles", "post", "avatar", "form", "comment");
+  css("colors",  "global", "footer", "layout", "loadingScreen", "navbar", "tiles", "post", "avatar", "form");
   ?>
 
 </head>
@@ -56,7 +56,7 @@ if (!$error) {
               <textarea placeholder="Very interesting" type="text" name="content"></textarea>
               <button type="submit">Post</button>
             </form>
-            <?php
+          <?php
           }
 
           if (count($post->comments) == 0)
@@ -64,28 +64,7 @@ if (!$error) {
           else {
             foreach ($post->comments as $comment) {
               $comment->load_user();
-            ?>
-
-              <div class="comment box glowing">
-                <div class="header">
-                  <a href="<?= $comment->user->profileHTML ?>" class="user">
-                    <div class="avatarContainer">
-                      <img src="<?= $comment->user->avatarUrl ?>" alt="" class="avatar">
-                    </div>
-                    <?= $comment->user->username ?>
-                  </a>
-                  <div class="date">
-                    <?= date("F j, Y", strtotime($comment->created_at)); ?>
-                  </div>
-                </div>
-                <div class="content">
-                  <p>
-                    <?= nl2br(htmlentities($comment->content)); ?>
-                  </p>
-                </div>
-              </div>
-
-          <?php
+              echo $comment->HTML();
             }
           }
           ?>
@@ -119,7 +98,7 @@ if (!$error) {
   }
 
 
-  js("functions", "global", "navbar", "links", "tiles", "loadingScreen", "post", "postView", "commentForm");
+  js("functions", "global", "navbar", "links", "tiles", "loadingScreen", "post", "postView", "commentForm", "comment");
   ?>
 
 </body>

@@ -4,7 +4,7 @@
     height: min-content;
 }
 
-.content {
+.main>.content {
     width: 100%;
     margin: 10px;
 }
