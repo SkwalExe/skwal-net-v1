@@ -18,7 +18,7 @@ if (requirePost('id')) {
   if (rateLimitIp("likes-{$_SESSION['id']}", 100, "hour", 100, 100, 1, $seconds)) {
     http_response_code(429);
     header(sprintf("Retry-After: %d", floor($seconds)));
-    $response["error"] = "You cannot like or unlike more than 100 posts per hour, retry after " . floor($seconds) . " seconds";
+    $response["error"] = "You cannot like or unlike more than 100 comment or post per hour, retry after " . floor($seconds) . " seconds";
     echo json_encode($response);
     die();
   }

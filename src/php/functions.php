@@ -467,3 +467,13 @@ function postExists($id)
     $stmt->execute([$id]);
     return $stmt->rowCount() > 0;
 }
+
+
+function commentExists($id)
+{
+    global $db;
+    $sql = "SELECT id FROM comments WHERE id = ?";
+    $stmt = $db->prepare($sql);
+    $stmt->execute([$id]);
+    return $stmt->rowCount() > 0;
+}
