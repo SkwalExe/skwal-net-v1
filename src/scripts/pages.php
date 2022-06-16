@@ -1,3 +1,14 @@
+<div class="tile" href="/morse">
+    <div class="head">
+        <span class="title">Morse translator</span>
+    </div>
+    <div class="body">
+        <p class="text">
+            Translate morse code or taps to text.
+        </p>
+        <img src="/assets/morse.png" alt="" class="banner">
+    </div>
+</div>
 <div class="tile" href="/windowsMessageBox">
     <div class="head">
         <span class="title">WindowsMessageBox.js demo</span>
