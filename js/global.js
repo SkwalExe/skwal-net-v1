@@ -46,3 +46,15 @@ if (serverData.loggedIn) {
 
   document.documentElement.style.setProperty('--color3', settings.color)
 }
+
+let acceptedCookies = parseInt(localStorage.getItem('acceptedCookies'))
+let hour = 3600000
+
+if (acceptedCookies == null || isNaN(acceptedCookies) || acceptedCookies + (hour * 72) < Date.now()) {
+  new MessageBox()
+    .setTitle('Cookie Policy')
+    .setMessage('This website only uses cookies to keep you logged in. If you continue, you agree to our use of cookies.')
+    .show().then(() => {
+      localStorage.setItem('acceptedCookies', Date.now())
+    });
+}
