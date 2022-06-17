@@ -92,6 +92,8 @@ function js()
     echo 'console.log("%cSTOP!!", "color: red;font-size:100px;");';
     echo 'console.log("%cWhat you see here is the developer console of your web browser. \nIt is a tool intended for the developer, and which allows to inject code into the page, do not copy any code here, it could be malicious code which will give access to some of your personal information to hackers.", "color: red;font-size:20px;");';
     echo '</script>';
+    global $scripts;
+    include($scripts . '/noscript.php');
 }
 
 
