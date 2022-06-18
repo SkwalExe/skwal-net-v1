@@ -63,7 +63,7 @@ class Post
                   <img class="avatar" src="<?= $this->author->avatarUrl; ?>">
                 </div>
                 <?= $this->author->username; ?>
-              </a> -
+              </a> <?php $this->author->printRoles() ?> -
             <?php
             } ?>
             <h5 class="date">
