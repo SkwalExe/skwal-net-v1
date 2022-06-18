@@ -22,7 +22,7 @@ class User
     $this->newEmail = $user['newEmail'];
     $this->newEmailToken = $user['newEmailToken'];
     $this->newPasswordToken = $user['newPasswordToken'];
-    $this->profileHTML = "https://skwal.net/profile/?username=$this->username";
+    $this->profileHTML = isset($_SERVER['HTTPS']) ? "https://" : "http://" . $_SERVER['HTTP_HOST'] . "/profile?username=" . $this->username;
     $this->roles = explode(",", $user['roles']);
     $this->posts = [];
     $this->avatarUrl = "/avatar/?username=$this->username";
