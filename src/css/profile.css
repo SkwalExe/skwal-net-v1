@@ -131,3 +131,13 @@
 .newPostButton {
     margin-bottom: 20px;
 }
+
+.commentsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.commentsContainer .comment {
+    background-color: var(--color1);
+}
