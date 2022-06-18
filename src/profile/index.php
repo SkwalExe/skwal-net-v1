@@ -67,21 +67,7 @@ $serverData['loggedInUserProfile'] = $loggedInUserProfile;
             <img src="/avatar/?username=<?= $user->username ?>&v=<?= $user->avatarVersion ?>" alt="" class="avatar">
           </div>
           <div class="noSelect profileInformations">
-            <h1 class="break username"><?= $user->username ?>
-              <?php
-
-              $roles =  [
-                "admin" => ["fa-solid fa-user-shield", "This user is an admin"],
-                "verified" => ["fa-solid fa-check", "This user is verified"],
-              ];
-
-              foreach ($user->roles as $role) {
-                if (isset($roles[$role])) {
-                  echo "<i toultip='{$roles[$role][1]}' class='roleIcon {$roles[$role][0]}'></i>";
-                }
-              }
-
-              ?></h1>
+            <h1 class="break username"><?= $user->username ?><?php $user->printRoles(); ?></h1>
             <p><span class="followerCount"><?= $user->followerCount ?></span> Followers</p>
             <?php
             if (isLoggedIn()) {

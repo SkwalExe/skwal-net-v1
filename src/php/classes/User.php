@@ -104,4 +104,18 @@ class User
       $this->posts[] = new Post($post['id']);
     }
   }
+
+  public function printRoles()
+  {
+    $roles =  [
+      "admin" => ["fa-solid fa-user-shield", "This user is an admin"],
+      "verified" => ["fa-solid fa-check", "This user is verified"],
+    ];
+
+    foreach ($this->roles as $role) {
+      if (isset($roles[$role])) {
+        echo "<i toultip='{$roles[$role][1]}' class='roleIcon {$roles[$role][0]}'></i>";
+      }
+    }
+  }
 }
