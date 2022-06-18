@@ -63,7 +63,7 @@ class Comment
                 <img class="avatar" src="<?= $this->user->avatarUrl; ?>">
               </div>
               <?= $this->user->username; ?>
-            </a> -
+            </a> <?php $this->user->printRoles() ?> -
             <h5 class="date">
               <?= date("F j, Y", strtotime($this->created_at)); ?>
             </h5>
