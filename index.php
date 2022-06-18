@@ -23,6 +23,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
     <?php
 
     navbarStart();
+    navbarButton("Forum", "/forum/", "fa fa-comments");
     if (isLoggedIn())
         navbarButton("Profile", "/profile", "fa-solid fa-user");
     else
