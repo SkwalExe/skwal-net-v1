@@ -105,6 +105,19 @@ class User
     }
   }
 
+  public function loadComments()
+  {
+    global $db;
+    $this->comments = [];
+    $sql = "SELECT id FROM comments WHERE author = ? ORDER BY createdAt DESC";
+    $stmt = $db->prepare($sql);
+    $stmt->execute([$this->id]);
+    $comments = $stmt->fetchAll();
+    foreach ($comments as $comment) {
+      $this->comments[] = new Comment($comment['id']);
+    }
+  }
+
   public function printRoles()
   {
     $roles =  [
