@@ -14,6 +14,7 @@ class Comment
     $this->user_id = $comment['user'];
     $this->content = $comment['content'];
     $this->created_at = $comment['created_at'];
+    $this->post_id = $comment['post'];
     $this->user = null;
     $sql = "SELECT user FROM likes WHERE comment = ?";
     $stmt = $db->prepare($sql);
