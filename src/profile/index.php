@@ -17,6 +17,7 @@ if (!isLoggedIn() && !requireGet("username")) {
     $error = false;
     $user = new User($username, "username");
     $user->loadPosts();
+    $user->loadComments();
     $serverData["profile"] = $user->toArray();
     $loggedInUserProfile = (isLoggedIn() && $_SESSION['id'] == $user->id);
   }
@@ -110,7 +111,21 @@ $serverData['loggedInUserProfile'] = $loggedInUserProfile;
           </div>
         </div>
         <div class="hidden comments">
-          <p>soon</p>
+          <div class="commentsContainer">
+            <?php
+
+            foreach ($user->comments as $comment) {
+              echo "<div toultip='Open post' href='/post?id=$comment->post_id'>";
+              echo $comment->HTML();
+              echo "</div>";
+            }
+
+            if (count($user->comments) == 0) {
+              echo "<h1 class='center glowing box bg1'>No comments yet</h1>";
+            }
+
+            ?>
+          </div>
         </div>
         <div class="hidden about">
           <h5 class="createdAt">Joined on <?= date("F j, Y", strtotime($user->createdAt)) ?></h5>

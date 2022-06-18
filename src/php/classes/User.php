@@ -109,7 +109,7 @@ class User
   {
     global $db;
     $this->comments = [];
-    $sql = "SELECT id FROM comments WHERE author = ? ORDER BY createdAt DESC";
+    $sql = "SELECT id FROM comments WHERE user = ? ORDER BY created_at DESC";
     $stmt = $db->prepare($sql);
     $stmt->execute([$this->id]);
     $comments = $stmt->fetchAll();
