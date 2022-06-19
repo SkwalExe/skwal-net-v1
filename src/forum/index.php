@@ -38,9 +38,10 @@ $lastPost = new Post($lastPost['id']);
 <body>
   <?php
   navbarStart();
-  if (isLoggedIn())
+  if (isLoggedIn()) {
     navbarButton("Profile", "/profile", "fa-solid fa-user");
-  else
+    navbarButton("New Post", "/profile/newPost", "fa-solid fa-plus");
+  } else
     navbarButton("Login", "/login", "fa fa-sign-in");
   navbarButton("Home", "/", "fa fa-home");
   navbarEnd();
