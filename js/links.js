@@ -6,8 +6,9 @@ $$("*[href], *[_href]").forEach(function(el) {
 
 $$("*[href]").forEach(element => {
   element.onclick = (e) => {
-    let href = element.getAttribute("href");
     e.preventDefault();
+    e.stopPropagation();
+    let href = element.getAttribute("href");
     if (e.ctrlKey && !href.startsWith("#") & !href.startsWith("javascript:"))
       window.open(href, "_blank");
     else
@@ -17,9 +18,9 @@ $$("*[href]").forEach(element => {
 
 $$("*[_href]").forEach(element => {
   element.onclick = (e) => {
-    let href = element.getAttribute("_href");
     e.preventDefault();
-
+    e.stopPropagation();
+    let href = element.getAttribute("_href");
     window.open(href, "_blank");
   };
 });

@@ -1,6 +1,6 @@
 .avatar {
-    min-height: 105%;
-    min-width: 105%;
+    height: 105%;
+    width: 105%;
     object-fit: cover;
 }
 
