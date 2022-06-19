@@ -1,0 +1,14 @@
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row;
+}
+
+.search-bar input {
+    flex: .9;
+}
+
+.search-bar button {
+    flex: .1;
+}
