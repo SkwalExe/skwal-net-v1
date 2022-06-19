@@ -65,7 +65,7 @@ class Post
                   <img class="avatar" src="<?= $this->author->avatarUrl; ?>">
                 </div>
                 <?= $this->author->username; ?>
-              </a> <?php $this->author->printRoles() ?> -
+              </a> <?php $this->author->printRoles() ?>
             <?php
             } ?>
             <h5 class="date">
@@ -76,14 +76,16 @@ class Post
             <?= htmlentities($this->title); ?>
           </h1>
         </div>
-        <div class="flex" style="height: min-content">
+        <div class="flex" style="height: min-content; justify-content: flex-end">
           <?php if ($likeButton) { ?>
             <div post-id="<?= $this->id ?>" class="<?= (isLoggedIn() && $this->hasLiked($_SESSION['id'])) ? "liked" : "" ?> noSelect likeButton">
               <i class="fa-solid fa-heart"></i>
               <span class="likeCount"><?= $this->likeCount; ?></span>
             </div>
           <?php } ?>
-          <i class="fa-solid fa-eye"></i><span> <?= $this->views ?></span>
+          <div style='padding: 5px'>
+            <i class="fa-solid fa-eye"></i><span> <?= $this->views ?></span>
+          </div>
         </div>
       </div>
 
