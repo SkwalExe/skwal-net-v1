@@ -503,3 +503,18 @@ function recentPosts($limit = 5)
 
     return $posts;
 }
+
+
+function popularPosts($limit = 5)
+{
+    global $db;
+    $sql = "SELECT id FROM posts ORDER BY (unix_timestamp(now()) - unix_timestamp(createdAt)) / views ASC LIMIT $limit";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->fetchAll();
+    $posts = array_map(function ($post) {
+        return new Post($post['id']);
+    }, $result);
+
+    return $posts;
+}
