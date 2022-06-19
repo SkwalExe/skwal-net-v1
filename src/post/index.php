@@ -85,7 +85,7 @@ if (!$error) {
             Recent posts
           </h1>
 
-          <?php recentPosts(); ?>
+          <?php printRecentPosts(); ?>
 
         </div>
       </div>

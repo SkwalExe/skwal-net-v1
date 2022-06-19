@@ -35,6 +35,12 @@
     margin-top: 10px;
 }
 
+.tile .head {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 .tile .head .title::before {
     content: '>';
     color: white;
@@ -62,4 +68,8 @@
     .tiles {
         column-count: 1;
     }
+}
+
+.tiles .tile {
+    margin-bottom: 20px;
 }
