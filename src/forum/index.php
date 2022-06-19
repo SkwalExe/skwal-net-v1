@@ -90,7 +90,7 @@ $lastPost = new Post($lastPost['id']);
   <?php
   loadingScreen();
   footer();
-  js("functions", "global", "scrollAfter", "navbar", "links", "post", "tiles", "loadingScreen");
+  js("functions", "global", "navbar", "links", "post", "tiles", "loadingScreen");
   ?>
 </body>
 
