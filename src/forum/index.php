@@ -31,7 +31,7 @@ $lastPost = new Post($lastPost['id']);
 <head>
   <?php
   defaultHeaders();
-  css("colors",  "global", "footer", "layout", "loadingScreen", "post", "navbar", "tiles", "avatar");
+  css("colors",  "global", "footer", 'form',  "layout", "loadingScreen", "post", "searchBar", "navbar", "tiles", "avatar");
   ?>
 </head>
 
@@ -49,6 +49,10 @@ $lastPost = new Post($lastPost['id']);
   <div class="mainContainer">
     <div class="main">
       <div class="content">
+        <form method="GET" action="/search" class="box glowing search-bar">
+          <input placeholder="How to split a string with javascript" required name="q" type="text">
+          <button><i class="fa fa-search"></i></button>
+        </form>
         <h1 class="center box glowing">Recent posts</h1>
 
         <?php
