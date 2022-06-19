@@ -18,6 +18,7 @@ class Post
     $this->editedAt = $post['editedAt'];
     $this->author = null;
     $this->comments = [];
+    $this->views = $post['views'];
 
     $sql = "SELECT user FROM likes WHERE post = ?";
     $stmt = $db->prepare($sql);
@@ -38,7 +39,8 @@ class Post
       'content' => $this->content,
       'createdAt' => $this->createdAt,
       'editedAt' => $this->editedAt,
-      'likeCount' => $this->likeCount
+      'likeCount' => $this->likeCount,
+      'views' => $this->views
     ];
   }
 
@@ -74,12 +76,15 @@ class Post
             <?= htmlentities($this->title); ?>
           </h1>
         </div>
-        <?php if ($likeButton) { ?>
-          <div class="<?= (isLoggedIn() && $this->hasLiked($_SESSION['id'])) ? "liked" : "" ?> noSelect likeButton">
-            <i class="fa-solid fa-heart"></i>
-            <span class="likeCount"><?= $this->likeCount; ?></span>
-          </div>
-        <?php } ?>
+        <div class="flex" style="height: min-content">
+          <?php if ($likeButton) { ?>
+            <div post-id="<?= $this->id ?>" class="<?= (isLoggedIn() && $this->hasLiked($_SESSION['id'])) ? "liked" : "" ?> noSelect likeButton">
+              <i class="fa-solid fa-heart"></i>
+              <span class="likeCount"><?= $this->likeCount; ?></span>
+            </div>
+          <?php } ?>
+          <i class="fa-solid fa-eye"></i><span> <?= $this->views ?></span>
+        </div>
       </div>
 
       <?php
@@ -153,5 +158,13 @@ class Post
     foreach ($comments as $comment) {
       $this->comments[] = new Comment($comment['id']);
     }
+  }
+
+  public function incrementViews($incrementBy = 1)
+  {
+    global $db;
+    $sql = "UPDATE posts SET views = views + ? WHERE id = ?";
+    $stmt = $db->prepare($sql);
+    $stmt->execute([$incrementBy, $this->id]);
   }
 }

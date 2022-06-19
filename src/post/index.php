@@ -8,6 +8,7 @@ if (!$error) {
 
   $post = new Post($id);
   $post->load_comments();
+  $post->incrementViews();
   $serverData['isPostAuthor'] = (isLoggedIn() && $post->author_id == $_SESSION['id']);
   $serverData['post'] = $post->toArray();
 } else

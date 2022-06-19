@@ -4,7 +4,7 @@ $$('.post .likeButton').forEach(button => {
     e.stopPropagation();
     if (!serverData.loggedIn)
       return toasteur.error('You must be logged in to like a post.', "Error");
-    const id = button.parentElement.parentElement.getAttribute('post-id');
+    const id = button.getAttribute('post-id');
 
     let likeCount = button.querySelector('.likeCount');
 
