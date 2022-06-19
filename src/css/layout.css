@@ -7,16 +7,15 @@
 .main>.content {
     width: 100%;
     margin: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 @media (min-width: 768px) {
     .content.small {
         max-width: 500px;
     }
-}
-
-.content .box {
-    margin-bottom: 20px;
 }
 
 .sidebar {

@@ -31,7 +31,7 @@ $lastPost = new Post($lastPost['id']);
 <head>
   <?php
   defaultHeaders();
-  css("colors",  "global", "footer", "layout", "loadingScreen", "navbar", "tiles");
+  css("colors",  "global", "footer", "layout", "loadingScreen", "post", "navbar", "tiles", "avatar");
   ?>
 </head>
 
@@ -49,9 +49,14 @@ $lastPost = new Post($lastPost['id']);
     <div class="main">
       <div class="content">
         <h1 class="center box glowing">Recent posts</h1>
-        <div class="tiles">
-          <?= recentPosts(20) ?>
-        </div>
+
+        <?php
+        foreach (recentPosts(10) as $post) {
+          echo "<div href='/post/?id={$post->id}'>";
+          echo $post->HTML(300);
+          echo "</div>";
+        }
+        ?>
       </div>
       <hr class="onlyShowWhenMobileWidth">
       <div class="sidebar">
@@ -84,7 +89,7 @@ $lastPost = new Post($lastPost['id']);
   <?php
   loadingScreen();
   footer();
-  js("functions", "global", "navbar", "links", "tiles", "loadingScreen");
+  js("functions", "global", "scrollAfter", "navbar", "links", "post", "tiles", "loadingScreen");
   ?>
 </body>
 

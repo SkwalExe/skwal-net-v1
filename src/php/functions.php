@@ -432,7 +432,7 @@ function api($method = "POST", $contentType = "application/json")
 }
 
 
-function recentPosts($limit = 5)
+function printRecentPosts($limit = 5)
 {
     global $db;
     $sql = "SELECT id FROM posts ORDER BY createdAt DESC LIMIT $limit";
@@ -446,9 +446,16 @@ function recentPosts($limit = 5)
 
 
     foreach ($posts as $post) {
+        $post->loadAuthor();
 ?>
         <div class="tile" href="/post?id=<?= $post->id ?>">
             <div class="head">
+                <div class="flex">
+                    <div class="avatarContainer">
+                        <img src="<?= $post->author->avatarUrl ?>" class="avatar" />
+                    </div>
+                    <p><?= $post->author->username ?></p><?= $post->author->printRoles(); ?>
+                </div>
                 <span class="title"><?= htmlentities($post->title) ?></span>
             </div>
             <div class="body">
@@ -480,4 +487,19 @@ function commentExists($id)
     $stmt = $db->prepare($sql);
     $stmt->execute([$id]);
     return $stmt->rowCount() > 0;
+}
+
+function recentPosts($limit = 5)
+{
+    global $db;
+    $sql = "SELECT id FROM posts ORDER BY createdAt DESC LIMIT $limit";
+
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->fetchAll();
+    $posts = array_map(function ($post) {
+        return new Post($post['id']);
+    }, $result);
+
+    return $posts;
 }

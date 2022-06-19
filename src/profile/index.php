@@ -140,7 +140,7 @@ $serverData['loggedInUserProfile'] = $loggedInUserProfile;
   }
 
 
-  js("functions", "global", "navbar", "links", "tiles", "loadingScreen", "profile");
+  js("functions", "global", "navbar", "links", "tiles", "loadingScreen", "profile", "post");
 
   ?>
 
