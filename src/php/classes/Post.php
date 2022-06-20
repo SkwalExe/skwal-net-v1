@@ -148,6 +148,10 @@ class Post
     $sql = "DELETE FROM likes WHERE post = ?";
     $stmt = $db->prepare($sql);
     $stmt->execute([$this->id]);
+
+    $sql = "DELETE FROM comments WHERE post = ?";
+    $stmt = $db->prepare($sql);
+    $stmt->execute([$this->id]);
   }
 
   public function load_comments()

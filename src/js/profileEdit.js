@@ -36,3 +36,29 @@ form.addEventListener('submit', e => {
       }
     })
 })
+
+
+$('.delete-account-button').onclick = () => {
+  new MessageBox()
+    .setTitle("Delete Account")
+    .setMessage("Are you sure you want to delete your account? This action is permanent and cannot be undone.")
+    .addButton("Cancel", "green")
+    .addButton("Delete", "red")
+    .show()
+    .then(res => {
+      if (res === "Delete") {
+        fetch('/api/v1/deleteUser.php')
+          .then(res => res.json()).then(data => {
+            if (data.success) {
+              new MessageBox()
+                .setTitle("Email sent")
+                .setMessage("We have sent you an email to confirm your account deletion. Please check your inbox/spams")
+                .show();
+            } else {
+              toasteur.error(data.error, "Error!")
+            }
+          })
+      }
+    })
+
+}
