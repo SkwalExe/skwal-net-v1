@@ -73,15 +73,14 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
                 <?php
                 pages();
                 ?>
-                <i class="fa-brands fa-discord">
-                    <hr>
+                <hr>
 
-                    <h1 class="glowing box center">
-                        Projects
-                    </h1>
-                    <?php
-                    projects();
-                    ?>
+                <h1 class="glowing box center">
+                    Projects
+                </h1>
+                <?php
+                projects();
+                ?>
             </div>
         </div>
     </div>
