@@ -27,6 +27,7 @@ class User
     $this->posts = [];
     $this->avatarUrl = "/avatar/?username=$this->username";
     $this->bannerUrl = "/banner/?username=$this->username";
+    $this->accountDeletionToken = $user['accountDeletionToken'];
     $settings = json_decode($user['settings'], true);
 
     global $defaultSettings;
@@ -129,6 +130,73 @@ class User
       if (isset($roles[$role])) {
         echo "<i toultip='{$roles[$role][1]}' class='roleIcon {$roles[$role][0]}'></i>";
       }
+    }
+  }
+
+  public function delete()
+  {
+    // This function deletes all data about the user, including posts, comments, and followers.
+
+    // Delete all posts
+    $this->loadPosts();
+    foreach ($this->posts as $post) {
+      $post->delete();
+    }
+
+    // Delete all comments
+    $this->loadComments();
+    foreach ($this->comments as $comment) {
+      $comment->delete();
+    }
+
+    // Delete all followers
+    global $db;
+    $sql = "DELETE FROM followers WHERE userId = ?";
+    $stmt = $db->prepare($sql);
+    $stmt->execute([$this->id]);
+
+    // Delete user's avatar and banner
+    if ($this->avatar != "default.png") {
+      unlink($_SERVER['DOCUMENT_ROOT'] . "../user-content/avatar/" . $this->avatar);
+    }
+
+    if ($this->banner != "default.png") {
+      unlink($_SERVER['DOCUMENT_ROOT'] . "../user-content/banner/" . $this->banner);
+    }
+
+    // Delete likes
+    $sql = "DELETE FROM likes WHERE user = ?";
+    $stmt = $db->prepare($sql);
+    $stmt->execute([$this->id]);
+
+    // Delete the user itself
+    $sql = "DELETE FROM users WHERE id = ?";
+    $stmt = $db->prepare($sql);
+    $stmt->execute([$this->id]);
+  }
+
+  public function loadFollowings()
+  {
+    global $db;
+    $this->followings = [];
+    $sql = "SELECT * FROM followers WHERE followerId = ?";
+    $stmt = $db->prepare($sql);
+    $stmt->execute([$this->id]);
+    $followings = $stmt->fetchAll();
+    foreach ($followings as $following) {
+      $this->followings[] = new User($following['userId']);
+    }
+  }
+  public function loadLikes()
+  {
+    global $db;
+    $this->likes = [];
+    $sql = "SELECT * FROM likes WHERE user = ? AND post IS NOT NULL";
+    $stmt = $db->prepare($sql);
+    $stmt->execute([$this->id]);
+    $likes = $stmt->fetchAll();
+    foreach ($likes as $like) {
+      $this->likes[] = new Post($like['post']);
     }
   }
 }
