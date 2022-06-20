@@ -111,10 +111,30 @@ function defaultHeaders()
 /**
  * Print all projects
  */
-function projects()
+function projects($limit = 5)
 {
     global $scripts;
-    include($scripts . "/projects.cache.php");
+    $json = file_get_contents($scripts . "/projects.json");
+    $projects = json_decode($json, true);
+    shuffle($projects);
+    $projects = array_slice($projects, 0, $limit);
+    $html = '';
+    foreach ($projects as $project) {
+        $html .= "<div class=\"tile\" _href=\"{$project['url']}\">";
+        $html .= "<div class=\"head\">";
+        $html .= "<span class=\"title\">";
+        $html .= $project['name'];
+        $html .= "</span>";
+        $html .= "</div>";
+        $html .= "<div class=\"body\">";
+        $html .= "<p class=\"text\">";
+        $html .= $project['description'];
+        $html .= "</p>";
+        $html .= "<img src=\"{$project['image']}\" alt=\"\" class=\"banner\">";
+        $html .= "</div>";
+        $html .= "</div>";
+    }
+    echo $html;
 }
 
 /**
