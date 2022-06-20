@@ -105,4 +105,16 @@ class Comment
     $stmt->execute([$id, $this->id]);
     $this->likeCount--;
   }
+
+  public function delete()
+  {
+    global $db;
+    $sql = "DELETE FROM comments WHERE id = ?";
+    $stmt = $db->prepare($sql);
+    $stmt->execute([$this->id]);
+
+    $sql = "DELETE FROM likes WHERE comment = ?";
+    $stmt = $db->prepare($sql);
+    $stmt->execute([$this->id]);
+  }
 }
