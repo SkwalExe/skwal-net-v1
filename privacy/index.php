@@ -96,7 +96,7 @@ $serverData['toDownload'] = $file;
             <li>The post or comments you liked</li>
             <li>The profiles you follow</li>
           </ul>
-          <h4>The following information can be seen by anyone on your <a href="/profile">Profile page</a></h4>
+          <h4>The following information can be seen by anyone on your <a href="/profile">profile page</a></h4>
           <ul>
             <li>Your username</li>
             <li>Your avatar</li>
@@ -144,7 +144,7 @@ $serverData['toDownload'] = $file;
           <h3>Change your informations</h3>
           <p>You can change your informations on your <a href="/profile/edit">profile settings</a></p>
           <h3>Delete your informations</h3>
-          <p>You can ask us to delete all your informations on your <a href="/profile/edit">Profile settings</a></p>
+          <p>You can ask us to delete all your informations on your <a href="/profile/edit">profile settings</a></p>
           <p>The deletion of your informations is direct, permanent and cannot be undone.</p>
         </div>
       </div>
