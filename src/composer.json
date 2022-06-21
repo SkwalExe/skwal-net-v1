@@ -2,6 +2,6 @@
     "require": {
         "vlucas/phpdotenv": "^5.4",
         "bandwidth-throttle/token-bucket": "^0.4.0",
-        "erusev/parsedown": "^1.7"
+        "league/commonmark": "^2.3"
     }
 }
