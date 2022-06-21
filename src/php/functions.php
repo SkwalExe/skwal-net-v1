@@ -3,6 +3,7 @@
 use bandwidthThrottle\tokenBucket\Rate;
 use bandwidthThrottle\tokenBucket\TokenBucket;
 use bandwidthThrottle\tokenBucket\storage\FileStorage;
+use League\CommonMark\GithubFlavoredMarkdownConverter;
 
 /**
  * Determine if the website is hosted on a localhost or on a server.
@@ -537,4 +538,16 @@ function popularPosts($limit = 5)
     }, $result);
 
     return $posts;
+}
+
+
+function parseMarkdown($text)
+{
+    $parser = new GithubFlavoredMarkdownConverter([
+        'allow_unsafe_links' => false,
+        'html_input' => 'escape',
+
+    ]);
+
+    return $parser->convert($text);
 }
