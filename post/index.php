@@ -4,13 +4,20 @@ $error = !requireGet("id");
 
 if (!$error) {
 
+
   $id = $_GET['id'];
 
-  $post = new Post($id);
-  $post->load_comments();
-  $post->incrementViews();
-  $serverData['isPostAuthor'] = (isLoggedIn() && $post->author_id == $_SESSION['id']);
-  $serverData['post'] = $post->toArray();
+  if (!postExists($id)) {
+    $error = true;
+    redirect("/", ["Error", "Post does not exist", "error"]);
+  } else {
+
+    $post = new Post($id);
+    $post->load_comments();
+    $post->incrementViews();
+    $serverData['isPostAuthor'] = (isLoggedIn() && $post->author_id == $_SESSION['id']);
+    $serverData['post'] = $post->toArray();
+  }
 } else
   redirect("/", ['Invalid Link', 'The post you are looking for is unavailable beacause you entered the wrong link. Missing "id" parameter', "error"]);
 ?>
@@ -78,6 +85,7 @@ if (!$error) {
             <h1 class="glowing box center">Actions</h1>
             <div class="links box glowing">
               <a class="postDeleteButton"><i class="fa-solid fa-trash"></i> Delete</a>
+              <a href="/profile/newPost?id=<?= $post->id ?>"><i class="fa-solid fa-edit"></i> Edit</a>
             </div>
           <?php
           }
