@@ -9,7 +9,7 @@ form.addEventListener('submit', e => {
   data = JSON.stringify(data);
 
 
-  fetch('/api/v1/newPost.php', {
+  fetch(serverData['editPost'] ? '/api/v1/editPost.php' : '/api/v1/newPost.php', {
       method: 'POST',
       body: data,
       headers: { 'Content-Type': 'application/json' }
