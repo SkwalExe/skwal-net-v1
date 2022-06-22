@@ -36,7 +36,7 @@ $serverData['loggedInUserProfile'] = $loggedInUserProfile;
 
   <?php
   defaultHeaders();
-  css("colors", "global", "footer", "loadingScreen", "post", "navbar", "tiles", "avatar", "profile", "form");
+  css("colors", "global", "footer", "loadingScreen", "post", "navbar", "tiles", "avatar", "profile", "form", 'markup');
   ?>
 
 </head>
@@ -127,9 +127,9 @@ $serverData['loggedInUserProfile'] = $loggedInUserProfile;
             ?>
           </div>
         </div>
-        <div class="hidden about">
+        <div class="hidden about markup">
           <h5 class="createdAt">Joined on <?= date("F j, Y", strtotime($user->createdAt)) ?></h5>
-          <p class="break"><?= htmlentities($user->bio) ?></p>
+          <?= parseMarkdown($user->bio) ?>
         </div>
       </div>
     </div>
