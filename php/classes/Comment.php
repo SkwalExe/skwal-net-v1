@@ -64,19 +64,32 @@ class Comment
                 <img class="avatar" src="<?= $this->user->avatarUrl; ?>">
               </div>
               <?= $this->user->username; ?>
-            </a> <?php $this->user->printRoles() ?> -
+            </a> <?php $this->user->printRoles() ?>
             <h5 class="date">
               <?= date("F j, Y", strtotime($this->created_at)); ?>
             </h5>
           </div>
 
         </div>
-        <?php if ($likeButton) { ?>
-          <div class="<?= (isLoggedIn() && $this->has_liked($_SESSION['id'])) ? "liked" : "" ?> noSelect likeButton">
-            <i class="fa-solid fa-heart"></i>
-            <span class="likeCount"><?= $this->likeCount; ?></span>
-          </div>
-        <?php } ?>
+        <div style="flex-wrap: nowrap; height: min-content" class="flex">
+          <?php if ($likeButton) { ?>
+            <div comment-id="<?= $this->id ?>" class="<?= (isLoggedIn() && $this->has_liked($_SESSION['id'])) ? "liked" : "" ?> noSelect likeButton">
+              <i class="fa-solid fa-heart"></i>
+              <span class="likeCount"><?= $this->likeCount; ?></span>
+            </div>
+          <?php }
+          if (isLoggedIn() && $_SESSION['id'] == $this->user->id) {
+          ?>
+
+            <div comment-id="<?= $this->id ?>" class="noSelect deleteButton">
+              <i class="fa-solid fa-trash"></i>
+            </div>
+
+          <?php
+          }
+          ?>
+
+        </div>
       </div>
 
 
