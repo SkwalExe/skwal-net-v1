@@ -42,7 +42,7 @@ $serverData['toDownload'] = $file;
 <head>
   <?php
   defaultHeaders();
-  css("colors",  "global", "footer", "layout", "loadingScreen", "navbar", "tiles", "markup");
+  css("colors",  "global", "footer", "layout", "loadingScreen", "navbar", "tiles");
   ?>
 </head>
 
