@@ -32,3 +32,13 @@
 .likeButton:hover {
     background-color: rgba(255, 255, 255, .1);
 }
+
+.deleteButton {
+    margin: 5px 10px;
+}
+
+.deleteButton:hover,
+.deleteButton:hover * {
+    cursor: pointer;
+    color: var(--red);
+}
