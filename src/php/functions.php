@@ -45,6 +45,7 @@ function css()
     echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toasteur@0.2.1/dist/themes/toasteur-default.min.css">';
     echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/messagebox.js@0.4.0/dist/themes/messagebox-default.min.css">';
     echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toultip@0.2.0/dist/themes/toultip-default.min.css">';
+    echo '<link rel="stylesheet" href="/css/prism.css">';
     $files = func_get_args();
 
     echo "<style>"; // trensmet les donnés de l'utilisateur au css
@@ -69,7 +70,7 @@ function js()
     echo '<script src="https://cdn.jsdelivr.net/gh/SkwalExe/Toasteur.js@v0.2.1/dist/toasteur.min.js"></script>';
     echo '<script src="https://cdn.jsdelivr.net/gh/SkwalExe/Toultip.js@v0.2.0/dist/toultip.min.js"></script>';
     echo '<script src="https://cdn.jsdelivr.net/gh/SkwalExe/MessageBox.js@v0.4.0/dist/messagebox.min.js"></script>';
-
+    echo '<script src="/js/prism.js"></script>';
     static $serverDataPassed = false;
     if (!$serverDataPassed) {
         $serverDataPassed = true;
