@@ -99,8 +99,8 @@ class Post
 
       if ($contentLimit !== 0) {
       ?>
-        <div class="content">
-          <?= nl2br(htmlentities($content)); ?>
+        <div class="content markup">
+          <?= parseMarkdown($content); ?>
         </div>
       <?php
       }

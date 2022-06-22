@@ -207,3 +207,14 @@ h6.center {
     justify-content: center;
     align-items: center;
 }
+
+.markup ul {
+    list-style: none;
+    margin-left: 0;
+}
+
+.markup ul li::before {
+    content: '-';
+    margin-right: 15px;
+    text-shadow: 0 0 1px var(--color3), 0 0 2px var(--color3), 0 0 4px var(--color3), 0 0 5px var(--color3), 0 0 10px var(--color3);
+}
