@@ -218,3 +218,7 @@ h6.center {
     margin-right: 15px;
     text-shadow: 0 0 1px var(--color3), 0 0 2px var(--color3), 0 0 4px var(--color3), 0 0 5px var(--color3), 0 0 10px var(--color3);
 }
+
+.markup img {
+    max-height: 300px;
+}
