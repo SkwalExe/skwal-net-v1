@@ -549,7 +549,7 @@ function metadata($params = [])
     $defaultParams = [
         "title" => "Skwal.net",
         "description" => "A social network for everyone",
-        "image" => "/assets/logo.png",
+        "image" => "/assets/banner.png",
         "large" => true,
         "url" => $_SERVER['REQUEST_URI']
     ];
