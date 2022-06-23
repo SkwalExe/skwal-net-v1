@@ -551,7 +551,8 @@ function metadata($params = [])
         "description" => "Skwal.net forum is a safe, welcoming and caring place to discover cool stuff, share your knowledge and get help from other users",
         "image" => "/assets/logo.png",
         "large" => false,
-        "url" => $_SERVER['REQUEST_URI']
+        "url" => $_SERVER['REQUEST_URI'],
+        "site_name" => "© 2018-" . date('Y') . ", Léopold Koprivnik Ibghy"
     ];
 
     $params = array_merge($defaultParams, $params);
@@ -559,7 +560,7 @@ function metadata($params = [])
     ?>
     <meta name='referrer' content='no-referrer'>
     <meta name='theme-color' content='#CE6B82'>
-    <meta property='og:site_name' content='© 2018-<?= date('Y') ?>, Léopold Koprivnik Ibghy' />
+    <meta property='og:site_name' content='<?= $params['site_name'] ?>' />
     <link rel='icon' type='image/ico' href='/favicon.ico'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <meta charset='UTF-8'>
