@@ -353,23 +353,24 @@ function requireFiles()
 
 function redirect($url, $notification = null)
 {
+
+    if (!isset($notification)) {
+        header("Location: $url");
+        die();
+    }
+
     global $redirectNotification;
 
     $redirectNotification = "<script>redirect('" . addslashes($url) . "'";
+    $redirectNotification .= ", ['" . addslashes($notification[0]) . "'";
+    $redirectNotification .= ", '" . addslashes($notification[1]) . "'";
+    if (isset($notification[2]))
+        $redirectNotification .= ", '" . addslashes($notification[2]) . "'";
 
-    if ($notification) {
-
-        $redirectNotification .= ", ['" . addslashes($notification[0]) . "'";
-        $redirectNotification .= ", '" . addslashes($notification[1]) . "'";
-        if (isset($notification[2]))
-            $redirectNotification .= ", '" . addslashes($notification[2]) . "'";
-
-        if (isset($notification[3]))
-            $redirectNotification .= ", '" . addslashes($notification[3]) . "']";
-        else
-            $redirectNotification .= ']';
-    }
-
+    if (isset($notification[3]))
+        $redirectNotification .= ", '" . addslashes($notification[3]) . "']";
+    else
+        $redirectNotification .= ']';
     $redirectNotification .= ");</script>";
 }
 
@@ -544,11 +545,15 @@ function popularPosts($limit = 5)
 
 function parseMarkdown($text)
 {
+
+    while (str_contains($text, "\n\n\n")) {
+        $text = str_replace("\n\n\n", "\n\n", $text);
+    }
+
     $parser = new GithubFlavoredMarkdownConverter([
         'allow_unsafe_links' => false,
         'html_input' => 'escape',
-
     ]);
 
-    return $parser->convert($text);
+    return nl2br(trim($parser->convert($text)));
 }
