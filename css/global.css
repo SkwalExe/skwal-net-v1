@@ -225,5 +225,29 @@ h6.center {
 
 .markup hr {
     height: 3px;
-    background-color: var(--color1);
+    background-color: rgba(0, 0, 0, .2)
+}
+
+.markup strong {
+    color: var(--color3);
+}
+
+a[disabled] {
+    pointer-events: none;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.markup br {
+    content: "";
+    margin: 2em;
+    display: block;
+    font-size: 35%;
+}
+
+.markup blockquote {
+    border-left: 3px solid rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    padding-left: 20px;
+    background-color: rgba(0, 0, 0, 0.1);
+    margin: 10px 0;
 }

@@ -154,8 +154,10 @@ $serverData['toDownload'] = $file;
           Links
         </h1>
         <div class="links box glowing">
-          <a href="/profile/edit">Change your informations</a>
-          <a href="/profile/edit">Delete your informations</a>
+          <a href="/profile/edit">📝 Change your informations</a>
+          <a href="/profile/edit">🗑️ Delete your informations</a>
+          <a href="/tos">📜 Terms of service</a>
+          <a href="/cookies">🍪 Cookies policy</a>
         </div>
         <hr>
         <h1 class="box glowing center">
