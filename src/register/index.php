@@ -59,7 +59,7 @@ if ($error)
 
               <button type="submit">Register</button>
 
-              <p style="text-align:center">By creating an account, you agree to our <a href="/privacy">Privacy policy</a></p>
+              <p style="text-align:center">By creating an account and using our services, you agree to our <a href="/privacy">Privacy policy 🔒</a> and to our <a href="/tos">Terms of service 📜</a></p>
 
             </form>
             <hr>
