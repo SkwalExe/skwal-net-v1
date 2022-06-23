@@ -545,15 +545,11 @@ function popularPosts($limit = 5)
 
 function parseMarkdown($text)
 {
-
-    while (str_contains($text, "\n\n\n")) {
-        $text = str_replace("\n\n\n", "\n\n", $text);
-    }
-
     $parser = new GithubFlavoredMarkdownConverter([
         'allow_unsafe_links' => false,
         'html_input' => 'escape',
+
     ]);
 
-    return nl2br(trim($parser->convert($text)));
+    return $parser->convert($text);
 }
