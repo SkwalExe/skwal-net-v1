@@ -37,7 +37,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
         </div>
 
         <div class="box glowing markup">
-          <h1>What type of cookies to we use? 🤔</h1>
+          <h1>What type of cookies do we use? 🤔</h1>
           <p>At skwal.net, we only use <strong>Essential cookies</strong>, to keep you logged in to your account</p>
           <p>We don't and will never share or sell informations about what page you visited to third parties ✅</p>
         </div>
