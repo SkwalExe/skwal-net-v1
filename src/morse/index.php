@@ -6,7 +6,12 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
 <head>
   <?php
-  metadata();
+  metadata([
+    "title" => "Morse translator",
+    "description" => "This morse translator allows you to translate morse code or taps to text",
+    "large" => true,
+    "image" => "/assets/morse.png"
+  ]);
   css("colors",  "global", "footer", "layout", "loadingScreen", 'morse',  "form", "navbar", "tiles");
   ?>
 </head>

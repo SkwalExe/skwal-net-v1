@@ -19,7 +19,10 @@ if (isLoggedIn()) {
 
 
   <?php
-  metadata();
+  metadata([
+    "title" => "Edit your profile's settings",
+    "description" => "Customize the look of the website",
+  ]);
   css("colors",  "global", "footer", "layout", "loadingScreen", "navbar", "tiles", "form");
   ?>
 

@@ -15,6 +15,7 @@ if (!$error) {
     $post = new Post($id);
     $post->load_comments();
     $post->incrementViews();
+    $post->loadAuthor();
     $serverData['isPostAuthor'] = (isLoggedIn() && $post->author_id == $_SESSION['id']);
     $serverData['post'] = $post->toArray();
   }
@@ -29,7 +30,18 @@ if (!$error) {
 
 
   <?php
-  metadata();
+  if (!$error)
+    metadata([
+      "title" => $post->title,
+      "description" => $post->content,
+      "site_name" => "Post by " . $post->author->username,
+      "image" => $post->author->avatarUrl,
+    ]);
+  else
+    metadata([
+      "title" => "Wrong link",
+      "description" => "The post you are looking for is unavailable beacause you entered the wrong link.",
+    ]);
   css("colors",  "global", "footer", "layout", "loadingScreen", "navbar", "tiles", "post", "avatar", "form");
   ?>
 

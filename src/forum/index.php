@@ -30,7 +30,10 @@ $lastPost = new Post($lastPost['id']);
 
 <head>
   <?php
-  metadata();
+  metadata([
+    "title" => '💬 Skwal.net forum',
+    "description" => "Skwal.net forum is a safe, welcoming and caring place to discover cool stuff, share your knowledge and get help from other users"
+  ]);
   css("colors",  "global", "footer", 'form',  "layout", "loadingScreen", "post", "searchBar", "navbar", "tiles", "avatar");
   ?>
 </head>

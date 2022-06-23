@@ -10,7 +10,12 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
 
     <?php
-    metadata();
+    metadata([
+        "title" => '📜 About skwal.net',
+        "description" => "Learn more about skwal.net, the history of the website and of its creator",
+        "large" => true,
+        "image" => "/assets/banner.png"
+    ]);
     css("colors", "global",  "footer", "layout", "loadingScreen", "navbar", "tiles");
     ?>
 

@@ -41,7 +41,10 @@ $serverData['toDownload'] = $file;
 
 <head>
   <?php
-  metadata();
+  metadata([
+    "title" => "📜 Skwal.net privacy policy",
+    "description" => "Learn about how skwal.net uses your informations"
+  ]);
   css("colors",  "global", "footer", "layout", "loadingScreen", "navbar", "tiles");
   ?>
 </head>

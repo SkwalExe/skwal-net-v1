@@ -52,8 +52,11 @@ if (requireGet('action', 'id', 'token')) {
 
 
   <?php
-  metadata();
-  css("colors",  "global", "footer", "layout", "loadingScreen", "navbar", "tiles", "form");
+  metadata([
+    "title" => "Edit your profile informations",
+    "description" => "Edit your profile informations, your username, email adress, password, bio...",
+  ]);
+  css("colors", "global", "footer", "layout", "loadingScreen", "navbar", "tiles", "form");
   ?>
 
 </head>

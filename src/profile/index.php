@@ -35,7 +35,11 @@ $serverData['loggedInUserProfile'] = $loggedInUserProfile;
 
 
   <?php
-  metadata();
+  metadata([
+    'title' => $user->username . "'s profile",
+    'description' => "View " . $user->username . "'s profile, posts, comments, and more.",
+    'image' => $user->avatarUrl,
+  ]);
   css("colors", "global", "footer", "loadingScreen", "post", "navbar", "tiles", "avatar", "profile", "form");
   ?>
 
