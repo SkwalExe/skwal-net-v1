@@ -34,7 +34,7 @@ $page = array_values($page)[0];
 
 <head>
     <?php
-    defaultHeaders();
+    metadata();
     css("colors",  "global", "footer", "layout", "loadingScreen", "navbar", "tiles");
     ?>
 </head>
