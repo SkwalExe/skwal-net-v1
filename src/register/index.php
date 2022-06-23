@@ -13,7 +13,7 @@ if ($error)
 
 
   <?php
-  defaultHeaders();
+  metadata();
   css("colors",  "global", "footer", "layout", "loadingScreen", "navbar", "tiles", "form");
   ?>
 

@@ -24,7 +24,7 @@ if (isLoggedIn()) {
 <head>
 
   <?php
-  defaultHeaders();
+  metadata();
   css("colors",  "global", "footer", "layout", "loadingScreen", "form",  "navbar", "tiles");
   ?>
 

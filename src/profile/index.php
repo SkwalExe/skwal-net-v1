@@ -35,7 +35,7 @@ $serverData['loggedInUserProfile'] = $loggedInUserProfile;
 
 
   <?php
-  defaultHeaders();
+  metadata();
   css("colors", "global", "footer", "loadingScreen", "post", "navbar", "tiles", "avatar", "profile", "form");
   ?>
 

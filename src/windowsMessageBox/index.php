@@ -10,7 +10,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
 
     <?php
-    defaultHeaders();
+    metadata();
     css("colors",  "global", "footer", "layout", "loadingScreen", "form",  "navbar", "tiles");
     ?>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/windowsmessagebox@0.4.1/dist/wmsgbox.min.css">

@@ -10,7 +10,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
 
     <?php
-    defaultHeaders();
+    metadata();
     css("colors", "global", "footer", "loadingScreen", "layout", "navbar", "tiles");
     ?>
 

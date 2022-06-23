@@ -100,17 +100,6 @@ function js()
 
 
 /**
- * Echo default html headers
- */
-function defaultHeaders()
-{
-
-    global $scripts;
-    include($scripts . "/headers.php");
-}
-
-
-/**
  * Print all projects
  */
 function projects($limit = 5)
@@ -487,7 +476,7 @@ function printRecentPosts($limit = 5)
                 </p>
             </div>
         </div>
-<?php
+    <?php
     }
 }
 
@@ -552,4 +541,37 @@ function parseMarkdown($text)
     ]);
 
     return $parser->convert($text);
+}
+
+
+function metadata($params = [])
+{
+    $defaultParams = [
+        "title" => "Skwal.net",
+        "description" => "A social network for everyone",
+        "image" => "/assets/logo.png",
+        "large" => true,
+        "url" => $_SERVER['REQUEST_URI']
+    ];
+
+    $params = array_merge($defaultParams, $params);
+
+    ?>
+    <meta name='referrer' content='no-referrer'>
+    <meta name='theme-color' content='#CE6B82'>
+    <meta property='og:site_name' content='© 2018-<?= date('Y') ?>, Léopold Koprivnik Ibghy' />
+    <link rel='icon' type='image/ico' href='/favicon.ico'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta charset='UTF-8'>
+
+    <title><?= $params['title'] ?></title>
+    <meta property='og:title' content='<?= $params['title'] ?>' />
+    <meta name='description' content='<?= $params['description'] ?>'>
+    <meta property='og:description' content='<?= $params['description'] ?>' />
+    <meta property='og:url' content='<?= $params['url'] ?>' />
+    <meta property='og:image' content='<?= $params['image'] ?>' />
+    <?= $params['large'] ? "<meta name='twitter:card' content='summary_large_image' />" : "" ?>
+
+<?php
+
 }
