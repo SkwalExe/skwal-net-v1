@@ -7,7 +7,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
 <head>
     <?php
-    defaultHeaders();
+    metadata();
     css("colors",  "global", "terminal");
     ?>
 </head>

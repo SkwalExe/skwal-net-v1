@@ -30,7 +30,7 @@ $lastPost = new Post($lastPost['id']);
 
 <head>
   <?php
-  defaultHeaders();
+  metadata();
   css("colors",  "global", "footer", 'form',  "layout", "loadingScreen", "post", "searchBar", "navbar", "tiles", "avatar");
   ?>
 </head>

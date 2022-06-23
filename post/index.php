@@ -29,7 +29,7 @@ if (!$error) {
 
 
   <?php
-  defaultHeaders();
+  metadata();
   css("colors",  "global", "footer", "layout", "loadingScreen", "navbar", "tiles", "post", "avatar", "form");
   ?>
 

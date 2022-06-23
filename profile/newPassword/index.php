@@ -26,7 +26,7 @@ if (requireGet('action', 'id', 'token')) {
 
 
   <?php
-  defaultHeaders();
+  metadata();
   css("colors",  "global", "footer", "layout", "loadingScreen", "navbar", "tiles", "form");
   ?>
 
