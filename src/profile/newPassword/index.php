@@ -26,7 +26,10 @@ if (requireGet('action', 'id', 'token')) {
 
 
   <?php
-  metadata();
+  metadata([
+    "title" => "Reset your password",
+    "description" => "Reset your password if you want to change it, or if you forgot it",
+  ]);
   css("colors",  "global", "footer", "layout", "loadingScreen", "navbar", "tiles", "form");
   ?>
 

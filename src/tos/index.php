@@ -34,7 +34,12 @@ $page = array_values($page)[0];
 
 <head>
     <?php
-    metadata();
+    metadata([
+        "title" => '📜 Skwal Terms of Service',
+        "description" => "The 📜 rules and limitations to follow to keep skwal.net a safe, welcoming and caring place for our users",
+        "large" => false,
+        "image" => "/assets/logo.png",
+    ]);
     css("colors",  "global", "footer", "layout", "loadingScreen", "navbar", "tiles");
     ?>
 </head>

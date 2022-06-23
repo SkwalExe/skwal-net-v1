@@ -13,7 +13,10 @@ if ($error)
 
 
   <?php
-  metadata();
+  metadata([
+    'title' => 'Create an account',
+    "description" => "Create an account on the website"
+  ]);
   css("colors",  "global", "footer", "layout", "loadingScreen", "navbar", "tiles", "form");
   ?>
 

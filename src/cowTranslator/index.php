@@ -6,7 +6,10 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
 <head>
     <?php
-    metadata();
+    metadata([
+        "title" => '🐮 Cow translator',
+        "description" => "This cow translator 🐮 allows simple humans like you to communicate with these beautiful and charismatic cows 🐮✨"
+    ]);
     css("colors", "global", "footer", "layout", "form", "loadingScreen", "cowTranslator", "navbar", "tiles");
     ?>
 </head>

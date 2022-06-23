@@ -6,7 +6,10 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
 <head>
   <?php
-  metadata();
+  metadata([
+    "title" => '🍪 Skwal.net cookies policy',
+    "description" => "Learn more about how skwal.net uses cookies 🍪"
+  ]);
   css("colors",  "global", "footer", "layout", "loadingScreen", "navbar", "tiles");
   ?>
 </head>
