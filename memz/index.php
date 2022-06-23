@@ -10,7 +10,12 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
 
     <?php
-    metadata();
+    metadata([
+        "title" => "🌈🐈 Memz simulator",
+        "description" => "This Memz simulator 🌈🐈 allows you to simulate safely, the iconic Memz 🌈🐈 trojan in your browser",
+        "large" => true,
+        "image" => "/assets/memz.png",
+    ]);
     css("colors",  "global", "footer", "layout", "loadingScreen", "form", "navbar", "tiles");
     ?>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/windowsmessagebox@0.4.1/dist/wmsgbox.min.css">

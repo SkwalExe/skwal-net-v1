@@ -10,7 +10,12 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
 
     <?php
-    metadata();
+    metadata([
+        "title" => "WindowsMessageBox.js javascript library demo",
+        "description" => "Try WindowsMessageBox.js javascript library in your browser to see what it can do",
+        "image" => "https://raw.githubusercontent.com/SkwalExe/WindowsMessageBox.js/main/assets/banner.png",
+        "large" => true,
+    ]);
     css("colors",  "global", "footer", "layout", "loadingScreen", "form",  "navbar", "tiles");
     ?>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/windowsmessagebox@0.4.1/dist/wmsgbox.min.css">

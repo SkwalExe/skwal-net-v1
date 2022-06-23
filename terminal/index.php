@@ -7,7 +7,12 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
 <head>
     <?php
-    metadata();
+    metadata([
+        'title' => 'Terminal simulator',
+        'description' => 'Terminal simulator written in javascript, directly in your browser',
+        'large' => true,
+        "image" => "/assets/terminal.png",
+    ]);
     css("colors",  "global", "terminal");
     ?>
 </head>

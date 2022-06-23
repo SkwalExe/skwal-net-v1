@@ -13,7 +13,10 @@ if ($error)
 
 
   <?php
-  metadata();
+  metadata([
+    "title" => "Login",
+    "description" => "Login to your account"
+  ]);
   css("colors",  "global", "footer", "layout", "loadingScreen", "navbar", "tiles", "form");
   ?>
 

@@ -24,7 +24,10 @@ if (isLoggedIn()) {
 <head>
 
   <?php
-  metadata();
+  metadata([
+    "title" => "Create a new post",
+    "description" => "Create a new post on the skwal.net's forum",
+  ]);
   css("colors",  "global", "footer", "layout", "loadingScreen", "form",  "navbar", "tiles");
   ?>
 
@@ -73,27 +76,17 @@ if (isLoggedIn()) {
         </div>
 
       </div>
-      <hr class="onlyShowWhenMobileWidth">
-      <div class="sidebar">
+      <hr class=<?php
+                ?> <hr>
 
-
-        <h1 class="center glowing box">
-          Pages
-        </h1>
-        <?php
-        pages();
-        ?>
-
-        <hr>
-
-        <h1 class="center glowing box">
-          Projects
-        </h1>
-        <?php
-        projects();
-        ?>
-      </div>
+      <h1 class="center glowing box">
+        Projects
+      </h1>
+      <?php
+      projects();
+      ?>
     </div>
+  </div>
   </div>
 
   <?php
