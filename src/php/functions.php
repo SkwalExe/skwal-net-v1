@@ -590,3 +590,19 @@ function dontShowPageContent()
     global $showPageContent;
     $showPageContent = false;
 }
+
+
+function pageCss()
+{
+    global $showPageContent;
+    if ($showPageContent)
+        css(func_get_args());
+}
+
+
+function pageJs()
+{
+    global $showPageContent;
+    if ($showPageContent)
+        js(func_get_args());
+}
