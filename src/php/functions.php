@@ -339,28 +339,28 @@ function requireFiles()
     }
     return true;
 }
-
 function redirect($url, $notification = null)
 {
-
-    if (!isset($notification)) {
-        header("Location: $url");
-        die();
-    }
-
     global $redirectNotification;
 
-    $redirectNotification = "<script>redirect('" . addslashes($url) . "'";
-    $redirectNotification .= ", ['" . addslashes($notification[0]) . "'";
-    $redirectNotification .= ", '" . addslashes($notification[1]) . "'";
-    if (isset($notification[2]))
-        $redirectNotification .= ", '" . addslashes($notification[2]) . "'";
+    $redirectNotification = "<script>";
+    $redirectNotification .= "redirect(";
+    $redirectNotification .= "'" . addslashes($url) . "'";
 
-    if (isset($notification[3]))
-        $redirectNotification .= ", '" . addslashes($notification[3]) . "']";
-    else
+    if ($notification) {
+        $redirectNotification .= ", ['" . addslashes($notification[0]) . "'";
+        $redirectNotification .= ", '" . addslashes($notification[1]) . "'";
+        if (isset($notification[2]))
+            $redirectNotification .= ", '" . addslashes($notification[2]) . "'";
+
+        if (isset($notification[3]))
+            $redirectNotification .= ", '" . addslashes($notification[3]) . "'";
+
         $redirectNotification .= ']';
-    $redirectNotification .= ");</script>";
+    }
+
+    $redirectNotification .= ");";
+    $redirectNotification .= "</script>";
 }
 
 
