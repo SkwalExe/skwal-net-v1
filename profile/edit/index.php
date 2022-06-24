@@ -1,7 +1,5 @@
 <?php
 include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
-$error = true;
-
 if (requireGet('action', 'id', 'token')) {
   $action = $_GET['action'];
   $id = $_GET['id'];
@@ -37,7 +35,6 @@ if (requireGet('action', 'id', 'token')) {
 
   if (isLoggedIn()) {
     $user = new User($_SESSION['id']);
-    $error = false;
   } else {
     redirect("/login", ["Error", "Please log in to edit your profile", "error"]);
   }
@@ -64,12 +61,12 @@ if (requireGet('action', 'id', 'token')) {
 <body>
 
   <?php
-  if (!$error) {
-    navbarStart();
+  navbarStart();
 
-    navbarButton("Home", "/", "fa fa-home");
+  navbarButton("Home", "/", "fa fa-home");
 
-    navbarEnd();
+  navbarEnd();
+  if ($showPageContent) {
   ?>
     <div class="mainContainer">
 
@@ -108,9 +105,9 @@ if (requireGet('action', 'id', 'token')) {
     </div>
 
   <?php
-    loadingScreen();
-    footer();
   }
+  loadingScreen();
+  footer();
   js("functions", "global", "navbar", "links", "tiles", "loadingScreen", "profileEdit");
   ?>
 

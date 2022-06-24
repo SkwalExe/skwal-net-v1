@@ -1,6 +1,5 @@
 <?php
 include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
-$error = true;
 
 $loggedInUserProfile = false;
 
@@ -14,7 +13,6 @@ if (!isLoggedIn() && !requireGet("username")) {
     http_response_code(404);
     redirect("/", ["Error", "Cannot find any user with this username."]);
   } else {
-    $error = false;
     $user = new User($username, "username");
     $user->loadPosts();
     $user->loadComments();
@@ -35,11 +33,18 @@ $serverData['loggedInUserProfile'] = $loggedInUserProfile;
 
 
   <?php
-  metadata([
-    'title' => $user->username . "'s profile",
-    'description' => "View " . $user->username . "'s profile, posts, comments, and more.",
-    'image' => $user->avatarUrl,
-  ]);
+  if ($showPageContent) {
+    metadata([
+      'title' => $user->username . "'s profile",
+      'description' => "View " . $user->username . "'s profile, posts, comments, and more.",
+      'image' => $user->avatarUrl,
+    ]);
+  } else {
+    metadata([
+      'title' => "Wrong link.",
+      'description' => "The profile you are looking for doesn't exist"
+    ]);
+  }
   css("colors", "global", "footer", "loadingScreen", "post", "navbar", "tiles", "avatar", "profile", "form");
   ?>
 
@@ -48,19 +53,19 @@ $serverData['loggedInUserProfile'] = $loggedInUserProfile;
 <body>
 
   <?php
-  if (!$error) {
-    navbarStart();
-    if (!isLoggedIn())
-      navbarButton("Login", "/login", "fa fa-sign-in");
-    else if (isLoggedIn() && $_SESSION['id'] != $user->id)
-      navbarButton("Your profile", "/profile", "fa fa-user");
-    else if ($loggedInUserProfile) {
-      navbarButton("Profile customization", "/profile/edit", "fa fa-cog");
-      navbarButton("Logout", "javascript:logout();", "fa fa-sign-out");
-      navbarButton("Settings", "/profile/settings", "fa fa-cog");
-    }
-    navbarButton("Home", "/", "fa fa-home");
-    navbarEnd();
+  navbarStart();
+  if (!isLoggedIn())
+    navbarButton("Login", "/login", "fa fa-sign-in");
+  else if (isLoggedIn() && $_SESSION['id'] != $user->id)
+    navbarButton("Your profile", "/profile", "fa fa-user");
+  else if ($loggedInUserProfile) {
+    navbarButton("Profile customization", "/profile/edit", "fa fa-cog");
+    navbarButton("Logout", "javascript:logout();", "fa fa-sign-out");
+    navbarButton("Settings", "/profile/settings", "fa fa-cog");
+  }
+  navbarButton("Home", "/", "fa fa-home");
+  navbarEnd();
+  if ($showPageContent) {
   ?>
     <div class="mainContainer">
       <div class="main glowing">
@@ -139,11 +144,9 @@ $serverData['loggedInUserProfile'] = $loggedInUserProfile;
     </div>
 
   <?php
-    loadingScreen();
-    footer();
   }
-
-
+  loadingScreen();
+  footer();
   js("functions", "global", "navbar", "links", "tiles", "loadingScreen", "profile", "post");
 
   ?>

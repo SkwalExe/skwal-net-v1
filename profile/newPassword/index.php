@@ -43,58 +43,60 @@ if (requireGet('action', 'id', 'token')) {
   navbarButton("Home", "/", "fa fa-home");
 
   navbarEnd();
+  if ($showPageContent) {
   ?>
-  <div class="mainContainer">
+    <div class="mainContainer">
 
-    <div class="main">
-      <div class="small content">
-        <h1 class="glowing box center">
-          Change/reset your password
-        </h1>
-        <div class="box glowing">
-          <?php
-          if ($action == "sendmail") {
+      <div class="main">
+        <div class="small content">
+          <h1 class="glowing box center">
+            Change/reset your password
+          </h1>
+          <div class="box glowing">
+            <?php
+            if ($action == "sendmail") {
 
-          ?>
-            <form class="sendMailForm">
-              <div class="input">
-                <p class="inputLabel">Your email</p>
-                <input type="email" name="email" required>
-              </div>
-              <button type="submit">Send email</button>
-            </form>
-          <?php
+            ?>
+              <form class="sendMailForm">
+                <div class="input">
+                  <p class="inputLabel">Your email</p>
+                  <input type="email" name="email" required>
+                </div>
+                <button type="submit">Send email</button>
+              </form>
+            <?php
 
-          } else {
-          ?>
+            } else {
+            ?>
 
-            <form class="newPasswordForm">
-              <input type="hidden" name="id" value="<?= $id ?>">
-              <input type="hidden" name="token" value="<?= $token ?>">
-              <div class="input">
-                <p class="inputLabel">New password</p>
-                <input autocomplete="new-password" type="password" name="newPassword" required>
-              </div>
-              <div class="input">
-                <p class="inputLabel">Confirm new password</p>
-                <input autocomplete="new-password" type="password" name="newPasswordConfirmation" required>
-              </div>
-              <button type="submit">Save</button>
-            </form>
+              <form class="newPasswordForm">
+                <input type="hidden" name="id" value="<?= $id ?>">
+                <input type="hidden" name="token" value="<?= $token ?>">
+                <div class="input">
+                  <p class="inputLabel">New password</p>
+                  <input autocomplete="new-password" type="password" name="newPassword" required>
+                </div>
+                <div class="input">
+                  <p class="inputLabel">Confirm new password</p>
+                  <input autocomplete="new-password" type="password" name="newPasswordConfirmation" required>
+                </div>
+                <button type="submit">Save</button>
+              </form>
 
-          <?php
+            <?php
 
-          }
+            }
 
-          ?>
+            ?>
+          </div>
         </div>
+
       </div>
 
     </div>
 
-  </div>
-
   <?php
+  }
   loadingScreen();
   footer();
 
