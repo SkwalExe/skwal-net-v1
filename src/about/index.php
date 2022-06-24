@@ -29,68 +29,69 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
     navbarButton("Home", "/", "fa fa-home");
 
     navbarEnd();
+    if ($showPageContent) {
     ?>
 
-    <div class="mainContainer">
-        <div class="main">
-            <div class="content">
+        <div class="mainContainer">
+            <div class="main">
+                <div class="content">
 
-                <h1 class="glowing box center">
-                    About skwal.net
-                </h1>
+                    <h1 class="glowing box center">
+                        About skwal.net
+                    </h1>
 
-                <div class="box glowing markup">
-                    <img src="/assets/photo.png" alt="">
-                    <p>Hi! My name is <span class="blue">Léopold Koprivnik Ibghy</span>, I founded skwal.net in <span class="blue">2018</span> and I continue to maintain it.</p>
-                    <p>I am a 14 years old french student, <span class="red">I love FOSS</span> (Free and Open Source Software)</p>
-                    <p>I'm a big fan of <span class="color">Linus Torvalds</span> and I am very interested in <span class="green">the history of linux <i class="fa fa-linux"></i></span>, one day, I want to create my own distro</p>
-                    <hr>
-                    <p>I created this website to make a place where you will be able to find cool stuff !</p>
-                    <p>And with the forum that I created, I want to make skwal.net a place where everyone can :</p>
-                    <ul>
-                        <li>Share their creations and knowledge </li>
-                        <li>Ask any question</li>
-                        <li>Help me to improve my projects and more...</li>
-                    </ul>
-                    <hr>
-                    <p>I hope you will enjoy it and I hope you will find something interesting !</p>
-                    <p>If you have any question, feel free to contact me on my <a href="mailto:skwal.net@gmail.com">email</a></p>
+                    <div class="box glowing markup">
+                        <img src="/assets/photo.png" alt="">
+                        <p>Hi! My name is <span class="blue">Léopold Koprivnik Ibghy</span>, I founded skwal.net in <span class="blue">2018</span> and I continue to maintain it.</p>
+                        <p>I am a 14 years old french student, <span class="red">I love FOSS</span> (Free and Open Source Software)</p>
+                        <p>I'm a big fan of <span class="color">Linus Torvalds</span> and I am very interested in <span class="green">the history of linux <i class="fa fa-linux"></i></span>, one day, I want to create my own distro</p>
+                        <hr>
+                        <p>I created this website to make a place where you will be able to find cool stuff !</p>
+                        <p>And with the forum that I created, I want to make skwal.net a place where everyone can :</p>
+                        <ul>
+                            <li>Share their creations and knowledge </li>
+                            <li>Ask any question</li>
+                            <li>Help me to improve my projects and more...</li>
+                        </ul>
+                        <hr>
+                        <p>I hope you will enjoy it and I hope you will find something interesting !</p>
+                        <p>If you have any question, feel free to contact me on my <a href="mailto:skwal.net@gmail.com">email</a></p>
+                    </div>
+
+
                 </div>
+                <hr class=" onlyShowWhenMobileWidth">
+                <div class="sidebar">
+                    <h1 class="glowing box center">
+                        Links
+                    </h1>
+                    <div class="links box glowing">
+                        <a _href="https://github.com/SkwalExe/"><i class="fa fa-github"></i>Github</a>
+                        <a _href="https://discord.skwal.net"><i class="fa-brands fa-discord"></i>Discord</a>
+                        <a _href="https://twitter.com/@SkwalExe"><i class="fa-brands fa-twitter"></i>Twitter</a>
+                    </div>
 
+                    <hr>
 
-            </div>
-            <hr class=" onlyShowWhenMobileWidth">
-            <div class="sidebar">
-                <h1 class="glowing box center">
-                    Links
-                </h1>
-                <div class="links box glowing">
-                    <a _href="https://github.com/SkwalExe/"><i class="fa fa-github"></i>Github</a>
-                    <a _href="https://discord.skwal.net"><i class="fa-brands fa-discord"></i>Discord</a>
-                    <a _href="https://twitter.com/@SkwalExe"><i class="fa-brands fa-twitter"></i>Twitter</a>
+                    <h1 class="glowing box center">
+                        Pages
+                    </h1>
+                    <?php
+                    pages();
+                    ?>
+                    <hr>
+
+                    <h1 class="glowing box center">
+                        Projects
+                    </h1>
+                    <?php
+                    projects();
+                    ?>
                 </div>
-
-                <hr>
-
-                <h1 class="glowing box center">
-                    Pages
-                </h1>
-                <?php
-                pages();
-                ?>
-                <hr>
-
-                <h1 class="glowing box center">
-                    Projects
-                </h1>
-                <?php
-                projects();
-                ?>
             </div>
         </div>
-    </div>
     <?php
-
+    }
     footer();
     loadingScreen();
 

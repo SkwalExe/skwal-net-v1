@@ -1,17 +1,13 @@
 <?php
 include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
-$error = true;
 $serverData['editPost'] = false;
 if (isLoggedIn()) {
-  $error = false;
   if (requireGet("id")) {
     $id = $_GET['id'];
     $post = new Post($id);
     if ($post->author_id == $_SESSION['id']) {
-      $error = false;
       $serverData['editPost'] = true;
     } else {
-      $error = true;
       redirect("/", ['Error', 'You are not the author of the post you are trying to edit', "error"]);
     }
   }
@@ -41,55 +37,57 @@ if (isLoggedIn()) {
   navbarButton("Home", "/", "fa fa-home");
 
   navbarEnd();
+  if ($showPageContent) {
   ?>
-  <div class="mainContainer">
+    <div class="mainContainer">
 
-    <div class="main">
-      <div class="small content">
+      <div class="main">
+        <div class="small content">
 
-        <h1 class="center box glowing">
-          New post
-        </h1>
+          <h1 class="center box glowing">
+            New post
+          </h1>
 
-        <div class="box glowing">
-          <form>
+          <div class="box glowing">
+            <form>
 
-            <?= $serverData['editPost'] ? "<input type='hidden' name='id' value='{$post->id}' >" : "" ?>
+              <?= $serverData['editPost'] ? "<input type='hidden' name='id' value='{$post->id}' >" : "" ?>
 
-            <div class="input">
-              <p class="inputLabel">
-                Title
-              </p>
-              <input required placeholder="Title" type="text" name="title" <?= $serverData["editPost"] ? "value='{$post->title}'" : "" ?>>
-            </div>
+              <div class="input">
+                <p class="inputLabel">
+                  Title
+                </p>
+                <input required placeholder="Title" type="text" name="title" <?= $serverData["editPost"] ? "value='{$post->title}'" : "" ?>>
+              </div>
 
-            <div class="input">
-              <p class="inputLabel">
-                Content
-              </p>
-              <textarea style="resize: vertical;" placeholder="Content" name="content" required><?= $serverData["editPost"] ? $post->content : "" ?></textarea>
-            </div>
+              <div class="input">
+                <p class="inputLabel">
+                  Content
+                </p>
+                <textarea style="resize: vertical;" placeholder="Content" name="content" required><?= $serverData["editPost"] ? $post->content : "" ?></textarea>
+              </div>
 
-            <button type="submit">Post</button>
+              <button type="submit">Post</button>
 
-          </form>
+            </form>
+          </div>
+
         </div>
+        <hr class=<?php
+                  ?> <hr>
 
+        <h1 class="center glowing box">
+          Projects
+        </h1>
+        <?php
+        projects();
+        ?>
       </div>
-      <hr class=<?php
-                ?> <hr>
-
-      <h1 class="center glowing box">
-        Projects
-      </h1>
-      <?php
-      projects();
-      ?>
     </div>
-  </div>
-  </div>
+    </div>
 
   <?php
+  }
   loadingScreen();
   footer();
 

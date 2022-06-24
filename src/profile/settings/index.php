@@ -1,13 +1,11 @@
 <?php
 include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
-$error = true;
 
-if (isLoggedIn()) {
+if (isLoggedIn())
   $user = new User($_SESSION['id']);
-  $error = false;
-} else {
+else
   redirect("/login", ["Error", "Please log in to edit your profile", "error"]);
-}
+
 
 
 ?>
@@ -31,12 +29,12 @@ if (isLoggedIn()) {
 <body>
 
   <?php
-  if (!$error) {
-    navbarStart();
+  navbarStart();
 
-    navbarButton("Profile", "/profile", "fa fa-user");
+  navbarButton("Profile", "/profile", "fa fa-user");
 
-    navbarEnd();
+  navbarEnd();
+  if ($showPageContent) {
   ?>
     <div class="mainContainer">
 
@@ -73,9 +71,10 @@ if (isLoggedIn()) {
     </div>
 
   <?php
-    loadingScreen();
-    footer();
   }
+  loadingScreen();
+  footer();
+
   js("functions", "global", "navbar", "links", "tiles", "loadingScreen", "settings");
   ?>
 

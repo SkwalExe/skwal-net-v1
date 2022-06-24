@@ -1,14 +1,12 @@
 <?php
 include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
-$error = !requireGet("id");
 
-if (!$error) {
+if (requireGet("id")) {
 
 
   $id = $_GET['id'];
 
   if (!postExists($id)) {
-    $error = true;
     redirect("/", ["Error", "Post does not exist", "error"]);
   } else {
 
@@ -30,7 +28,7 @@ if (!$error) {
 
 
   <?php
-  if (!$error)
+  if (!$showPageContent)
     metadata([
       "title" => $post->title,
       "description" => $post->content,
@@ -50,13 +48,12 @@ if (!$error) {
 <body>
 
   <?php
-  if (!$error) {
-    navbarStart();
+  navbarStart();
 
-    navbarButton("Home", "/", "fa fa-home");
+  navbarButton("Home", "/", "fa fa-home");
 
-    navbarEnd();
-
+  navbarEnd();
+  if ($showPageContent) {
   ?>
     <div class="mainContainer">
 
@@ -114,9 +111,9 @@ if (!$error) {
 
 
   <?php
-    loadingScreen();
-    footer();
   }
+  loadingScreen();
+  footer();
 
 
   js("functions", "global", "navbar", "links", "tiles", "loadingScreen", "post", "postView", "commentForm", "comment");

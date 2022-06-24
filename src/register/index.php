@@ -1,8 +1,7 @@
 <?php
 include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
-$error = isLoggedIn();
 
-if ($error)
+if (isLoggedIn())
   redirect("/profile", ['Already Logged In!', "You are already logged in to your account.", "error"]);
 ?>
 
@@ -25,12 +24,13 @@ if ($error)
 <body>
 
   <?php
-  if (!$error) {
-    navbarStart();
+  navbarStart();
 
-    navbarButton("Home", "/", "fa fa-home");
+  navbarButton("Home", "/", "fa fa-home");
 
-    navbarEnd();
+  navbarEnd();
+  if ($showPageContent) {
+
   ?>
     <div class="mainContainer">
 
@@ -77,6 +77,7 @@ if ($error)
     </div>
 
   <?php
+
   }
   loadingScreen();
   footer();
