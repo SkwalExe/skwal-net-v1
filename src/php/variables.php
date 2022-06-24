@@ -11,3 +11,5 @@ $defaultSettings = [
   "borders" => false,
   "color" => "#CE6B82",
 ];
+
+$showPageContent = true;

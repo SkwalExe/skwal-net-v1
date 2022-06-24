@@ -66,11 +66,16 @@ function css()
  */
 function js()
 {
+    global $scripts;
     echo '<script src="https://kit.fontawesome.com/2fd86e1bdd.js" crossorigin="anonymous"></script>';
     echo '<script src="https://cdn.jsdelivr.net/gh/SkwalExe/Toasteur.js@v0.2.1/dist/toasteur.min.js"></script>';
     echo '<script src="https://cdn.jsdelivr.net/gh/SkwalExe/Toultip.js@v0.2.0/dist/toultip.min.js"></script>';
     echo '<script src="https://cdn.jsdelivr.net/gh/SkwalExe/MessageBox.js@v0.4.0/dist/messagebox.min.js"></script>';
     echo '<script src="/js/prism.js"></script>';
+    global $showPageContent;
+    if (!$showPageContent) {
+        include $scripts . '/redirected.php';
+    }
     static $serverDataPassed = false;
     if (!$serverDataPassed) {
         $serverDataPassed = true;
@@ -94,7 +99,6 @@ function js()
     echo 'console.log("%cSTOP!!", "color: red;font-size:100px;");';
     echo 'console.log("%cWhat you see here is the developer console of your web browser. \nIt is a tool intended for the developer, and which allows to inject code into the page, do not copy any code here, it could be malicious code which will give access to some of your personal information to hackers.", "color: red;font-size:20px;");';
     echo '</script>';
-    global $scripts;
     include($scripts . '/noscript.php');
 }
 
@@ -341,6 +345,8 @@ function requireFiles()
 }
 function redirect($url, $notification = null)
 {
+    dontShowPageContent();
+
     global $redirectNotification;
 
     $redirectNotification = "<script>";
@@ -575,4 +581,11 @@ function metadata($params = [])
 
 <?php
 
+}
+
+
+function dontShowPageContent()
+{
+    global $showPageContent;
+    $showPageContent = false;
 }

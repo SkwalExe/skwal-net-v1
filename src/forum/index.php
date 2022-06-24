@@ -48,53 +48,55 @@ $lastPost = new Post($lastPost['id']);
     navbarButton("Login", "/login", "fa fa-sign-in");
   navbarButton("Home", "/", "fa fa-home");
   navbarEnd();
+  if ($showPageContent) {
   ?>
-  <div class="mainContainer">
-    <div class="main">
-      <div class="content">
-        <form method="GET" action="/search" class="box glowing search-bar">
-          <input placeholder="How to split a string with javascript" required name="q" type="text">
-          <button><i class="fa fa-search"></i></button>
-        </form>
-        <h1 class="center box glowing">Recent posts</h1>
+    <div class="mainContainer">
+      <div class="main">
+        <div class="content">
+          <form method="GET" action="/search" class="box glowing search-bar">
+            <input placeholder="How to split a string with javascript" required name="q" type="text">
+            <button><i class="fa fa-search"></i></button>
+          </form>
+          <h1 class="center box glowing">Recent posts</h1>
 
-        <?php
-        foreach (recentPosts(10) as $post) {
-          echo "<div href='/post/?id={$post->id}'>";
-          echo $post->HTML(300);
-          echo "</div>";
-        }
-        ?>
-      </div>
-      <hr class="onlyShowWhenMobileWidth">
-      <div class="sidebar">
-        <h1 class="box glowing center">
-          Stats
-        </h1>
-        <div class="links box glowing">
-          <p>Users : <span class="color"><?= $userCount ?></span></p>
-          <p>Posts : <span class="color"><?= $postCount ?></span></p>
-          <p>Newest user : <a href="<?= $lastUser->profileHTML ?>"><?= $lastUser->username ?></a></p>
-          <p>Newest post : <a href="/post?id=<?= $lastPost->id ?>"><?= $lastPost->title ?></a></p>
+          <?php
+          foreach (recentPosts(10) as $post) {
+            echo "<div href='/post/?id={$post->id}'>";
+            echo $post->HTML(300);
+            echo "</div>";
+          }
+          ?>
         </div>
-        <hr>
-        <h1 class="box glowing center">
-          Pages
-        </h1>
-        <?php
-        pages();
-        ?>
-        <hr>
-        <h1 class="box glowing center">
-          Projects
-        </h1>
-        <?php
-        projects();
-        ?>
+        <hr class="onlyShowWhenMobileWidth">
+        <div class="sidebar">
+          <h1 class="box glowing center">
+            Stats
+          </h1>
+          <div class="links box glowing">
+            <p>Users : <span class="color"><?= $userCount ?></span></p>
+            <p>Posts : <span class="color"><?= $postCount ?></span></p>
+            <p>Newest user : <a href="<?= $lastUser->profileHTML ?>"><?= $lastUser->username ?></a></p>
+            <p>Newest post : <a href="/post?id=<?= $lastPost->id ?>"><?= $lastPost->title ?></a></p>
+          </div>
+          <hr>
+          <h1 class="box glowing center">
+            Pages
+          </h1>
+          <?php
+          pages();
+          ?>
+          <hr>
+          <h1 class="box glowing center">
+            Projects
+          </h1>
+          <?php
+          projects();
+          ?>
+        </div>
       </div>
     </div>
-  </div>
   <?php
+  }
   loadingScreen();
   footer();
   js("functions", "global", "navbar", "links", "post", "tiles", "loadingScreen");
