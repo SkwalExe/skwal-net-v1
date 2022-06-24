@@ -80,6 +80,7 @@ function js()
     if (!$serverDataPassed) {
         $serverDataPassed = true;
         global $serverData;
+        $serverData["showPageContent"] = $showPageContent;
         $json_data = json_encode($serverData);
         echo "<script> var serverData = " . $json_data . "</script>";
     }
