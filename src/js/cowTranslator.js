@@ -1,79 +1,81 @@
-var textInput = $(".textInput")
-var cowInput = $(".cowInput")
-var translationStatus = $(".status")
+if (serverData.showPageContent) {
+  var textInput = $(".textInput")
+  var cowInput = $(".cowInput")
+  var translationStatus = $(".status")
 
-var timeout;
+  var timeout;
 
 
 
-function updateCowInput() {
+  function updateCowInput() {
 
-  let result = CowTranslator.textToCow(textInput.value)
-  if (result.success) {
-    translationStatus.innerText = "OK"
-    cowInput.value = result.cow
-    if (result.warning) {
-      translationStatus.innerText = result.error
+    let result = CowTranslator.textToCow(textInput.value)
+    if (result.success) {
+      translationStatus.innerText = "OK"
+      cowInput.value = result.cow
+      if (result.warning) {
+        translationStatus.innerText = result.error
+      }
+    } else {
+      translationStatus.innerText = "ERROR"
+      cowInput.value = result.error;
     }
-  } else {
-    translationStatus.innerText = "ERROR"
-    cowInput.value = result.error;
+
   }
 
-}
 
-
-function updateTextInput() {
-  let result = CowTranslator.cowToText(cowInput.value)
-  if (result.success) {
-    translationStatus.innerText = "OK"
-    textInput.value = result.text
-    if (result.warning) {
-      translationStatus.innerText = result.error
+  function updateTextInput() {
+    let result = CowTranslator.cowToText(cowInput.value)
+    if (result.success) {
+      translationStatus.innerText = "OK"
+      textInput.value = result.text
+      if (result.warning) {
+        translationStatus.innerText = result.error
+      }
+    } else {
+      translationStatus.innerText = "ERROR"
+      textInput.value = result.error;
     }
-  } else {
-    translationStatus.innerText = "ERROR"
-    textInput.value = result.error;
   }
-}
 
 
-textInput.oninput = function() {
-  clearTimeout(timeout);
-  timeout = setTimeout(() => {
+  textInput.oninput = function() {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      updateCowInput()
+    }, 200);
+  }
+  cowInput.oninput = function() {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      updateTextInput()
+    }, 200);
+
+  }
+
+
+  function copyHuman() {
+    copy(textInput.value)
+    toasteur.success("Text copied to clipboard", "Copied!")
+  }
+
+  function resetHuman() {
+    textInput.value = ""
     updateCowInput()
-  }, 200);
-}
-cowInput.oninput = function() {
-  clearTimeout(timeout);
-  timeout = setTimeout(() => {
+  }
+
+  function copyCow() {
+    copy(cowInput.value)
+    toasteur.success("Text copied to clipboard", "Copied!")
+  }
+
+  function resetCow() {
+    cowInput.value = ""
     updateTextInput()
-  }, 200);
+  }
 
+
+  textInput.value = "Enter your text here"
+
+  textInput.oninput();
 }
-
-
-function copyHuman() {
-  copy(textInput.value)
-  toasteur.success("Text copied to clipboard", "Copied!")
-}
-
-function resetHuman() {
-  textInput.value = ""
-  updateCowInput()
-}
-
-function copyCow() {
-  copy(cowInput.value)
-  toasteur.success("Text copied to clipboard", "Copied!")
-}
-
-function resetCow() {
-  cowInput.value = ""
-  updateTextInput()
-}
-
-
-textInput.value = "Enter your text here"
-
-textInput.oninput();
