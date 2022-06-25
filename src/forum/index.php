@@ -75,8 +75,8 @@ $lastPost = new Post($lastPost['id']);
           <div class="links box glowing">
             <p>Users : <span class="color"><?= $userCount ?></span></p>
             <p>Posts : <span class="color"><?= $postCount ?></span></p>
-            <p>Newest user : <a href="<?= $lastUser->profileHTML ?>"><?= $lastUser->username ?></a></p>
-            <p>Newest post : <a href="/post?id=<?= $lastPost->id ?>"><?= $lastPost->title ?></a></p>
+            <p>Newest user : <a href="<?= $lastUser->profileHTML ?>"><?= htmlentities($lastUser->username) ?></a></p>
+            <p>Newest post : <a href="/post?id=<?= $lastPost->id ?>"><?= htmlentities($lastPost->title) ?></a></p>
           </div>
           <hr>
           <h1 class="box glowing center">
