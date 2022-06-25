@@ -12,7 +12,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
     "large" => true,
     "image" => "/assets/morse.png"
   ]);
-  css("colors",  "global", "footer", "layout", "loadingScreen", 'morse',  "form", "navbar", "tiles");
+  css('morse', "form");
   ?>
 </head>
 

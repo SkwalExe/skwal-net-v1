@@ -45,16 +45,16 @@ $serverData['toDownload'] = $file;
     "title" => "📜 Skwal.net privacy policy",
     "description" => "Learn about how skwal.net uses your informations"
   ]);
-  css("colors",  "global", "footer", "layout", "loadingScreen", "navbar", "tiles");
+  css();
   ?>
 </head>
 
 <body>
   <?php
-  navbarStart();
-  navbarButton("Home", "/", "fa fa-home");
-  navbarEnd();
   if ($showPageContent) {
+    navbarStart();
+    navbarButton("Home", "/", "fa fa-home");
+    navbarEnd();
   ?>
     <div class="mainContainer">
       <div class="main">
@@ -174,10 +174,10 @@ $serverData['toDownload'] = $file;
       </div>
     </div>
   <?php
+    loadingScreen();
+    footer();
   }
-  loadingScreen();
-  footer();
-  js("functions", "global", "navbar", "links", "tiles", "loadingScreen");
+  js();
   ?>
 </body>
 

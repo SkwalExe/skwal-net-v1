@@ -24,7 +24,7 @@ if (isLoggedIn()) {
     "title" => "Create a new post",
     "description" => "Create a new post on the skwal.net's forum",
   ]);
-  css("colors",  "global", "footer", "layout", "loadingScreen", "form",  "navbar", "tiles");
+  css("form");
   ?>
 
 </head>
@@ -32,12 +32,10 @@ if (isLoggedIn()) {
 <body>
 
   <?php
-  navbarStart();
-
-  navbarButton("Home", "/", "fa fa-home");
-
-  navbarEnd();
   if ($showPageContent) {
+    navbarStart();
+    navbarButton("Home", "/", "fa fa-home");
+    navbarEnd();
   ?>
     <div class="mainContainer">
 
@@ -73,25 +71,21 @@ if (isLoggedIn()) {
           </div>
 
         </div>
-        <hr class=<?php
-                  ?> <hr>
-
-        <h1 class="center glowing box">
-          Projects
-        </h1>
-        <?php
-        projects();
-        ?>
+        <hr class="onlyShowWhenMobileWidth">
+        <div class="sidebar">
+          <h1 class="center glowing box">Projects</h1>
+          <?php
+          projects();
+          ?>
+        </div>
       </div>
-    </div>
     </div>
 
   <?php
+    loadingScreen();
+    footer();
   }
-  loadingScreen();
-  footer();
-
-  js("functions", "global", "navbar", "links", "tiles", "loadingScreen", "newPost");
+  js("newPost");
   ?>
 
 </body>

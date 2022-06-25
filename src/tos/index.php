@@ -40,16 +40,16 @@ $page = array_values($page)[0];
         "large" => false,
         "image" => "/assets/logo.png",
     ]);
-    css("colors",  "global", "footer", "layout", "loadingScreen", "navbar", "tiles");
+    css();
     ?>
 </head>
 
 <body>
     <?php
-    navbarStart();
-    navbarButton("Home", "/", "fa fa-home");
-    navbarEnd();
     if ($showPageContent) {
+        navbarStart();
+        navbarButton("Home", "/", "fa fa-home");
+        navbarEnd();
     ?>
         <div class="mainContainer">
             <div class="main">
@@ -77,10 +77,10 @@ $page = array_values($page)[0];
             </div>
         </div>
     <?php
+        loadingScreen();
+        footer();
     }
-    loadingScreen();
-    footer();
-    js("functions", "global", "navbar", "links", "tiles", "loadingScreen");
+    js();
     ?>
 </body>
 

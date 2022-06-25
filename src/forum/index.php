@@ -34,21 +34,21 @@ $lastPost = new Post($lastPost['id']);
     "title" => '💬 Skwal.net forum',
     "description" => "Skwal.net forum is a safe, welcoming and caring place to discover cool stuff, share your knowledge and get help from other users"
   ]);
-  css("colors",  "global", "footer", 'form',  "layout", "loadingScreen", "post", "searchBar", "navbar", "tiles", "avatar");
+  css('form', "post", "searchBar", "avatar", "prism");
   ?>
 </head>
 
 <body>
   <?php
-  navbarStart();
-  if (isLoggedIn()) {
-    navbarButton("Profile", "/profile", "fa-solid fa-user");
-    navbarButton("New Post", "/profile/newPost", "fa-solid fa-plus");
-  } else
-    navbarButton("Login", "/login", "fa fa-sign-in");
-  navbarButton("Home", "/", "fa fa-home");
-  navbarEnd();
   if ($showPageContent) {
+    navbarStart();
+    if (isLoggedIn()) {
+      navbarButton("Profile", "/profile", "fa-solid fa-user");
+      navbarButton("New Post", "/profile/newPost", "fa-solid fa-plus");
+    } else
+      navbarButton("Login", "/login", "fa fa-sign-in");
+    navbarButton("Home", "/", "fa fa-home");
+    navbarEnd();
   ?>
     <div class="mainContainer">
       <div class="main">
@@ -96,10 +96,10 @@ $lastPost = new Post($lastPost['id']);
       </div>
     </div>
   <?php
+    loadingScreen();
+    footer();
   }
-  loadingScreen();
-  footer();
-  js("functions", "global", "navbar", "links", "post", "tiles", "loadingScreen");
+  js("post", "prism");
   ?>
 </body>
 

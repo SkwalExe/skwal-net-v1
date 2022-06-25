@@ -38,21 +38,36 @@ function noCache(string $url)
  */
 function css()
 {
-    echo "<style>";
-    echo "@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap')";
-    echo "</style>";
+    global $loadDefaultCss;
+    global $showPageContent;
+    static $functionAlreadyCalled = false;
 
-    echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toasteur@0.2.1/dist/themes/toasteur-default.min.css">';
-    echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/messagebox.js@0.4.0/dist/themes/messagebox-default.min.css">';
-    echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toultip@0.2.0/dist/themes/toultip-default.min.css">';
-    echo '<link rel="stylesheet" href="/css/prism.css">';
+    if (!$functionAlreadyCalled) {
+        $functionAlreadyCalled = true;
+
+        echo "<style>";
+        echo "@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap')";
+        echo "</style>";
+
+        echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toasteur@0.2.1/dist/themes/toasteur-default.min.css">';
+        echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/messagebox.js@0.4.0/dist/themes/messagebox-default.min.css">';
+        echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toultip@0.2.0/dist/themes/toultip-default.min.css">';
+
+        echo "<style>"; // trensmet les donnés de l'utilisateur au css
+        echo ":root {";
+        echo "--username: '" . ($_SESSION['username'] ?? 'skwal') . "';";
+        echo "}";
+        echo "</style>";
+
+        if ($loadDefaultCss) {
+            css("colors", "global");
+            if ($showPageContent) {
+                css("footer", "loadingScreen", "layout", "navbar", "tiles");
+            }
+        }
+    }
+
     $files = func_get_args();
-
-    echo "<style>"; // trensmet les donnés de l'utilisateur au css
-    echo ":root {";
-    echo "--username: '" . ($_SESSION['username'] ?? 'skwal') . "';";
-    echo "}";
-    echo "</style>";
 
     foreach ($files as $file) {
         $file = "/css/$file.css";
@@ -67,22 +82,45 @@ function css()
 function js()
 {
     global $scripts;
-    echo '<script src="https://kit.fontawesome.com/2fd86e1bdd.js" crossorigin="anonymous"></script>';
-    echo '<script src="https://cdn.jsdelivr.net/gh/SkwalExe/Toasteur.js@v0.2.1/dist/toasteur.min.js"></script>';
-    echo '<script src="https://cdn.jsdelivr.net/gh/SkwalExe/Toultip.js@v0.2.0/dist/toultip.min.js"></script>';
-    echo '<script src="https://cdn.jsdelivr.net/gh/SkwalExe/MessageBox.js@v0.4.0/dist/messagebox.min.js"></script>';
-    echo '<script src="/js/prism.js"></script>';
     global $showPageContent;
-    if (!$showPageContent) {
-        include $scripts . '/redirected.php';
-    }
-    static $serverDataPassed = false;
-    if (!$serverDataPassed) {
-        $serverDataPassed = true;
-        global $serverData;
+    global $redirectNotification;
+    global $serverData;
+    global $loadDefaultJs;
+    global $redirected;
+
+    static $functionAlreadyCalled = false;
+
+    if (!$functionAlreadyCalled) {
+        $functionAlreadyCalled = true;
+
+        echo '<script src="https://kit.fontawesome.com/2fd86e1bdd.js" crossorigin="anonymous"></script>';
+        echo '<script src="https://cdn.jsdelivr.net/gh/SkwalExe/Toasteur.js@v0.2.1/dist/toasteur.min.js"></script>';
+        echo '<script src="https://cdn.jsdelivr.net/gh/SkwalExe/Toultip.js@v0.2.0/dist/toultip.min.js"></script>';
+        echo '<script src="https://cdn.jsdelivr.net/gh/SkwalExe/MessageBox.js@v0.4.0/dist/messagebox.min.js"></script>';
+
         $serverData["showPageContent"] = $showPageContent;
         $json_data = json_encode($serverData);
         echo "<script> var serverData = " . $json_data . "</script>";
+
+        if ($loadDefaultJs) {
+            js("functions", "global", "links");
+            if ($showPageContent) {
+                js("navbar", "tiles", "loadingScreen");
+            }
+        }
+
+        echo '<script>';
+        echo 'console.log("%cSTOP!!", "color: red;font-size:100px;");';
+        echo 'console.log("%cWhat you see here is the developer console of your web browser. \nIt is a tool intended for the developer, and which allows to inject code into the page, do not copy any code here, it could be malicious code which will give access to some of your personal information to hackers.", "color: red;font-size:20px;");';
+        echo '</script>';
+
+        if (!$showPageContent && $redirected) {
+            include $scripts . '/redirected.php';
+        }
+
+        echo ($redirectNotification ?? '');
+
+        include($scripts . '/noscript.php');
     }
 
     $files = func_get_args();
@@ -91,16 +129,6 @@ function js()
         $file = "/js/$file.js";
         echo "<script src=\"" . noCache($file) . "\"></script>";
     }
-
-    global  $redirectNotification;
-    if (isset($redirectNotification))
-        echo  $redirectNotification;
-
-    echo '<script>';
-    echo 'console.log("%cSTOP!!", "color: red;font-size:100px;");';
-    echo 'console.log("%cWhat you see here is the developer console of your web browser. \nIt is a tool intended for the developer, and which allows to inject code into the page, do not copy any code here, it could be malicious code which will give access to some of your personal information to hackers.", "color: red;font-size:20px;");';
-    echo '</script>';
-    include($scripts . '/noscript.php');
 }
 
 
@@ -346,9 +374,12 @@ function requireFiles()
 }
 function redirect($url, $notification = null)
 {
-    dontShowPageContent();
-
+    global $redirected;
     global $redirectNotification;
+
+    $redirected = true;
+
+    dontShowPageContent();
 
     $redirectNotification = "<script>";
     $redirectNotification .= "redirect(";
@@ -605,4 +636,23 @@ function pageJs()
     global $showPageContent;
     if ($showPageContent)
         js(func_get_args());
+}
+
+
+function dontLoadDefaultJs()
+{
+    global $loadDefaultJs;
+    $loadDefaultJs = false;
+}
+
+function dontLoadDefaultCss()
+{
+    global $loadDefaultCss;
+    $loadDefaultCss = false;
+}
+
+function dontLoadDefaultCssAndJs()
+{
+    dontLoadDefaultCss();
+    dontLoadDefaultJs();
 }

@@ -53,7 +53,7 @@ if (requireGet('action', 'id', 'token')) {
     "title" => "Edit your profile informations",
     "description" => "Edit your profile informations, your username, email adress, password, bio...",
   ]);
-  css("colors", "global", "footer", "layout", "loadingScreen", "navbar", "tiles", "form");
+  css("form");
   ?>
 
 </head>
@@ -61,12 +61,10 @@ if (requireGet('action', 'id', 'token')) {
 <body>
 
   <?php
-  navbarStart();
-
-  navbarButton("Home", "/", "fa fa-home");
-
-  navbarEnd();
   if ($showPageContent) {
+    navbarStart();
+    navbarButton("Home", "/", "fa fa-home");
+    navbarEnd();
   ?>
     <div class="mainContainer">
 
@@ -105,10 +103,10 @@ if (requireGet('action', 'id', 'token')) {
     </div>
 
   <?php
+    loadingScreen();
+    footer();
   }
-  loadingScreen();
-  footer();
-  js("functions", "global", "navbar", "links", "tiles", "loadingScreen", "profileEdit");
+  js("profileEdit");
   ?>
 
 </body>

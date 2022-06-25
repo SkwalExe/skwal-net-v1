@@ -40,7 +40,7 @@ if (requireGet("id")) {
       "title" => "Wrong link",
       "description" => "The post you are looking for is unavailable beacause you entered the wrong link.",
     ]);
-  css("colors",  "global", "footer", "layout", "loadingScreen", "navbar", "tiles", "post", "avatar", "form");
+  css("post", "avatar", "form", "prism");
   ?>
 
 </head>
@@ -48,12 +48,10 @@ if (requireGet("id")) {
 <body>
 
   <?php
-  navbarStart();
-
-  navbarButton("Home", "/", "fa fa-home");
-
-  navbarEnd();
   if ($showPageContent) {
+    navbarStart();
+    navbarButton("Home", "/", "fa fa-home");
+    navbarEnd();
   ?>
     <div class="mainContainer">
 
@@ -111,12 +109,11 @@ if (requireGet("id")) {
 
 
   <?php
+    loadingScreen();
+    footer();
   }
-  loadingScreen();
-  footer();
 
-
-  js("functions", "global", "navbar", "links", "tiles", "loadingScreen", "post", "postView", "commentForm", "comment");
+  js("post", "postView", "commentForm", "comment", "prism");
   ?>
 
 </body>

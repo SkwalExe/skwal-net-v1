@@ -1,4 +1,4 @@
-if (serverData.showPageContent) {
+if (serverData.showPageContent && serverData.isLoggedIn) {
   let form = $('.commentForm')
 
   form.addEventListener('submit', e => {

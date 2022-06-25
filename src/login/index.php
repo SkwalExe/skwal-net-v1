@@ -8,37 +8,28 @@ if (isLoggedIn())
 <html lang="en">
 
 <head>
-
-
   <?php
   metadata([
     "title" => "Login",
     "description" => "Login to your account"
   ]);
-  css("colors",  "global", "footer", "layout", "loadingScreen", "navbar", "tiles", "form");
+  css("form");
   ?>
-
 </head>
 
 <body>
 
   <?php
-  navbarStart();
-
-  navbarButton("Home", "/", "fa fa-home");
-
-  navbarEnd();
   if ($showPageContent) {
+    navbarStart();
+    navbarButton("Home", "/", "fa fa-home");
+    navbarEnd();
   ?>
     <div class="mainContainer">
 
       <div class="main">
         <div class="small content">
-
-
-
           <h1 class="glowing box center">Login <i class="fa-solid fa-right-to-bracket"></i></h1>
-
           <div class="box glowing">
             <form>
               <input type="hidden" name="identificator" value="email">
@@ -68,13 +59,10 @@ if (isLoggedIn())
 
 
   <?php
+    loadingScreen();
+    footer();
   }
-  loadingScreen();
-  footer();
-
-
-
-  js("functions", "global", "navbar", "links", "tiles", "loadingScreen", "login");
+  js("login");
   ?>
 
 </body>

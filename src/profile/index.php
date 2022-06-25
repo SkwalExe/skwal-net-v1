@@ -22,8 +22,7 @@ if (!isLoggedIn() && !requireGet("username")) {
 }
 
 $serverData['loggedInUserProfile'] = $loggedInUserProfile;
-
-
+dontLoadDefaultCss();
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +44,7 @@ $serverData['loggedInUserProfile'] = $loggedInUserProfile;
       'description' => "The profile you are looking for doesn't exist"
     ]);
   }
-  css("colors", "global", "footer", "loadingScreen", "post", "navbar", "tiles", "avatar", "profile", "form");
+  css("colors", "global", "footer", "prism", "loadingScreen", "post", "navbar", "tiles", "avatar", "profile", "form");
   ?>
 
 </head>
@@ -53,19 +52,19 @@ $serverData['loggedInUserProfile'] = $loggedInUserProfile;
 <body>
 
   <?php
-  navbarStart();
-  if (!isLoggedIn())
-    navbarButton("Login", "/login", "fa fa-sign-in");
-  else if (isLoggedIn() && $_SESSION['id'] != $user->id)
-    navbarButton("Your profile", "/profile", "fa fa-user");
-  else if ($loggedInUserProfile) {
-    navbarButton("Profile customization", "/profile/edit", "fa fa-cog");
-    navbarButton("Logout", "javascript:logout();", "fa fa-sign-out");
-    navbarButton("Settings", "/profile/settings", "fa fa-cog");
-  }
-  navbarButton("Home", "/", "fa fa-home");
-  navbarEnd();
   if ($showPageContent) {
+    navbarStart();
+    if (!isLoggedIn())
+      navbarButton("Login", "/login", "fa fa-sign-in");
+    else if (isLoggedIn() && $_SESSION['id'] != $user->id)
+      navbarButton("Your profile", "/profile", "fa fa-user");
+    else if ($loggedInUserProfile) {
+      navbarButton("Profile customization", "/profile/edit", "fa fa-cog");
+      navbarButton("Logout", "javascript:logout();", "fa fa-sign-out");
+      navbarButton("Settings", "/profile/settings", "fa fa-cog");
+    }
+    navbarButton("Home", "/", "fa fa-home");
+    navbarEnd();
   ?>
     <div class="mainContainer">
       <div class="main glowing">
@@ -144,10 +143,10 @@ $serverData['loggedInUserProfile'] = $loggedInUserProfile;
     </div>
 
   <?php
+    loadingScreen();
+    footer();
   }
-  loadingScreen();
-  footer();
-  js("functions", "global", "navbar", "links", "tiles", "loadingScreen", "profile", "post");
+  js("profile", "post", "prism");
 
   ?>
 

@@ -7,16 +7,16 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 <head>
   <?php
   metadata();
-  css("colors",  "global", "footer", "layout", "loadingScreen", "navbar", "tiles");
+  css();
   ?>
 </head>
 
 <body>
   <?php
-  navbarStart();
-  navbarButton("Home", "/", "fa fa-home");
-  navbarEnd();
   if ($showPageContent) {
+    navbarStart();
+    navbarButton("Home", "/", "fa fa-home");
+    navbarEnd();
   ?>
     <div class="mainContainer">
       <div class="main">
@@ -43,10 +43,10 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
       </div>
     </div>
   <?php
+    loadingScreen();
+    footer();
   }
-  loadingScreen();
-  footer();
-  js("functions", "global", "navbar", "links", "tiles", "loadingScreen");
+  js();
   ?>
 </body>
 
