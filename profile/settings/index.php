@@ -5,9 +5,6 @@ if (isLoggedIn())
   $user = new User($_SESSION['id']);
 else
   redirect("/login", ["Error", "Please log in to edit your profile", "error"]);
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +18,7 @@ else
     "title" => "Edit your profile's settings",
     "description" => "Customize the look of the website",
   ]);
-  css("colors",  "global", "footer", "layout", "loadingScreen", "navbar", "tiles", "form");
+  css("form");
   ?>
 
 </head>
@@ -29,12 +26,10 @@ else
 <body>
 
   <?php
-  navbarStart();
-
-  navbarButton("Profile", "/profile", "fa fa-user");
-
-  navbarEnd();
   if ($showPageContent) {
+    navbarStart();
+    navbarButton("Profile", "/profile", "fa fa-user");
+    navbarEnd();
   ?>
     <div class="mainContainer">
 
@@ -71,11 +66,10 @@ else
     </div>
 
   <?php
+    loadingScreen();
+    footer();
   }
-  loadingScreen();
-  footer();
-
-  js("functions", "global", "navbar", "links", "tiles", "loadingScreen", "settings");
+  js("settings");
   ?>
 
 </body>

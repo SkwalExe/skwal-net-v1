@@ -1,6 +1,5 @@
 <?php
 include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
-
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +10,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
     <?php
     metadata();
-    css("colors", "global", "footer", "loadingScreen", "layout", "navbar", "tiles");
+    css();
     ?>
 
 </head>
@@ -21,17 +20,15 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
 
     <?php
-
-    navbarStart();
-    navbarButton("Forum", "/forum/", "fa fa-comments");
-    if (isLoggedIn())
-        navbarButton("Profile", "/profile", "fa-solid fa-user");
-    else
-        navbarButton("Login", "/login", "fa fa-sign-in");
-    navbarButton("Github", "https://github.com/SkwalExe/", "fa fa-github");
-    navbarEnd();
-
     if ($showPageContent) {
+        navbarStart();
+        navbarButton("Forum", "/forum/", "fa fa-comments");
+        if (isLoggedIn())
+            navbarButton("Profile", "/profile", "fa-solid fa-user");
+        else
+            navbarButton("Login", "/login", "fa fa-sign-in");
+        navbarButton("Github", "https://github.com/SkwalExe/", "fa fa-github");
+        navbarEnd();
     ?>
 
         <div class="mainContainer">
@@ -80,10 +77,10 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
         </div>
 
     <?php
+        footer();
+        loadingScreen();
     }
-    footer();
-    loadingScreen();
-    js("functions", "global", "navbar", "links", "tiles", "loadingScreen");
+    js();
     ?>
 
 </body>

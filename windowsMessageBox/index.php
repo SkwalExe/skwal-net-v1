@@ -16,7 +16,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
         "image" => "https://raw.githubusercontent.com/SkwalExe/WindowsMessageBox.js/main/assets/banner.png",
         "large" => true,
     ]);
-    css("colors",  "global", "footer", "layout", "loadingScreen", "form",  "navbar", "tiles");
+    css("form");
     ?>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/windowsmessagebox@0.4.1/dist/wmsgbox.min.css">
 
@@ -25,12 +25,10 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 <body>
 
     <?php
-    navbarStart();
-
-    navbarButton("Home", "/", "fa fa-home");
-
-    navbarEnd();
     if ($showPageContent) {
+        navbarStart();
+        navbarButton("Home", "/", "fa fa-home");
+        navbarEnd();
     ?>
         <div class="mainContainer">
 
@@ -133,11 +131,10 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
         <script src="https://cdn.jsdelivr.net/gh/SkwalExe/WindowsMessageBox.js@v0.4.1/dist/windowsMessageBox.min.js"></script>
 
     <?php
+        loadingScreen();
+        footer();
     }
-    loadingScreen();
-    footer();
-
-    js("functions", "global", "navbar", "links", "tiles", "loadingScreen", "messageBoxDemo");
+    js("messageBoxDemo");
     ?>
 
 </body>

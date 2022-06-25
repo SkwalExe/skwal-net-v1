@@ -1,13 +1,11 @@
 <?php
 include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
 
     <?php
     metadata([
@@ -16,20 +14,18 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
         "large" => true,
         "image" => "/assets/banner.png"
     ]);
-    css("colors", "global",  "footer", "layout", "loadingScreen", "navbar", "tiles");
+    css();
     ?>
-
 </head>
 
 <body>
 
     <?php
-    navbarStart();
-    navbarButton('<img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="">', "https://ko-fi.com/W7W7AMXI6");
-    navbarButton("Home", "/", "fa fa-home");
-
-    navbarEnd();
     if ($showPageContent) {
+        navbarStart();
+        navbarButton('<img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="">', "https://ko-fi.com/W7W7AMXI6");
+        navbarButton("Home", "/", "fa fa-home");
+        navbarEnd();
     ?>
 
         <div class="mainContainer">
@@ -91,11 +87,10 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
             </div>
         </div>
     <?php
+        footer();
+        loadingScreen();
     }
-    footer();
-    loadingScreen();
-
-    js("functions", "global", "navbar", "links", "tiles", "loadingScreen");
+    js();
     ?>
 
 </body>
