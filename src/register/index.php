@@ -16,7 +16,7 @@ if (isLoggedIn())
     'title' => 'Create an account',
     "description" => "Create an account on the website"
   ]);
-  css("colors",  "global", "footer", "layout", "loadingScreen", "navbar", "tiles", "form");
+  css("form");
   ?>
 
 </head>
@@ -24,21 +24,15 @@ if (isLoggedIn())
 <body>
 
   <?php
-  navbarStart();
-
-  navbarButton("Home", "/", "fa fa-home");
-
-  navbarEnd();
   if ($showPageContent) {
-
+    navbarStart();
+    navbarButton("Home", "/", "fa fa-home");
+    navbarEnd();
   ?>
     <div class="mainContainer">
 
       <div class="main">
         <div class="small content">
-
-
-
           <h1 class="center box glowing">Register <i class="fa fa-user-plus"></i></h1>
 
           <div class="box glowing">
@@ -77,12 +71,10 @@ if (isLoggedIn())
     </div>
 
   <?php
-
+    loadingScreen();
+    footer();
   }
-  loadingScreen();
-  footer();
-
-  js("functions", "global", "navbar", "links", "tiles", "loadingScreen", "register");
+  js("register");
   ?>
 
 </body>

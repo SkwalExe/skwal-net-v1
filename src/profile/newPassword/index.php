@@ -30,7 +30,7 @@ if (requireGet('action', 'id', 'token')) {
     "title" => "Reset your password",
     "description" => "Reset your password if you want to change it, or if you forgot it",
   ]);
-  css("colors",  "global", "footer", "layout", "loadingScreen", "navbar", "tiles", "form");
+  css("form");
   ?>
 
 </head>
@@ -38,12 +38,10 @@ if (requireGet('action', 'id', 'token')) {
 <body>
 
   <?php
-  navbarStart();
-
-  navbarButton("Home", "/", "fa fa-home");
-
-  navbarEnd();
   if ($showPageContent) {
+    navbarStart();
+    navbarButton("Home", "/", "fa fa-home");
+    navbarEnd();
   ?>
     <div class="mainContainer">
 
@@ -96,11 +94,10 @@ if (requireGet('action', 'id', 'token')) {
     </div>
 
   <?php
+    loadingScreen();
+    footer();
   }
-  loadingScreen();
-  footer();
-
-  js("functions", "global", "navbar", "links", "tiles", "loadingScreen", "newPassword");
+  js("newPassword");
   ?>
 
 </body>

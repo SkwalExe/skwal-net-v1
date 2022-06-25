@@ -1,5 +1,6 @@
 <?php
 include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
+dontShowPageContent();
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +14,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
         'large' => true,
         "image" => "/assets/terminal.png",
     ]);
-    css("colors",  "global", "terminal");
+    css("terminal");
     ?>
 </head>
 
@@ -23,7 +24,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
     <?php
     terminalHTML();
-    js("functions", "global", "links", "terminal");
+    js("terminal");
     ?>
 </body>
 

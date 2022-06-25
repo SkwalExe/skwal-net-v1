@@ -1,3 +1,5 @@
+let logout, copyProfileUrl;
+
 if (serverData.showPageContent) {
   let postsButton = $('.posts-button');
   let commentsButton = $('.comments-button');
@@ -38,7 +40,7 @@ if (serverData.showPageContent) {
   }
 
 
-  const logout = () => {
+  logout = () => {
     fetch('/api/v1/logout.php').then(res => res.json()).then(data => {
       if (data.success) {
         redirect('/', ["Success!", data.message, "success"])
@@ -165,7 +167,7 @@ if (serverData.showPageContent) {
   }
 
 
-  const copyProfileUrl = () => {
+  copyProfileUrl = () => {
     copy(serverData.profile.profileHTML)
     toasteur.success("Profile URL copied to clipboard!", "Success!")
   }

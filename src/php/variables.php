@@ -5,7 +5,7 @@ $ip = $_SERVER["REMOTE_ADDR"];
 $assets = "$root/assets";
 $scripts = "$root/scripts";
 
-$version = "lbdsdrkujdrgyufih";
+$version = "microwave";
 
 $defaultSettings = [
   "borders" => false,
@@ -13,3 +13,6 @@ $defaultSettings = [
 ];
 
 $showPageContent = true;
+$loadDefaultCss = true;
+$loadDefaultJs = true;
+$redirected = false;
