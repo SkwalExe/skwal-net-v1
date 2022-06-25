@@ -28,7 +28,7 @@ if (requireGet("id")) {
 
 
   <?php
-  if (!$showPageContent)
+  if ($showPageContent)
     metadata([
       "title" => $post->title,
       "description" => $post->content,
