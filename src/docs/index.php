@@ -51,6 +51,8 @@ if (!in_array($section, $sections)) {
   <?php
   if ($showPageContent) {
     navbarStart();
+    if ($section != $defaultSection)
+      navbarButton("Documentation home page", "/docs", "fa fa-home");
     navbarButton("Home", "/", "fa fa-home");
     navbarEnd();
   ?>
