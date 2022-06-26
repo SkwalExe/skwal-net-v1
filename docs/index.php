@@ -67,7 +67,7 @@ if (!in_array($module, $modules)) {
         <hr class="onlyShowWhenMobileWidth">
         <div class="sidebar">
           <h1 class="box glowing center">
-            Sections
+            <?= $module == $defaultModule ? "Modules" : 'Sections' ?>
           </h1>
           <div class="links box glowing">
             <?= $sidebarContentHTML ?>
