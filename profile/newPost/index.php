@@ -55,14 +55,14 @@ if (isLoggedIn()) {
                 <p class="inputLabel">
                   Title
                 </p>
-                <input required placeholder="Title" type="text" name="title" <?= $serverData["editPost"] ? "value='{$post->title}'" : "" ?>>
+                <input required placeholder="Title" type="text" name="title" <?= $serverData["editPost"] ? "value='" . htmlentities($post->title) . "'" : "" ?>>
               </div>
 
               <div class="input">
                 <p class="inputLabel">
                   Content
                 </p>
-                <textarea style="resize: vertical;" placeholder="Content" name="content" required><?= $serverData["editPost"] ? $post->content : "" ?></textarea>
+                <textarea style="resize: vertical;" placeholder="Content" name="content" required><?= $serverData["editPost"] ? htmlentities($post->content) : "" ?></textarea>
               </div>
 
               <button type="submit">Post</button>
