@@ -49,7 +49,7 @@ if (!in_array($module, $modules)) {
 
 <body>
   <?php
-  if ($showSectionContent) {
+  if ($showPageContent) {
     navbarStart();
     if ($module != $defaultModule)
       navbarButton("Documentation home page", "/docs", "fa fa-home");
