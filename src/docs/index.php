@@ -44,6 +44,7 @@ if (!in_array($module, $modules)) {
   <?php
   metadata();
   css();
+  pageCss("prism");
   ?>
 </head>
 
