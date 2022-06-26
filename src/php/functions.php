@@ -783,7 +783,7 @@ function pageJs()
 {
     global $showPageContent;
     if ($showPageContent)
-        js(func_get_args());
+        js(...func_get_args());
 }
 
 /**
