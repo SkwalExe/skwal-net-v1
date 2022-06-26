@@ -16,7 +16,8 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
         "image" => "https://raw.githubusercontent.com/SkwalExe/WindowsMessageBox.js/main/assets/banner.png",
         "large" => true,
     ]);
-    css("form");
+    css();
+    pageCss("form");
     ?>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/windowsmessagebox@0.4.1/dist/wmsgbox.min.css">
 
@@ -134,7 +135,8 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
         loadingScreen();
         footer();
     }
-    js("messageBoxDemo");
+    js();
+    pageJs("messageBoxDemo");
     ?>
 
 </body>

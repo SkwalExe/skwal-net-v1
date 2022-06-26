@@ -53,7 +53,8 @@ if (requireGet('action', 'id', 'token')) {
     "title" => "Edit your profile informations",
     "description" => "Edit your profile informations, your username, email adress, password, bio...",
   ]);
-  css("form");
+  css();
+  pageJs("form");
   ?>
 
 </head>
@@ -106,7 +107,8 @@ if (requireGet('action', 'id', 'token')) {
     loadingScreen();
     footer();
   }
-  js("profileEdit");
+  js();
+  pageJs("profileEdit");
   ?>
 
 </body>

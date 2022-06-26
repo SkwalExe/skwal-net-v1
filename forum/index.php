@@ -34,7 +34,8 @@ $lastPost = new Post($lastPost['id']);
     "title" => '💬 Skwal.net forum',
     "description" => "Skwal.net forum is a safe, welcoming and caring place to discover cool stuff, share your knowledge and get help from other users"
   ]);
-  css('form', "post", "searchBar", "avatar", "prism");
+  css();
+  pageCss('form', "post", "searchBar", "avatar", "prism");
   ?>
 </head>
 
@@ -99,7 +100,8 @@ $lastPost = new Post($lastPost['id']);
     loadingScreen();
     footer();
   }
-  js("post", "prism");
+  js();
+  pageJs("post", "prism");
   ?>
 </body>
 

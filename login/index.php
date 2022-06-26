@@ -62,7 +62,8 @@ if (isLoggedIn())
     loadingScreen();
     footer();
   }
-  js("login");
+  js();
+  pageJs("login");
   ?>
 
 </body>

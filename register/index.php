@@ -16,7 +16,8 @@ if (isLoggedIn())
     'title' => 'Create an account',
     "description" => "Create an account on the website"
   ]);
-  css("form");
+  css();
+  pageCss("form");
   ?>
 
 </head>
@@ -74,7 +75,8 @@ if (isLoggedIn())
     loadingScreen();
     footer();
   }
-  js("register");
+  js();
+  pages("register");
   ?>
 
 </body>

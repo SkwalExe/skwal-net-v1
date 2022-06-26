@@ -30,7 +30,8 @@ if (requireGet('action', 'id', 'token')) {
     "title" => "Reset your password",
     "description" => "Reset your password if you want to change it, or if you forgot it",
   ]);
-  css("form");
+  css();
+  pageCss("form");
   ?>
 
 </head>
@@ -97,7 +98,8 @@ if (requireGet('action', 'id', 'token')) {
     loadingScreen();
     footer();
   }
-  js("newPassword");
+  js();
+  pageJs("newPassword");
   ?>
 
 </body>
