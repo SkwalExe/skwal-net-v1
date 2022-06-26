@@ -13,7 +13,7 @@ A skwal.net account gives you access to many features of our website.
 
 ## How to create an account 
 
-1. 🔗 First, open the [sign up page](/register)
+1. 🔗 First, open the [sign up section](/register)
 1. Enter your username
 1. ✉️ Enter your email address
 1. 🔐 Enter a password, make it strong 💪 

@@ -1,6 +1,6 @@
 # Work in progress 🏗️
 
-We are still working on this page, here you will find documentations about:
+We are still working on this section, here you will find documentations about:
 
 - How to use skwal.net
 - How to contribute to skwal.net
