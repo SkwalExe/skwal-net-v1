@@ -5,29 +5,29 @@ $defaultPage = "introduction";
 
 if (!requireGet("page")) {
     redirect("/tos?page=$defaultPage");
+} else {
+    $pageName = $_GET['page'];
+    $pages = [
+        ["introduction", "📚 Introduction"],
+        ["sanctions", "🚫 Sanctions"],
+        ["legality", "‍⚖️ Legality"],
+        ["prohibited-content", "⛔ Prohibited content"],
+        ["spam", "🗑️ Spam"],
+        ["your-content", "📝 Your content"],
+    ];
+
+    if (!in_array($pageName, array_column($pages, 0))) {
+        redirect("/tos?page=$defaultPage");
+    }
+
+    $markdown = file_get_contents("pages/$pageName.md");
+    $parsedMarkdown = parseMarkdown($markdown);
+
+    $page = array_filter($pages, function ($page) use ($pageName) {
+        return $page[0] == $pageName;
+    });
+    $page = array_values($page)[0];
 }
-
-$pageName = $_GET['page'];
-$pages = [
-    ["introduction", "📚 Introduction"],
-    ["sanctions", "🚫 Sanctions"],
-    ["legality", "‍⚖️ Legality"],
-    ["prohibited-content", "⛔ Prohibited content"],
-    ["spam", "🗑️ Spam"],
-    ["your-content", "📝 Your content"],
-];
-
-if (!in_array($pageName, array_column($pages, 0))) {
-    redirect("/tos?page=$defaultPage");
-}
-
-$markdown = file_get_contents("pages/$pageName.md");
-$parsedMarkdown = parseMarkdown($markdown);
-
-$page = array_filter($pages, function ($page) use ($pageName) {
-    return $page[0] == $pageName;
-});
-$page = array_values($page)[0];
 ?>
 <!DOCTYPE html>
 <html lang="en">
