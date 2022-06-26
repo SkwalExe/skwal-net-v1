@@ -598,17 +598,17 @@ function metadata($params = [])
     ?>
     <meta name='referrer' content='no-referrer'>
     <meta name='theme-color' content='#CE6B82'>
-    <meta property='og:site_name' content='<?= $params['site_name'] ?>' />
+    <meta property='og:site_name' content='<?= htmlentities($params['site_name']) ?>'>
     <link rel='icon' type='image/ico' href='/favicon.ico'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <meta charset='UTF-8'>
 
-    <title><?= $params['title'] ?></title>
-    <meta property='og:title' content='<?= $params['title'] ?>' />
-    <meta name='description' content='<?= $params['description'] ?>'>
-    <meta property='og:description' content='<?= $params['description'] ?>' />
-    <meta property='og:url' content='<?= $params['url'] ?>' />
-    <meta property='og:image' content='<?= $params['image'] ?>' />
+    <title><?= htmlentities($params['title']) ?></title>
+    <meta property='og:title' content='<?= htmlentities($params['title']) ?>' />
+    <meta name='description' content='<?= htmlentities($params['description']) ?>'>
+    <meta property='og:description' content='<?= htmlentities($params['description']) ?>' />
+    <meta property='og:url' content='<?= htmlentities($params['url']) ?>' />
+    <meta property='og:image' content='<?= htmlentities($params['image']) ?>' />
     <?= $params['large'] ? "<meta name='twitter:card' content='summary_large_image' />" : "" ?>
 
 <?php
