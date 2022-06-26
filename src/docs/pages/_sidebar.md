@@ -1,1 +1,1 @@
-Work in progress
+[👤 Skwal.net user guide](/docs?section=skwal-net-user-guide)
