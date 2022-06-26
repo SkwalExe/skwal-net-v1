@@ -124,6 +124,9 @@ class User
     $roles =  [
       "admin" => ["fa-solid fa-user-shield", "This user is an admin"],
       "verified" => ["fa-solid fa-check", "This user is verified"],
+      "contributor" => ["fa-solid fa-code", "This user contributed to the skwal.net source code on github"],
+      "bug-hunter" => ["fa-solid fa-bug", "This user found a bug or a security vulnerability"],
+      "active" => ["fa-solid fa-star", "This user is active"],
     ];
 
     foreach ($this->roles as $role) {
