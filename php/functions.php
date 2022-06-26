@@ -1,16 +1,20 @@
 <?php
 
+// Imports for rate limiting functions
 use bandwidthThrottle\tokenBucket\Rate;
 use bandwidthThrottle\tokenBucket\TokenBucket;
 use bandwidthThrottle\tokenBucket\storage\FileStorage;
+
+// Imports for markdown parsing functions
 use League\CommonMark\GithubFlavoredMarkdownConverter;
 
 /**
- * Determine if the website is hosted on a localhost or on a server.
+ * Determine if the website is hosted on a localhost or on a production environment.
  * @return bool
  */
 function local()
 {
+    // return whether the request comes from localhost or not
     return in_array($_SERVER["REMOTE_ADDR"], ["127.0.0.1", "::1", "localhost"]);
 }
 
@@ -24,6 +28,8 @@ function noCache(string $url)
 {
     global $version;
 
+    // the server is running on localhost, always bypass caching
+    // else use the $version variable set in variables.php
     $param = local()
         ? random_int(0, 100000)
         : $version;
@@ -31,10 +37,20 @@ function noCache(string $url)
     return trim($url) . "?version=" . $param;
 }
 
-
 /**
  * Import css files and bypass caching
- * @param string ...$files The files to import
+ * 
+ * ```php
+ * // only import default stylesheets
+ * css();
+ * 
+ * // importe "foo" stylesheet and default stylesheets
+ * css("foo");
+ * 
+ * // prevent importing default stylesheets
+ * dontLoadDefaultCss();
+ * css(...);
+ * ``` 
  */
 function css()
 {
@@ -45,22 +61,30 @@ function css()
     if (!$functionAlreadyCalled) {
         $functionAlreadyCalled = true;
 
+        // Import POPPINS font
         echo "<style>";
         echo "@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap')";
         echo "</style>";
 
+        // Toasteur.js stylesheet
         echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toasteur@0.2.1/dist/themes/toasteur-default.min.css">';
+        // MessageBox.js stylesheet
         echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/messagebox.js@0.4.0/dist/themes/messagebox-default.min.css">';
+        // Toultip.js stylesheet
         echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toultip@0.2.0/dist/themes/toultip-default.min.css">';
 
-        echo "<style>"; // trensmet les donnés de l'utilisateur au css
+        // Pass username to css as --username variable
+        // needed for the terminal stylesheet
+        echo "<style>";
         echo ":root {";
-        echo "--username: '" . ($_SESSION['username'] ?? 'skwal') . "';";
+        echo "--username: '" . (addslashes($_SESSION['username']) ?? 'skwal') . "';";
         echo "}";
         echo "</style>";
 
+        // Load the default stylesheets
         if ($loadDefaultCss) {
             css("colors", "global");
+            // load stylesheets for standard pages
             if ($showPageContent) {
                 css("footer", "loadingScreen", "layout", "navbar", "tiles");
             }
@@ -69,6 +93,7 @@ function css()
 
     $files = func_get_args();
 
+    // load each function argument as a stylesheet
     foreach ($files as $file) {
         $file = "/css/$file.css";
         echo "<link rel=\"stylesheet\" href=\"" . noCache($file) . "\">";
@@ -77,7 +102,18 @@ function css()
 
 /**
  * Import js files and bypass caching
- * @param string ...$files The files to import
+ * 
+ * ```php
+ * // only import default scripts
+ * js();
+ * 
+ * // importe "foo" script and default scripts
+ * js("foo");
+ * 
+ * // prevent importing default scripts
+ * dontLoadDefaultJs();
+ * js(...);
+ * ```
  */
 function js()
 {
@@ -93,28 +129,37 @@ function js()
     if (!$functionAlreadyCalled) {
         $functionAlreadyCalled = true;
 
+        // Load fontawesome
         echo '<script src="https://kit.fontawesome.com/2fd86e1bdd.js" crossorigin="anonymous"></script>';
+        // Load Toasteur.js
         echo '<script src="https://cdn.jsdelivr.net/gh/SkwalExe/Toasteur.js@v0.2.1/dist/toasteur.min.js"></script>';
+        // Load Toultip.js
         echo '<script src="https://cdn.jsdelivr.net/gh/SkwalExe/Toultip.js@v0.2.0/dist/toultip.min.js"></script>';
+        // Load MessageBox.js
         echo '<script src="https://cdn.jsdelivr.net/gh/SkwalExe/MessageBox.js@v0.4.0/dist/messagebox.min.js"></script>';
 
         $serverData["showPageContent"] = $showPageContent;
         $json_data = json_encode($serverData);
+        // Encode as JSON and pass server data to js as serverData variable
         echo "<script> var serverData = " . $json_data . "</script>";
 
+        // Import default scripts
         if ($loadDefaultJs) {
             js("functions", "global", "links");
+            // Import scripts for standard pages
             if ($showPageContent) {
                 js("navbar", "tiles", "loadingScreen");
             }
         }
 
+        // Console warning
         echo '<script>';
         echo 'console.log("%cSTOP!!", "color: red;font-size:100px;");';
         echo 'console.log("%cWhat you see here is the developer console of your web browser. \nIt is a tool intended for the developer, and which allows to inject code into the page, do not copy any code here, it could be malicious code which will give access to some of your personal information to hackers.", "color: red;font-size:20px;");';
         echo '</script>';
 
         if (!$showPageContent && $redirected) {
+            // Include the "wait while you are being redirected" message
             include $scripts . '/redirected.php';
         }
 
@@ -125,6 +170,7 @@ function js()
 
     $files = func_get_args();
 
+    // load each function argument as a script
     foreach ($files as $file) {
         $file = "/js/$file.js";
         echo "<script src=\"" . noCache($file) . "\"></script>";
@@ -133,11 +179,14 @@ function js()
 
 
 /**
- * Print all projects
+ * Parse projects in /scripts/projects.json, and print them randomly
+ * 
+ * @param int $limit The number of projects to print
  */
 function projects($limit = 5)
 {
     global $scripts;
+    // Parse projects.json
     $json = file_get_contents($scripts . "/projects.json");
     $projects = json_decode($json, true);
     shuffle($projects);
@@ -162,7 +211,7 @@ function projects($limit = 5)
 }
 
 /**
- * prints all pages
+ * prints all pages as tiles
  */
 function pages()
 {
@@ -183,7 +232,7 @@ function footer()
 
 
 /**
- * Initialize navbar and print it
+ * Prints the HTML of the beginning of the navbar
  */
 function navbarStart()
 {
@@ -192,7 +241,7 @@ function navbarStart()
 }
 
 /**
- * Print the navbar end
+ * Prints the HTML of the end of the navbar
  */
 function navbarEnd()
 {
@@ -201,7 +250,7 @@ function navbarEnd()
 }
 
 /**
- * print a navbar button
+ * Prints the html of a navbar item
  */
 function navbarButton($text, $link = "#", $image = null)
 {
@@ -212,7 +261,7 @@ function navbarButton($text, $link = "#", $image = null)
 }
 
 /**
- * prints the loading screen html
+ * Prints the HTML of the loading screen
  */
 function loadingScreen()
 {
@@ -241,7 +290,7 @@ function skwal_ascii()
 
 
 /**
- * prints html for a terminal
+ * Prints the HTML of a terminal
  */
 function terminalHTML()
 {
@@ -251,7 +300,8 @@ function terminalHTML()
 
 
 /**
- * determine if the user is logged in
+ * Determine if the user is logged in
+ * @return boolean True if the user is logged in
  */
 function isLoggedIn()
 {
@@ -261,6 +311,9 @@ function isLoggedIn()
 
 /**
  * Determine if a user exists based on hide username, id, or email adress
+ * @param string $identification The username, id, or email address to check
+ * @param string $type The type of identification to check
+ * @return boolean True if the user exists
  */
 function userExists($identification, $type = "username")
 {
@@ -274,6 +327,8 @@ function userExists($identification, $type = "username")
 
 /**
  * Hash a password
+ * @param string $string The password to hash
+ * @return string The hashed password
  */
 function HashThat($string)
 {
@@ -282,6 +337,9 @@ function HashThat($string)
 
 /**
  * Add an user to the database
+ * @param string $username The username of the user
+ * @param string $password The password of the user (not hashed)s
+ * @param string $email The email address of the user 
  * @return string The id of the user
  */
 function createUser($username, $password, $email)
@@ -330,16 +388,30 @@ function rateLimitIp($name, $tokens, $unit, $bucketMax, $initial, $consume, &$se
     return rateLimit($name, $tokens, $unit, $bucketMax, $initial, $consume, $seconds, true);
 }
 
+/**
+ * Check if an username is acceptable
+ * @param string $username The username to check
+ * @return bool true if the username is acceptable
+ */
 function isValidUsername($username)
 {
     return preg_match("/^[a-zA-Z0-9_\-]{3,20}$/", $username);
 }
 
+/**
+ * Determine if an email adress is valid
+ * @param string $email The email address to check
+ * @return bool true if the email is valid
+ */
 function isValidEmail($email)
 {
     return filter_var($email, FILTER_VALIDATE_EMAIL);
 }
 
+/**
+ * Check if post parameters are valid
+ * @return bool true if every post parameter (function paremeters) are set
+ */
 function requirePost()
 {
     $args = func_get_args();
@@ -351,6 +423,10 @@ function requirePost()
     return true;
 }
 
+/**
+ * Check if get parameters are valid
+ * @return bool true if every get parameter (function paremeters) are set
+ */
 function requireGet()
 {
     $args = func_get_args();
@@ -362,6 +438,10 @@ function requireGet()
     return true;
 }
 
+/**
+ * Check if the request contains the required files
+ * @return bool true if the request contains the required files (function parameters)
+ */
 function requireFiles()
 {
     $args = func_get_args();
@@ -372,6 +452,13 @@ function requireFiles()
     }
     return true;
 }
+
+/**
+ * Set a variable that will be printed by the js() function at the end of the page
+ * this variable will redirect the user to the specified url
+ * @param string $url The url to redirect to
+ * @param array $notification The notification to display to the user [Title, content, type, url?]
+ */
 function redirect($url, $notification = null)
 {
     global $redirected;
@@ -401,7 +488,9 @@ function redirect($url, $notification = null)
     $redirectNotification .= "</script>";
 }
 
-
+/**
+ * Updates the session's informations
+ */
 function updateSession()
 {
     if (isLoggedIn()) {
@@ -410,6 +499,15 @@ function updateSession()
         $_SESSION = $user->toArray();
     }
 }
+
+/**
+ * Send a mail
+ * @param string $to The email address to send to
+ * @param string $subject The subject of the mail
+ * @param string $content The content of the mail
+ * @param string $from The email address to send from
+ * @param bool $blank if true, dont add the default html header and footer
+ */
 function sendMail($to, $subject, $content, $from = "support@skwal.net", $blank = false)
 {
     if (local())
@@ -437,7 +535,10 @@ function sendMail($to, $subject, $content, $from = "support@skwal.net", $blank =
     mail($to, $subject, $message, "From: $from\r\nContent-type: text/html\r\n");
 }
 
-
+/**
+ * Returns an array representing an api response that will be sent
+ * @return array The api response that will be sent
+ */
 function api_response()
 {
     return [
@@ -448,7 +549,11 @@ function api_response()
     ];
 }
 
-
+/**
+ * Checks if all the requirements for the api call are satisfied
+ * @param string $method The method of the api call
+ * @param string $contentType The content type of the api call
+ */
 function api($method = "POST", $contentType = "application/json")
 {
     $response = api_response();
@@ -481,7 +586,10 @@ function api($method = "POST", $contentType = "application/json")
     }
 }
 
-
+/**
+ * Print recent posts as tile
+ * @param int $limit The number of posts to print
+ */
 function printRecentPosts($limit = 5)
 {
     global $db;
@@ -519,7 +627,11 @@ function printRecentPosts($limit = 5)
 }
 
 
-
+/**
+ * Determine if a post exists wiht its id
+ * @param int $id The id of the post
+ * @return bool True if the post exists
+ */
 function postExists($id)
 {
     global $db;
@@ -529,7 +641,11 @@ function postExists($id)
     return $stmt->rowCount() > 0;
 }
 
-
+/**
+ * Determine if a comment exists with its id
+ * @param int $id The id of the comment
+ * @return bool True if the comment exists
+ */
 function commentExists($id)
 {
     global $db;
@@ -539,6 +655,11 @@ function commentExists($id)
     return $stmt->rowCount() > 0;
 }
 
+/**
+ * Returns the recent post as an array of Post objects
+ * @param int $limit The number of posts to return
+ * @return array The recent posts
+ */
 function recentPosts($limit = 5)
 {
     global $db;
@@ -554,7 +675,11 @@ function recentPosts($limit = 5)
     return $posts;
 }
 
-
+/**
+ * Returns the popular posts as an array of Post objects
+ * @param int $limit The number of posts to return
+ * @return array The popular posts
+ */
 function popularPosts($limit = 5)
 {
     global $db;
@@ -569,7 +694,11 @@ function popularPosts($limit = 5)
     return $posts;
 }
 
-
+/**
+ * Parse markdown to html
+ * @param string $text
+ * @return string The html
+ */
 function parseMarkdown($text)
 {
     $parser = new GithubFlavoredMarkdownConverter([
@@ -581,7 +710,20 @@ function parseMarkdown($text)
     return $parser->convert($text);
 }
 
-
+/**
+ * Prints the page metadata
+ * @param array $params An array with the informations of the page, every key is optional
+ * 
+ * ```php
+ * metadata([
+ *   "title" => "My title",
+ *   "description" => "My description",
+ *   "image" => "http://myimage.com/image.png",
+ *   "url" => "http://myurl.com"
+ *   "site_name" => "My site name"
+ * ])
+ * ```
+ */
 function metadata($params = [])
 {
     $defaultParams = [
@@ -615,14 +757,18 @@ function metadata($params = [])
 
 }
 
-
+/**
+ * set $showPageContent to false
+ */
 function dontShowPageContent()
 {
     global $showPageContent;
     $showPageContent = false;
 }
 
-
+/**
+ * Import the css files for the page
+ */
 function pageCss()
 {
     global $showPageContent;
@@ -630,7 +776,9 @@ function pageCss()
         css(func_get_args());
 }
 
-
+/**
+ * Import the js files for the page
+ */
 function pageJs()
 {
     global $showPageContent;
@@ -638,19 +786,27 @@ function pageJs()
         js(func_get_args());
 }
 
-
+/**
+ * Dont load default js files
+ */
 function dontLoadDefaultJs()
 {
     global $loadDefaultJs;
     $loadDefaultJs = false;
 }
 
+/**
+ * Dont load default css files
+ */
 function dontLoadDefaultCss()
 {
     global $loadDefaultCss;
     $loadDefaultCss = false;
 }
 
+/**
+ * Dont load default css and js files
+ */
 function dontLoadDefaultCssAndJs()
 {
     dontLoadDefaultCss();
