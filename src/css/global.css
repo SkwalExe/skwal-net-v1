@@ -215,6 +215,10 @@ h6.center {
 
 .markup ul li::before {
     content: '-';
+}
+
+.markup ol li::marker,
+.markup ul li::before {
     margin-right: 15px;
     text-shadow: 0 0 1px var(--color3), 0 0 2px var(--color3), 0 0 4px var(--color3), 0 0 5px var(--color3), 0 0 10px var(--color3);
 }
@@ -250,4 +254,8 @@ a[disabled] {
     padding-left: 20px;
     background-color: rgba(0, 0, 0, 0.1);
     margin: 10px 0;
+}
+
+.markup ol {
+    list-style-position: inside;
 }
