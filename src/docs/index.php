@@ -2,20 +2,20 @@
 include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
 $defaultPage = "introduction";
-$defaultSection = ".";
+$defaultModule = ".";
 
-$section = $_GET['section'] ?? $defaultSection;
+$module = $_GET['module'] ?? $defaultModule;
 $page = $_GET['page'] ?? $defaultPage;
 
 $dirContent = array_diff(scandir("pages"), ['..']);
 
-$sections = array_filter($dirContent, function ($file) {
+$modules = array_filter($dirContent, function ($file) {
   return is_dir("pages/$file");
 });
-if (!in_array($section, $sections)) {
-  redirect("/docs/", ["Error!", "Invalid section parameter", "error"]);
+if (!in_array($module, $modules)) {
+  redirect("/docs/", ["Error!", "Invalid module parameter", "error"]);
 } else {
-  $dirContent = array_diff(scandir("pages/" . $section), ["..", "."]);
+  $dirContent = array_diff(scandir("pages/" . $module), ["..", "."]);
 
   $pages = array_filter($dirContent, function ($file) {
     return strpos($file, ".md") !== false;
@@ -26,13 +26,13 @@ if (!in_array($section, $sections)) {
   }, $pages);
 
   if (!in_array($page, $pages)) {
-    $redirectTo = ($section == $defaultSection) ? "/docs/" : "/docs/$section/";
+    $redirectTo = ($module == $defaultModule) ? "/docs/" : "/docs/$module/";
     redirect($redirectTo, ["Error!", "Invalid page parameter", "error"]);
   } else {
-    $pageContent = file_get_contents("pages/$section/$page.md");
+    $pageContent = file_get_contents("pages/$module/$page.md");
     $pageContentHTML = parseMarkdown($pageContent);
 
-    $sidebarContent = file_get_contents("pages/$section/_sidebar.md");
+    $sidebarContent = file_get_contents("pages/$module/_sidebar.md");
     $sidebarContentHTML = parseMarkdown($sidebarContent);
   }
 }
@@ -51,7 +51,7 @@ if (!in_array($section, $sections)) {
   <?php
   if ($showPageContent) {
     navbarStart();
-    if ($section != $defaultSection)
+    if ($module != $defaultModule)
       navbarButton("Documentation home page", "/docs", "fa fa-home");
     navbarButton("Home", "/", "fa fa-home");
     navbarEnd();

@@ -1,1 +1,1 @@
-[👤 Skwal.net user guide](/docs?section=skwal-net-user-guide)
+[👤 Skwal.net user guide](/docs?module=skwal-net-user-guide)
