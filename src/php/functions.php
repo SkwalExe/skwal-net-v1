@@ -773,7 +773,7 @@ function pageCss()
 {
     global $showPageContent;
     if ($showPageContent)
-        css(func_get_args());
+        css(...func_get_args());
 }
 
 /**
