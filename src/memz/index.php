@@ -13,7 +13,8 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
         "large" => true,
         "image" => "/assets/memz.png",
     ]);
-    css("form");
+    css();
+    pageCss("form");
     ?>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/windowsmessagebox@0.4.1/dist/wmsgbox.min.css">
 </head>

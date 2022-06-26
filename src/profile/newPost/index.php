@@ -24,7 +24,8 @@ if (isLoggedIn()) {
     "title" => "Create a new post",
     "description" => "Create a new post on the skwal.net's forum",
   ]);
-  css("form");
+  css();
+  pageCss("form");
   ?>
 
 </head>
@@ -85,7 +86,8 @@ if (isLoggedIn()) {
     loadingScreen();
     footer();
   }
-  js("newPost");
+  js();
+  pageJs("newPost");
   ?>
 
 </body>

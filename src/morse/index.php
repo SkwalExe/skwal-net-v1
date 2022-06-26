@@ -12,16 +12,17 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
     "large" => true,
     "image" => "/assets/morse.png"
   ]);
-  css('morse', "form");
+  css();
+  pageCss('morse', "form");
   ?>
 </head>
 
 <body>
   <?php
-  navbarStart();
-  navbarButton("Home", "/", "fa fa-home");
-  navbarEnd();
   if ($showPageContent) {
+    navbarStart();
+    navbarButton("Home", "/", "fa fa-home");
+    navbarEnd();
   ?>
     <div class="mainContainer">
       <div class="main">
@@ -78,11 +79,12 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
     </div>
     <script src="https://cdn.jsdelivr.net/npm/morse-lib@1.1.1/dist/morse-lib.umd.min.js"></script>
   <?php
+    loadingScreen();
+    footer();
   }
-  loadingScreen();
-  footer();
 
-  js("functions", "global", "navbar", "links", "tiles", "loadingScreen", "morse");
+  js();
+  pageJs("morse");
   ?>
 </body>
 

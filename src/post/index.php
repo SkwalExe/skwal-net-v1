@@ -40,7 +40,8 @@ if (requireGet("id")) {
       "title" => "Wrong link",
       "description" => "The post you are looking for is unavailable beacause you entered the wrong link.",
     ]);
-  css("post", "avatar", "form", "prism");
+  css();
+  pageCss("post", "avatar", "form", "prism");
   ?>
 
 </head>
@@ -113,7 +114,8 @@ if (requireGet("id")) {
     footer();
   }
 
-  js("post", "postView", "commentForm", "comment", "prism");
+  js();
+  pageJs("post", "postView", "commentForm", "comment", "prism");
   ?>
 
 </body>
