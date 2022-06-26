@@ -1,6 +1,6 @@
 # Skwal.net user guide 👤
 
-This sections contains the documentation intended for Skwal.net users.
+This module contains the documentation intended for Skwal.net users.
 
 Here, you can find step-by-step instructions and tutorials on how to use our site and our forum.
 
