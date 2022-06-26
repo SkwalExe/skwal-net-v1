@@ -10,7 +10,8 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
         "title" => '🐮 Cow translator',
         "description" => "This cow translator 🐮 allows simple humans like you to communicate with these beautiful and charismatic cows 🐮✨"
     ]);
-    css("form", "cowTranslator");
+    css();
+    pageCss("form", "cowTranslator");
     ?>
 </head>
 
@@ -84,7 +85,8 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
         loadingScreen();
         footer();
     }
-    js("cowTranslator");
+    js();
+    pageJs("cowTranslator");
     ?>
 
 </body>

@@ -18,7 +18,8 @@ else
     "title" => "Edit your profile's settings",
     "description" => "Customize the look of the website",
   ]);
-  css("form");
+  css();
+  pageCss("form");
   ?>
 
 </head>
@@ -69,7 +70,8 @@ else
     loadingScreen();
     footer();
   }
-  js("settings");
+  js();
+  pageJs("settings");
   ?>
 
 </body>

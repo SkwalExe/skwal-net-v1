@@ -44,7 +44,8 @@ dontLoadDefaultCss();
       'description' => "The profile you are looking for doesn't exist"
     ]);
   }
-  css("colors", "global", "footer", "prism", "loadingScreen", "post", "navbar", "tiles", "avatar", "profile", "form");
+  css("colors", "global");
+  pageCss("footer", "prism", "loadingScreen", "post", "navbar", "tiles", "avatar", "profile", "form");
   ?>
 
 </head>
@@ -146,7 +147,8 @@ dontLoadDefaultCss();
     loadingScreen();
     footer();
   }
-  js("profile", "post", "prism");
+  js();
+  pageJs("profile", "post", "prism");
 
   ?>
 
