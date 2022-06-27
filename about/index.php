@@ -37,21 +37,16 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
                     </h1>
 
                     <div class="box glowing markup">
-                        <img src="/assets/photo.png" alt="">
-                        <p>Hi! My name is <span class="blue">Léopold Koprivnik Ibghy</span>, I founded skwal.net in <span class="blue">2018</span> and I continue to maintain it.</p>
-                        <p>I am a 14 years old french student, <span class="red">I love FOSS</span> (Free and Open Source Software)</p>
-                        <p>I'm a big fan of <span class="color">Linus Torvalds</span> and I am very interested in <span class="green">the history of linux <i class="fa fa-linux"></i></span>, one day, I want to create my own distro</p>
-                        <hr>
-                        <p>I created this website to make a place where you will be able to find cool stuff !</p>
-                        <p>And with the forum that I created, I want to make skwal.net a place where everyone can :</p>
-                        <ul>
-                            <li>Share their creations and knowledge </li>
-                            <li>Ask any question</li>
-                            <li>Help me to improve my projects and more...</li>
-                        </ul>
-                        <hr>
-                        <p>I hope you will enjoy it and I hope you will find something interesting !</p>
-                        <p>If you have any question, feel free to contact me on my <a href="mailto:skwal.net@gmail.com">email</a></p>
+                        <h1>What is skwal.net 🤔</h1>
+                        <p>We want to create a <strong>welcoming and caring place</strong> for everyone to discover cool & interesting things, share their knowledge, ideas, and creations.</p>
+
+                        <p>Skwal.net is a forum about <strong>programming</strong> but you can find content on other domains </p>
+                    </div>
+                    <div class="box glowing markup">
+                        <p>My name is <strong>Léopold Koprivnik Ibghy</strong> aka <strong>SkwalExe</strong>, I am <strong>14 years old french 🇫🇷 student</strong>, I created skwal.net in 2018, when I was <strong>10 years old</strong> and I continue to maintain it.</p>
+                        <p>When I wrote the first line of code for this forum, I didn't know <strong>anything</strong> about coding, I learned everything I know while coding this website, it represents my <strong>first experience with programming</strong>.</p>
+                        <p>I love <strong>FOSS</strong>, and I am very interested in <strong>the history of linux 🐧</strong></p>
+                        <p>I love creating <strong>open source, fun and interesting</strong> programs or libraries that you can find on my <a href="https://github.com/SkwalExe/">Github</a></p>
                     </div>
 
 
