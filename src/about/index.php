@@ -30,12 +30,12 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
         <div class="mainContainer">
             <div class="main">
-                <div class="content">
+                <div class="small content">
 
                     <h1 class="glowing box center">
                         About skwal.net
                     </h1>
-
+                    <img src="/assets/banner.png" class="box glowing" width="100%">
                     <div class="box glowing markup">
                         <h1>What is skwal.net 🤔</h1>
                         <p>We want to create a <strong>welcoming and caring place</strong> for everyone to discover cool & interesting things, share their knowledge, ideas, and creations.</p>
