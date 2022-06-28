@@ -225,6 +225,8 @@ h6.center {
 
 .markup img {
     max-height: 300px;
+    max-width: 100%;
+    margin: 15px 0;
 }
 
 .markup hr {
