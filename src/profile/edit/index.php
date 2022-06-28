@@ -54,7 +54,7 @@ if (requireGet('action', 'id', 'token')) {
     "description" => "Edit your profile informations, your username, email adress, password, bio...",
   ]);
   css();
-  pageJs("form");
+  pageCss("form");
   ?>
 
 </head>
