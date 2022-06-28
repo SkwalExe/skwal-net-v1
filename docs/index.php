@@ -80,6 +80,7 @@ if (!in_array($module, $modules)) {
     footer();
   }
   js();
+  pageJs("prism");
   ?>
 </body>
 
