@@ -64,7 +64,7 @@
     max-width: 1500px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
     .tiles {
         column-count: 1;
     }
