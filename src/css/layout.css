@@ -1,28 +1,19 @@
 .main {
     flex-direction: row;
     align-items: flex-start;
-    height: min-content;
 }
 
 .main>.content {
-    width: 100%;
-    max-width: calc(100% - 300px);
+    width: calc(100% - 250px);
     margin: 10px;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-@media (min-width: 768px) {
-    .content.small {
-        max-width: 500px;
-    }
-}
-
 .sidebar {
     display: flex;
-    width: 300px;
-    min-width: 300px;
+    width: 200px;
     flex-direction: column;
     margin: 10px;
     border-left: 1px solid rgba(255, 255, 255, 0.1);
@@ -34,15 +25,14 @@
     display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 700px) {
     .main {
         flex-direction: column;
-        align-items: center;
     }
     .main>.content,
     .sidebar {
-        max-width: 100%;
         margin: 0;
+        width: 100%;
     }
     .sidebar {
         border: none;
@@ -51,18 +41,21 @@
     .onlyShowWhenMobileWidth {
         display: block;
     }
+    .links {
+        justify-content: center;
+    }
 }
 
 .links {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
 .links a {
     display: inline-flex;
     align-items: center;
-    width: fit-content;
-    margin: 2px;
     cursor: pointer;
 }
 
@@ -73,4 +66,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media (min-width: 700px) {
+    .content.small {
+        max-width: 500px;
+    }
 }
