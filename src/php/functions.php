@@ -704,7 +704,7 @@ function parseMarkdown($text)
 
     ]);
 
-    return $parser->convert($text);
+    return $parser->convert($text)->getContent();
 }
 
 /**
