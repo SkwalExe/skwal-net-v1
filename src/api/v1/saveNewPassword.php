@@ -32,6 +32,8 @@ if (requirePost("id", "token", "newPassword", "newPasswordConfirmation")) {
   $stmt = $db->prepare($sql);
   $stmt->execute([HashThat($newPassword), $user->id]);
 
+  $user->requireLogin();
+
   $response['message'] = "Password saved successfully!";
   $response["success"] = true;
   http_response_code(200);

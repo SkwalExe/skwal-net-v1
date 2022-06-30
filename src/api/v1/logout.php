@@ -12,10 +12,7 @@ if (isLoggedIn())
 else
   $response["message"] = "Not logged in.";
 
-
-session_unset();
-session_destroy();
-setcookie('PHPSESSID', null, -1, '/');
+logout();
 
 http_response_code(200);
 echo json_encode($response);

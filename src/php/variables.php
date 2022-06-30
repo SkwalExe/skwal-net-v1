@@ -5,7 +5,7 @@ $ip = $_SERVER["REMOTE_ADDR"];
 $assets = "$root/assets";
 $scripts = "$root/scripts";
 
-$version = "Lubl";
+$version = "Luvl";
 
 $defaultSettings = [
   "borders" => false,

@@ -28,6 +28,9 @@ class User
     $this->avatarUrl = "/avatar/?username=$this->username";
     $this->bannerUrl = "/banner/?username=$this->username";
     $this->accountDeletionToken = $user['accountDeletionToken'];
+    $this->logout_before = strtotime($user['logout_before']);
+
+
     $settings = json_decode($user['settings'], true);
 
     global $defaultSettings;
@@ -201,5 +204,19 @@ class User
     foreach ($likes as $like) {
       $this->likes[] = new Post($like['post']);
     }
+  }
+
+  public function requireLogin()
+  {
+    global $db;
+    $sql = "UPDATE users SET logout_before = current_timestamp() WHERE id = ?";
+    $stmt = $db->prepare($sql);
+    $stmt->execute([$this->id]);
+  }
+
+  public function loginAs()
+  {
+    $_SESSION = $this->toArray();
+    $_SESSION['last_login'] = time();
   }
 }

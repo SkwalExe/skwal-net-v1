@@ -54,7 +54,7 @@ if (requirePost('password', 'identification')) {
     die();
   }
 
-  $_SESSION = $user->toArray();
+  $user->loginAs();
 
   $response["message"] = "Successfully logged in as " . $user->username;
   $response["success"] = true;

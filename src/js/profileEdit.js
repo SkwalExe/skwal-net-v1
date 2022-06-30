@@ -63,4 +63,28 @@ if (serverData.showPageContent) {
       })
 
   }
+
+  $('.logout-all-devices').onclick = () => {
+    new MessageBox()
+      .setTitle("Logout")
+      .setMessage("Are you sure you want to logout from all your devices?")
+      .addButton("Cancel", "green")
+      .addButton("Logout", "red")
+      .show()
+      .then(res => {
+        if (res === "Logout") {
+          fetch('/api/v1/logoutAllDevices.php')
+            .then(res => res.json()).then(data => {
+              if (data.success) {
+                new MessageBox()
+                  .setTitle("Logout")
+                  .setMessage("You have been logged out from all your devices.")
+                  .show();
+              } else {
+                toasteur.error(data.error, "Error!")
+              }
+            })
+        }
+      })
+  }
 }

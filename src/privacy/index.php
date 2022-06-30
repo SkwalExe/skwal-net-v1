@@ -15,6 +15,7 @@ if (isLoggedIn()) {
   $file .= "avatar : https://skwal.net" . $user->avatarUrl . "\n";
   $file .= "banner : https://skwal.net" . $user->bannerUrl . "\n";
   $file .= "bio : " . $user->bio . "\n";
+  $file .= "You last logged in on : " .  date('d-m-Y H:i:s', $_SESSION['last_login']) . "\n";
   $file .= "url of the profiles you follow : \n";
   foreach ($user->followings as $following) {
     $file .= "\thttps://skwal.net/profile?username=" . $following->username . "\n";
@@ -77,6 +78,7 @@ $serverData['toDownload'] = $file;
               <li>The username of your account</li>
               <li>Your email address</li>
               <li>The password of your account</li>
+              <li>The last time you logged in</li>
             </ul>
             <h4>Depending on how you use our website, we may also collect:</h4>
             <ul>
@@ -99,6 +101,7 @@ $serverData['toDownload'] = $file;
               <li>Your IP adress</li>
               <li>The post or comments you liked</li>
               <li>The profiles you follow</li>
+              <li>The last time you logged in</li>
             </ul>
             <h4>The following information can be seen by anyone on your <a href="/profile">profile page</a></h4>
             <ul>
@@ -126,6 +129,8 @@ $serverData['toDownload'] = $file;
             <p>We only send emails to confirm important actions, such as password resetting.</p>
             <h3>Your password</h3>
             <p>We will use your password to authenticate you on this website.</p>
+            <h3>The last time you logged in</h3>
+            <p>We store the last time you logged in to prevent hackers to have access to your account after you changed your identification informations</p>
           </div>
           <div class="box glowing markup">
             <h1>How do we protect your informations</h1>
