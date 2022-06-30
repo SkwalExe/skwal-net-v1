@@ -1,9 +1,7 @@
 <?php
 include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 
-if (isLoggedIn())
-  $user = new User($_SESSION['id']);
-else
+if (!isLoggedIn())
   redirect("/login", ["Error", "Please log in to edit your profile", "error"]);
 ?>
 
@@ -44,13 +42,13 @@ else
               <div class="input">
                 <p class="inputLabel">Borders</p>
                 <select class="borders-input" name="borders">
-                  <option value="show" <?= $user->settings['borders'] ? "selected" : "" ?>>Show</option>
-                  <option value="hide" <?= !$user->settings['borders'] ? "selected" : "" ?>>Hide</option>
+                  <option value="show" <?= $current_user->settings['borders'] ? "selected" : "" ?>>Show</option>
+                  <option value="hide" <?= !$current_user->settings['borders'] ? "selected" : "" ?>>Hide</option>
                 </select>
               </div>
               <div class="input">
                 <p class="inputLabel">Color</p>
-                <input value="<?= $user->settings["color"] ?>" type="color" class="color-input" name="color">
+                <input value="<?= $current_user->settings["color"] ?>" type="color" class="color-input" name="color">
               </div>
               <hr>
               <button type="submit">Save</button>

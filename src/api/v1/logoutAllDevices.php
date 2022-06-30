@@ -10,9 +10,7 @@ if (!isLoggedIn()) {
   die();
 }
 
-$user = new User($_SESSION['id']);
-
-$user->requireLogin();
+$current_user->requireLogin();
 
 $response["success"] = true;
 $response["message"] = "Successfully logged out all devices";

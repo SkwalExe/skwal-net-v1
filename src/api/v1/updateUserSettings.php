@@ -14,7 +14,6 @@ if (!isLoggedIn()) {
 }
 
 if (requirePost("borders", "color")) {
-  $user = new User($_SESSION['id']);
   $borders = $_POST["borders"];
   $color = $_POST["color"];
   global $defaultSettings;
@@ -34,26 +33,26 @@ if (requirePost("borders", "color")) {
     die();
   }
 
-  if ($user->settings['color'] != $color) {
-    $newSettings = $user->settings;
+  if ($current_user->settings['color'] != $color) {
+    $newSettings = $current_user->settings;
     $newSettings['color'] = $color;
     $newSettings = json_encode($newSettings);
 
     $sql = "UPDATE users SET settings = ? WHERE id = ?";
     $stmt = $db->prepare($sql);
-    $stmt->execute([$newSettings, $user->id]);
+    $stmt->execute([$newSettings, $current_user->id]);
   }
 
   $borders = $borders == "show";
 
-  if ($user->settings['borders'] != $borders) {
-    $newSettings = $user->settings;
+  if ($current_user->settings['borders'] != $borders) {
+    $newSettings = $current_user->settings;
     $newSettings["borders"] = $borders;
     $newSettings = json_encode($newSettings);
 
     $sql = "UPDATE users SET settings = ? WHERE id = ?";
     $stmt = $db->prepare($sql);
-    $stmt->execute([$newSettings, $user->id]);
+    $stmt->execute([$newSettings, $current_user->id]);
   }
 
   $response['message'] = "Settings updated.";

@@ -34,7 +34,7 @@ if (requireGet('action', 'id', 'token')) {
 } else {
 
   if (isLoggedIn()) {
-    $user = new User($_SESSION['id']);
+    $user = $current_user;
   } else {
     redirect("/login", ["Error", "Please log in to edit your profile", "error"]);
   }
