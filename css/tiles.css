@@ -12,10 +12,6 @@
 .tile .head {
     display: flex;
     align-items: center;
-    /* separator between the tile head and the tile body */
-    border-bottom: 2px solid var(--color3);
-    padding-bottom: 5px;
-    margin-bottom: 5px;
 }
 
 .tile .head .title {
@@ -50,6 +46,12 @@
 .tile .head .title::before,
 .tile .body .text::before {
     margin-right: 5px;
+}
+
+.tile .body {
+    border-top: 2px solid var(--color3);
+    margin-top: 8px;
+    padding-top: 10px;
 }
 
 .tile .body .text::before {
