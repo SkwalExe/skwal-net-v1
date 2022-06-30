@@ -24,3 +24,5 @@ $serverData = [
   "loggedIn" => isLoggedIn(),
   "user" => isLoggedIn() ? $_SESSION : null
 ];
+
+$current_user = isLoggedIn() ? new User($_SESSION['id']) : null;
