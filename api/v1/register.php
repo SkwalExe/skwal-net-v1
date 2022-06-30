@@ -71,8 +71,7 @@ if (requirePost("password", "username", "email")) {
 
   $user = new User($id);
 
-  $_SESSION = $user->toArray();
-
+  $user->loginAs();
   $response["message"] = "Successfully registered and logged in as " . $username;
   $response["success"] = true;
   $response["data"] = $user->toArray();
