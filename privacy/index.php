@@ -4,32 +4,31 @@ include("{$_SERVER['DOCUMENT_ROOT']}/php/global.php");
 $file = "Your IP : " . $_SERVER['REMOTE_ADDR'] . "\n";
 
 if (isLoggedIn()) {
-  $user = new User($_SESSION['id']);
-  $user->loadFollowings();
-  $user->loadPosts();
-  $user->loadComments();
-  $user->loadLikes();
-  $file .= "username : " . $user->username . "\n";
-  $file .= "email : " . $user->email . "\n";
-  $file .= "id : " . $user->id . "\n";
-  $file .= "avatar : https://skwal.net" . $user->avatarUrl . "\n";
-  $file .= "banner : https://skwal.net" . $user->bannerUrl . "\n";
-  $file .= "bio : " . $user->bio . "\n";
+  $current_user->loadFollowings();
+  $current_user->loadPosts();
+  $current_user->loadComments();
+  $current_user->loadLikes();
+  $file .= "username : " . $current_user->username . "\n";
+  $file .= "email : " . $current_user->email . "\n";
+  $file .= "id : " . $current_user->id . "\n";
+  $file .= "avatar : https://skwal.net" . $current_user->avatarUrl . "\n";
+  $file .= "banner : https://skwal.net" . $current_user->bannerUrl . "\n";
+  $file .= "bio : " . $current_user->bio . "\n";
   $file .= "You last logged in on : " .  date('d-m-Y H:i:s', $_SESSION['last_login']) . "\n";
   $file .= "url of the profiles you follow : \n";
-  foreach ($user->followings as $following) {
+  foreach ($current_user->followings as $following) {
     $file .= "\thttps://skwal.net/profile?username=" . $following->username . "\n";
   }
   $file .= "Url of the posts you published : \n";
-  foreach ($user->posts as $post) {
+  foreach ($current_user->posts as $post) {
     $file .= "\thttps://skwal.net/post?id=" . $post->id . "\n";
   }
   $file .= "Url of the posts you liked : \n";
-  foreach ($user->likes as $like) {
+  foreach ($current_user->likes as $like) {
     $file .= "\thttps://skwal.net/post?id=" . $like->id . "\n";
   }
   $file .= "Url of the posts you commented : \n";
-  foreach ($user->comments as $comment) {
+  foreach ($current_user->comments as $comment) {
     $file .= "\thttps://skwal.net/post?id=" . $comment->post_id . "\n";
   }
 }
