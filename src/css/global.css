@@ -124,7 +124,7 @@ hr {
     display: flex;
     flex-wrap: wrap;
     max-width: 100%;
-    gap: 10px;
+    column-gap: 10px;
 }
 
 .neon {
@@ -142,7 +142,7 @@ hr {
 }
 
 .flex {
-    gap: 7px;
+    column-gap: 7px;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
