@@ -48,6 +48,7 @@ if (isLoggedIn()) {
           </h1>
 
           <div class="box glowing">
+
             <form>
 
               <?= $serverData['editPost'] ? "<input type='hidden' name='id' value='{$post->id}' >" : "" ?>
@@ -69,6 +70,10 @@ if (isLoggedIn()) {
               <button type="submit">Post</button>
 
             </form>
+          </div>
+
+          <div toultip="preview" class="break preview box glowing">
+
           </div>
 
         </div>
