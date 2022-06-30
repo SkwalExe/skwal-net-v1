@@ -618,11 +618,6 @@ function printRecentPosts($limit = 5)
                 </div>
                 <span class="title"><?= htmlentities($post->title) ?></span>
             </div>
-            <div class="body">
-                <p class="text">
-                    <?= nl2br(htmlentities(substr($post->content, 0, 100))) ?>...
-                </p>
-            </div>
         </div>
     <?php
     }

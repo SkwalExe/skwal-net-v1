@@ -99,7 +99,7 @@ class Post
 
       if ($contentLimit !== 0) {
       ?>
-        <div class="content markup">
+        <div class="content break markup">
           <?= parseMarkdown($content); ?>
         </div>
       <?php

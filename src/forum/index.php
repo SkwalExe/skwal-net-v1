@@ -62,8 +62,8 @@ $lastPost = new Post($lastPost['id']);
 
           <?php
           foreach (recentPosts(10) as $post) {
-            echo "<div href='/post/?id={$post->id}'>";
-            echo $post->HTML(300);
+            echo "<div toultip='Click to open post' style='max-height: 300px; overflow-y: auto' href='/post/?id={$post->id}'>";
+            echo $post->HTML();
             echo "</div>";
           }
           ?>

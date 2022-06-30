@@ -109,7 +109,7 @@ dontLoadDefaultCss();
             <?php
             foreach ($user->posts as $post) {
               echo "<div toultip='Open post' href='/post?id=$post->id'>";
-              echo $post->HTML(200, false);
+              echo $post->HTML(null, false);
               echo "</div>";
             }
 
