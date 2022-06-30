@@ -496,7 +496,9 @@ function updateSession()
     if (isLoggedIn()) {
         $id = $_SESSION['id'];
         $user = new User($id);
-        $_SESSION = $user->toArray();
+        $_SESSION = array_merge($_SESSION, $user->toArray());
+
+        if ($user->logout_before > $_SESSION['last_login'])            logout();
     }
 }
 
@@ -811,4 +813,12 @@ function dontLoadDefaultCssAndJs()
 {
     dontLoadDefaultCss();
     dontLoadDefaultJs();
+}
+
+
+function logout()
+{
+    session_unset();
+    session_destroy();
+    setcookie('PHPSESSID', null, -1, '/');
 }

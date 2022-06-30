@@ -11,7 +11,7 @@ if (requireGet('action', 'id', 'token')) {
         $sql = "UPDATE users SET email = ?, newEmail = NULL, newEmailToken = NULL WHERE id = ?";
         $stmt = $db->prepare($sql);
         $stmt->execute([$user->newEmail, $user->id]);
-
+        $user->requireLogin();
         redirect("/", ["Success", "Your email has been updated.", "success"]);
       } else {
         redirect("/", ["Error", "Invalid token.", "error"]);
@@ -98,6 +98,8 @@ if (requireGet('action', 'id', 'token')) {
               <button style="flex: 0.5" class="blue" _href="/profile/newPassword">Change password</button>
               <button style="flex: 0.5" class="delete-account-button red">Delete your account</button>
             </div>
+            <hr>
+            <button class="fw logout-all-devices">Logout all devices</button>
           </div>
         </div>
       </div>
