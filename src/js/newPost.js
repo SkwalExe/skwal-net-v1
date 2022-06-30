@@ -24,4 +24,25 @@ if (serverData.showPageContent) {
         }
       })
   })
+
+  let content_textarea = form.querySelector("textarea[name='content']")
+  let content_preview = $(".preview")
+
+  const updatePreview = () => {
+    let text = content_textarea.value;
+    renderMarkdown(text).then(rendered => {
+      if (rendered.success)
+        content_preview.innerHTML = rendered.data
+      else
+        content_preview.innerHTML = rendered.error
+
+    })
+  }
+
+  updatePreview();
+  let timeout = null;
+  content_textarea.oninput = () => {
+    clearTimeout(timeout);
+    timeout = setTimeout(updatePreview, 500);
+  }
 }

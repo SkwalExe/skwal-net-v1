@@ -120,3 +120,13 @@ function download(filename, text) {
 
   document.body.removeChild(element);
 }
+
+
+async function renderMarkdown(text) {
+  let res = await fetch("/api/v1/renderMarkdown.php", {
+    method: "POST",
+    body: JSON.stringify({ text }),
+    headers: { 'Content-Type': 'application/json' }
+  })
+  return await res.json();
+}
