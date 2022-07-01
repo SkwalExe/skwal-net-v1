@@ -1,6 +1,6 @@
 # Creating an account ➕
 
-## Why do I need to create an account 🤔
+### Why do I need to create an account 🤔
 
 A skwal.net account gives you access to many features of our website.
 
@@ -11,7 +11,7 @@ A skwal.net account gives you access to many features of our website.
 - Customizing your profile 🔧
 - ...and more !
 
-## How to create an account 
+### How to create an account 
 
 1. 🔗 First, open the [sign up section](/register)
 1. Enter your username

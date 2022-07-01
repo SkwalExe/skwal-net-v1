@@ -218,7 +218,7 @@ h6.center {
 
 .markup ol li::marker,
 .markup ul li::before {
-    margin-right: 15px;
+    margin-right: 5px;
     text-shadow: 0 0 1px var(--color3), 0 0 2px var(--color3), 0 0 4px var(--color3), 0 0 5px var(--color3), 0 0 10px var(--color3);
 }
 
