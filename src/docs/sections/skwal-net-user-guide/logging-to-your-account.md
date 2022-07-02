@@ -9,3 +9,7 @@ You can log in to your account from [this page](/login)
 3. Click on the `Login` button
 
 You should then be redirected to your profile page.
+
+### If you forgot your password 🔐
+
+If you forgot your password please [reset it](?module=skwal-net-user-guide&section=resetting-your-password)

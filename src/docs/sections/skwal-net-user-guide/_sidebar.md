@@ -3,3 +3,5 @@
 [➕ Creating an account](?module=skwal-net-user-guide&section=creating-an-account)
 
 [🚪 Logging to your account](?module=skwal-net-user-guide&section=logging-to-your-account)
+
+[🔐 Resetting your password](?module=skwal-net-user-guide&section=resetting-your-password)

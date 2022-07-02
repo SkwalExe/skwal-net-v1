@@ -26,7 +26,7 @@ if (!in_array($module, $modules)) {
   }, $sections);
 
   if (!in_array($section, $sections)) {
-    $redirectTo = ($module == $defaultModule) ? "/docs/" : "/docs/$module/";
+    $redirectTo = ($module == $defaultModule) ? "/docs/" : "/docs?module=$module";
     redirect($redirectTo, ["Error!", "Invalid section parameter", "error"]);
   } else {
     $sectionContent = file_get_contents("sections/$module/$section.md");
