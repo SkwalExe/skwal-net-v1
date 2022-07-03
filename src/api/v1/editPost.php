@@ -28,7 +28,7 @@ if (requirePost("title", "content", "id")) {
 
   $post = new Post($id);
 
-  if ($post->author_id != $_SESSION['id']) {
+  if ($post->author_id != $_SESSION['id'] && !isAdmin()) {
     $response["error"] = "You are not the author of the post you are trying to edit";
     http_response_code(409);
     echo json_encode($response);

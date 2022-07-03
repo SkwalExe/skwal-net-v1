@@ -26,7 +26,7 @@ if (requirePost('id')) {
 
   $post = new Post($id);
 
-  if ($post->author_id != $_SESSION['id']) {
+  if ($post->author_id != $_SESSION['id'] && !isAdmin()) {
     $response["error"] = "You cannot delete another user's post.";
     http_response_code(409);
     echo json_encode($response);
