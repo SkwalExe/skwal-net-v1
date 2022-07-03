@@ -817,3 +817,9 @@ function logout()
     session_destroy();
     setcookie('PHPSESSID', null, -1, '/');
 }
+
+
+function isAdmin()
+{
+    return isLoggedIn() && in_array("admin", $_SESSION['roles']);
+}
