@@ -26,7 +26,7 @@ if (requirePost('id')) {
 
   $comment = new Comment($id);
 
-  if ($comment->user_id != $_SESSION['id']) {
+  if ($comment->user_id != $_SESSION['id'] && !isAdmin()) {
     $response["error"] = "You cannot delete another user's comment.";
     http_response_code(409);
     echo json_encode($response);
