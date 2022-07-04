@@ -3,7 +3,6 @@
     color: #f8f8f2;
     background: 0 0;
     text-shadow: 0 1px rgba(0, 0, 0, .3);
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     font-size: 1em;
     text-align: left;
     white-space: pre;
@@ -18,6 +17,11 @@
     -moz-hyphens: none;
     -ms-hyphens: none;
     hyphens: none
+}
+
+.markup code *,
+.markup pre * {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace !important;
 }
 
 .markup pre {
