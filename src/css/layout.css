@@ -4,7 +4,8 @@
 }
 
 .main>.content {
-    width: calc(100% - 250px);
+    width: calc(100% - 300px);
+    max-width: calc(100% - 300px);
     margin: 10px;
     display: flex;
     flex-direction: column;
@@ -14,6 +15,7 @@
 .sidebar {
     display: flex;
     width: 300px;
+    min-width: 300px;
     flex-direction: column;
     margin: 10px;
     border-left: 1px solid rgba(255, 255, 255, 0.1);
@@ -33,6 +35,7 @@
     .sidebar {
         margin: 0;
         width: 100%;
+        max-width: 100%;
     }
     .sidebar {
         border: none;
