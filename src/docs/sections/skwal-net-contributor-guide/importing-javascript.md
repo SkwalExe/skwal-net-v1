@@ -12,12 +12,12 @@ Each file that you want to import is represented by **one argument of the functi
 
 ```php
 js("my-script", "other-script"); // Will load 
-// - /js/my-script.css
-// - /js/other-script.css
+// - /js/my-script.js
+// - /js/other-script.js
 
 pageJs("form", "avatar"); // Will load
-// - /js/form.css
-// - /js/avatar.css
+// - /js/form.js
+// - /js/avatar.js
 // But not if the page content is not displayed
 ```
 
