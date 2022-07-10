@@ -1,0 +1,30 @@
+.results {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.results .post {
+    max-height: 300px;
+    overflow: auto;
+}
+
+.tabs {
+    justify-content: space-around;
+}
+
+.tab.selected {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.tab {
+    flex: .5;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.tab:not(.selected) {
+    cursor: pointer;
+    color: var(--color3);
+}
