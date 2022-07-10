@@ -236,7 +236,8 @@ class User
     $html .= "<div class=\"avatarContainer\">";
     $html .= "<img src=\"" . $this->avatarUrl . "\" alt=\"\" class=\"avatar\">";
     $html .= "</div>";
-    $html .= "<h3 class=\"username break\">" . $this->username . " "  . $this->rolesHTML() . "</h3>";
+    $html .= "<h3 class=\"username break\">" . $this->username . "</h3>";
+    $html .= $this->rolesHTML();
     $html .= "</div>";
 
     return $html;
