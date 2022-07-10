@@ -8,8 +8,8 @@ if (requirePost("q", 'searchFor')) {
   $q = $_POST['q'];
   $searchFor = $_POST['searchFor'];
 
-  if (!in_array($searchFor, ['posts'])) {
-    $response["error"] = "You can only search for : posts";
+  if (!in_array($searchFor, ['posts', "users"])) {
+    $response["error"] = "You can only search for : posts, and users";
     http_response_code(409);
     echo json_encode($response);
   }

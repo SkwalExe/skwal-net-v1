@@ -49,7 +49,7 @@ class User
   }
 
 
-  public function toArray()
+  public function toArray($HTML = false)
   {
     return [
       'id' => $this->id,
@@ -62,6 +62,7 @@ class User
       'profileHTML' => $this->profileHTML,
       'roles' => $this->roles,
       'settings' => $this->settings,
+      'HTML' => $HTML ? $this->toHTML() : null,
     ];
   }
 
@@ -124,6 +125,12 @@ class User
 
   public function printRoles()
   {
+    echo $this->rolesHTML();
+  }
+
+
+  public function rolesHTML()
+  {
     $roles =  [
       "admin" => ["fa-solid fa-user-shield", "This user is an admin"],
       "verified" => ["fa-solid fa-check", "This user is verified"],
@@ -131,12 +138,15 @@ class User
       "bug-hunter" => ["fa-solid fa-bug", "This user found a bug or a security vulnerability"],
       "active" => ["fa-solid fa-star", "This user is active"],
     ];
+    $html = "";
 
     foreach ($this->roles as $role) {
       if (isset($roles[$role])) {
-        echo "<i toultip='{$roles[$role][1]}' class='roleIcon {$roles[$role][0]}'></i>";
+        $html .= "<i toultip='{$roles[$role][1]}' class='roleIcon {$roles[$role][0]}'></i>";
       }
     }
+
+    return $html;
   }
 
   public function delete()
@@ -218,5 +228,17 @@ class User
   {
     $_SESSION = $this->toArray();
     $_SESSION['last_login'] = time();
+  }
+
+  public function toHTML()
+  {
+    $html = "<div class=\"user box glowing\">";
+    $html .= "<div class=\"avatarContainer\">";
+    $html .= "<img src=\"" . $this->avatarUrl . "\" alt=\"\" class=\"avatar\">";
+    $html .= "</div>";
+    $html .= "<h3 class=\"username break\">" . $this->username . " "  . $this->rolesHTML() . "</h3>";
+    $html .= "</div>";
+
+    return $html;
   }
 }

@@ -29,7 +29,7 @@ class Post
   }
 
 
-  public function toArray()
+  public function toArray($HTML)
   {
     return [
       'id' => $this->id,
@@ -40,7 +40,8 @@ class Post
       'createdAt' => $this->createdAt,
       'editedAt' => $this->editedAt,
       'likeCount' => $this->likeCount,
-      'views' => $this->views
+      'views' => $this->views,
+      'HTML' => $HTML ? $this->HTML() : null,
     ];
   }
 
@@ -52,61 +53,55 @@ class Post
   public function HTML($contentLimit = null, $showAuthor = true, $likeButton = true)
   {
     $this->loadAuthor();
-?>
-    <div post-id="<?= $this->id ?>" class="box glowing post">
-      <div class="header">
-        <div>
-          <div class="flex">
-            <?php
-            if ($showAuthor) {
-            ?>
-              <a class="author" href="<?= $this->author->profileHTML ?>">
-                <div class="avatarContainer">
-                  <img class="avatar" src="<?= $this->author->avatarUrl; ?>">
-                </div>
-                <?= $this->author->username; ?>
-              </a> <?php $this->author->printRoles() ?>
-            <?php
-            } ?>
-            <h5 class="date">
-              <?= date("F j, Y", strtotime($this->createdAt)); ?>
-            </h5>
-          </div>
-          <h1 class="title">
-            <?= htmlentities($this->title); ?>
-          </h1>
-        </div>
-        <div class="flex" style="height: min-content; justify-content: flex-end">
-          <?php if ($likeButton) { ?>
-            <div post-id="<?= $this->id ?>" class="<?= (isLoggedIn() && $this->hasLiked($_SESSION['id'])) ? "liked" : "" ?> noSelect likeButton">
-              <i class="fa-solid fa-heart"></i>
-              <span class="likeCount"><?= $this->likeCount; ?></span>
-            </div>
-          <?php } ?>
-          <div style='padding: 5px'>
-            <i class="fa-solid fa-eye"></i><span> <?= $this->views ?></span>
-          </div>
-        </div>
-      </div>
+    $html = "";
+    $html .= "<div post-id=\"$this->id\" class=\"box glowing post\">";
+    $html .= "<div class=\"header\">";
+    $html .= "<div>";
+    $html .= "<div class=\"flex\">";
+    if ($showAuthor) {
+      $html .= "<a class=\"author\" href=\"" . $this->author->profileHTML . "\">";
+      $html .= "<div class=\"avatarContainer\">";
+      $html .= "<img class=\"avatar\" src=\"" . $this->author->avatarUrl . "\">";
+      $html .= "</div>";
+      $html .= $this->author->username;
+      $html .= "</a>";
+      $html .= $this->author->rolesHTML();
+    }
+    $html .= "<h5 class=\"date\">";
+    $html .= date("F j, Y", strtotime($this->createdAt));
+    $html .= "</h5>";
+    $html .= "</div>";
+    $html .= "<h1 class=\"title\">";
+    $html .= htmlentities($this->title);
+    $html .= "</h1>";
+    $html .= "</div>";
+    $html .= "<div class=\"flex\" style=\"height: min-content; justify-content: flex-end\">";
+    if ($likeButton) {
+      $html .= "<div post-id=\"" . $this->id . "\" class=\"" . ((isLoggedIn() && $this->hasLiked($_SESSION['id'])) ? "liked" : "") . " noSelect likeButton\">";
+      $html .= "<i class=\"fa-solid fa-heart\"></i>";
+      $html .= "<span class=\"likeCount\">$this->likeCount</span>";
+      $html .= "</div>";
+    }
+    $html .= "<div style='padding: 5px'>";
+    $html .= "<i class=\"fa-solid fa-eye\"></i><span> $this->views </span>";
+    $html .= "</div>";
+    $html .= "</div>";
+    $html .= "</div>";
+    if (isset($contentLimit) && $contentLimit > 0) {
+      $content = substr($this->content, 0, $contentLimit);
+      if (strlen($this->content) > $contentLimit)
+        $content .= "...";
+    } else
+      $content = $this->content;
 
-      <?php
-      if (isset($contentLimit) && $contentLimit > 0) {
-        $content = substr($this->content, 0, $contentLimit);
-        if (strlen($this->content) > $contentLimit)
-          $content .= "...";
-      } else
-        $content = $this->content;
+    if ($contentLimit !== 0) {
+      $html .= "<div class=\"content break markup\">";
+      $html .= parseMarkdown($content);
+      $html .= "</div>";
+    }
+    $html .= "</div>";
 
-      if ($contentLimit !== 0) {
-      ?>
-        <div class="content break markup">
-          <?= parseMarkdown($content); ?>
-        </div>
-      <?php
-      }
-      ?>
-    </div>
-<?php
+    return $html;
   }
 
   public function hasLiked($id)
